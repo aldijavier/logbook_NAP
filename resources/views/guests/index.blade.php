@@ -30,7 +30,7 @@
                     <div class="col-md-4" style="margin-bottom: 3%;">
                         
                     <div class="card" style="width: 18rem;">
-                      <img class="card-img-top" src="{{ \Storage::url('photos/' . $guest->foto) }}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ \Storage::url('app/public/photos/' . $guest->foto) }}" alt="Card image cap">
                       <div class="card-body">
                         <h5 class="card-title text-dark">{{ $guest->nama }} </h5>
                         <h5 class="card-text text-dark">{{ $guest->dari }} </h5>

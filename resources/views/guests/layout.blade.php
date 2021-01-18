@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Buku Tamu</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Guests Book</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link 
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+  rel="stylesheet"  type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     @yield('after_style')
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-success" >
+<body background-color: #151A48;>
+<nav style="background-color: #151A48" class="navbar navbar-expand-lg navbar-light">
   <a class="navbar-brand text-white" href="/guests">
-    <img src="{{ asset('images') }}/bukutamu.jpg" alt="" width="100" height="50">
-    Bukutamu
+    <img src="{{ asset('images') }}/matrixlogo.png" alt="" width="120" height="60">
 </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -21,19 +23,24 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-
+      <li class="nav-item">
+        <a class="nav-link btn pull-right text-white" href="#">Guests Book</i> </a>
+      </li>
       <li class="nav-item">
         <a class="nav-link btn pull-right text-white" href="{{ route('guests.create') }}">Tambah tamu <i class="fa fa-group" ></i> </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn pull-right text-white" href="{{ route('guests.create') }}">Checkout <i class="fa fa-sign-out"></i> </a>
       </li>
       </ul>
   </div>
 </nav>
     @yield('content')
-    <footer class="page-footer font-small bg-success" style="margin-top: 3%;">
+    <footer class="page-footer font-small bg-success" style="margin-top: 8%;">
 <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">
-        <p class="text-white">&copy; Stageof Angkasapura <?php echo date("Y"); ?></p>  
-        <p class="text-white"> Crafted by <a href="https://github.com/jambari" class="text-white">Jambari</a> </p>  
+    <div class="footer-copyright text-center py-3" style="background-color: #151A48" >
+        <p class="text-white">&copy; PT NAP Info Lintas Nusa. All Rights Reserved. <?php echo date("Y"); ?></p>  
+        <!-- <p class="text-white">Guests Book <a href="https://nap.net.id/home.html" class="text-white">PT NAP Info Lintas Nusa</a> </p>   -->
     </div>
 <!-- Copyright -->
 </footer>
