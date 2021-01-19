@@ -24,10 +24,14 @@ class StoreGuestRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama' => 'required',
-            'dari' => 'required',
-            'keperluan' => 'required',
-            'foto' => 'required'
+            'guestsid' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'company' => 'required',
+            'activity' => 'required',
+            'noRack' => 'required',
+            'noLoker' => 'required',
+            'telephone' => 'required|numeric'
         ];
     }
 
@@ -35,9 +39,13 @@ class StoreGuestRequest extends FormRequest
     public function messages()
     {
         return [
-            'nama.required' => 'Nama harus diisi',
-            'dari.required' => 'Dari harus diisi',
-            'keperluan.required' => 'Keperluan harus diisi',
+            'guestsid.required' => 'guestsid harus diisi',
+            'name.required' => 'name harus diisi',
+            'email.required' => 'email harus diisi',
+            'activity.required' => 'activity harus diisi',
+            'noRack.required' => 'noRack harus diisi',
+            'noLoker.required' => 'noLoker harus diisi',
+            'telephone.required' => 'telephone harus diisi',
         ];
     }
 }

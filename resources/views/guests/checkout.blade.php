@@ -3,7 +3,7 @@
 @endsection
 @section('content')
 @include('guests.pesan')
-{{-- <div class="container" style="margin-top: 3%;">
+<div class="container" style="margin-top: 3%;">
         <form action="/guests/search" method="POST" role="search">
             {{ csrf_field() }}
             <div class="input-group">
@@ -15,33 +15,31 @@
                 </span>
             </div>
         </form>
-</div> --}}
+</div>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="container" style="margin-top: 10%;">
-                <h3 class="text-center" style="margin-top: -50px;">Daftar tamu terkini</h3>
+            <div class="container" style="margin-top: 3%;">
+                <h3 class="text-center" >Daftar tamu terkini</h3>
             </div>
+
                 <div class="row" style="margin-top: 3%;">
                                     @if ($guests)
                     @foreach ($guests as $guest)
-                    {{-- <a href="{{ route('guests.show',$guest->id) }}"> --}}
+                    <a href="{{ route('guests.show',$guest->id) }}">
                     <div class="col-md-4" style="margin-bottom: 3%;">
                         
                     <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset('/storage/photos/' . $guest->foto) }}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ \Storage::url('app/public/photos/' . $guest->foto) }}" alt="Card image cap">
                       <div class="card-body">
-                        <h5 class="card-title text-dark">{{ $guest->name }} </h5>
-                        <h5 class="card-text text-dark">{{ $guest->datein }} </h5>
-                        <p class="card-text text-dark">Aktivitas : {{ $guest->activity }}</p>
-                        <p class="card-text text-dark">Nomor Rack: {{ $guest->noRack }}</p>
-                        <p class="card-text text-dark">Nomor Loker: {{ $guest->noLoker }}</p>
+                        <h5 class="card-title text-dark">{{ $guest->nama }} </h5>
+                        <h5 class="card-text text-dark">{{ $guest->dari }} </h5>
+                        <p class="card-text text-dark">{{ $guest->keperluan }}</p>
                         <form action="{{ route('guests.destroy',$guest->id) }}" method="POST">
-                            <button type="submit" class="btn" style="background-color: white"></button>   
-                        {{-- <a class="btn btn-primary" href="{{ route('guests.edit',$guest->id)}}">Edit</a> --}}
-                        {{-- @csrf
+                        {{-- <a class="btn btn-primary" href="{{ route('guests.edit',$guest->id) }}">Edit</a> --}}
+                        @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button> --}}
+                        <button type="submit" class="btn btn-danger">Checkout</button>
                       </div>
                     </div>
                     </a>

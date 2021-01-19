@@ -12,10 +12,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     @yield('after_style')
 </head>
-<body background-color: #151A48;>
+{{-- <body style="background-image: url('{{ asset('images') }}/back.jpg'); opacity: 4;"> --}}
+<body>
 <nav style="background-color: #151A48" class="navbar navbar-expand-lg navbar-light">
   <a class="navbar-brand text-white" href="/guests">
-    <img src="{{ asset('images') }}/matrixlogo.png" alt="" width="120" height="60">
+    <img src="{{ asset('images') }}/matrixlogo.png" alt="" width="120" height="50">
 </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -30,18 +31,43 @@
         <a class="nav-link btn pull-right text-white" href="{{ route('guests.create') }}">Tambah tamu <i class="fa fa-group" ></i> </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link btn pull-right text-white" href="{{ route('guests.create') }}">Checkout <i class="fa fa-sign-out"></i> </a>
+        <a class="nav-link btn pull-right text-white" href="/guests/checkout">Checkout <i class="fa fa-sign-out"></i> </a>
       </li>
       </ul>
   </div>
 </nav>
     @yield('content')
-    <footer class="page-footer font-small bg-success" style="margin-top: 8%;">
+    <footer class="page-footer font-small bg-success" style="margin-top: 9%;">
 <!-- Copyright -->
     <div class="footer-copyright text-center py-3" style="background-color: #151A48" >
         <p class="text-white">&copy; PT NAP Info Lintas Nusa. All Rights Reserved. <?php echo date("Y"); ?></p>  
         <!-- <p class="text-white">Guests Book <a href="https://nap.net.id/home.html" class="text-white">PT NAP Info Lintas Nusa</a> </p>   -->
     </div>
+    <script type="text/javascript">
+      function showTime() {
+        var date = new Date(),
+            utc = new Date(Date(
+              date.getFullYear(),
+              date.getMonth(),
+              date.getDate(),
+              date.getHours(),
+              date.getMinutes(),
+              date.getSeconds()
+            ));
+        document.getElementById('time').innerHTML = utc.toLocaleString();
+      //   document.getElementById('time').innerHTML = utc.toLocaleTimeString();
+      }
+      setInterval(showTime, 1000);
+    </script>
+     <script>
+      function myfun(){
+        var a=document.getElementById("mobilenumber").value;
+        if(a.charCodeAt(0)  == 57){
+          document.getElementById("messages").innerHTML="** Dimulai Dari 0 atau 62";
+          return false;
+        }
+      }
+     </script>
 <!-- Copyright -->
 </footer>
     @yield('script')
