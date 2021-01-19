@@ -147,10 +147,40 @@ class GuestController extends Controller
     }
 
     //destroy
-    public function destroy(Guest $guest) {
-        $guest->delete();
-        Session::flash('warning', 'Data berhasil dihapus'); 
-        return redirect()->route('guests.index');
+    public function destroy(Request $request, $id) {
+        $param = Guest::findorfail($id);
+             $idate=$param->datein;
+             $start=Carbon::parse($idate);
+
+            $dateout = Carbon::now()->format('Y-m-d H:i:s');
+           
+            $odate=$param->datein;
+            $end=Carbon::parse($request->dateout);
+            $date_diff=$start->diff($end)->format('%d'.' Hari'.' %H'.' Jam'.' %i'.' Menit'.' %s'.' Detik');
+           
+            $id_status = 2;
+
+            
+            $guest = [
+            
+                'dateout' => $dateout,
+                'durasi' => $date_diff,
+                'id_status'=>$id_status,
+               
+            ];
+           
+            try {
+            
+             
+                $param->update($guest);
+                return redirect('/')->with('message','Guest Berhasil Di Check Out');
+            }
+            catch (\Exception $e) { 
+                return redirect('/')->with('gagal','Guest Gagal Di Check Out');
+            }
+        // $guest->delete();
+        // Session::flash('warning', 'Data berhasil dihapus'); 
+        // return redirect()->route('guests.index');
 
     }
 
@@ -159,8 +189,8 @@ class GuestController extends Controller
     public function search (Request $request) {
         $q = $request->input( 'q' );
         if($q != ""){
-        $guests = Guest::where( 'nama', 'LIKE', '%' . $q . '%' )->orWhere ( 'dari', 'LIKE', '%' . $q . '%' )->paginate (5);
-
+        $guests = Guest::where( 'guestsid', 'LIKE', '%' . $q . '%' )->paginate (5);
+        // ->orWhere ( 'dari', 'LIKE', '%' . $q . '%' )
         if (count ( $guests ) > 0)
 
 	        Session::flash('info', 'Beberapa tamu yang mungkin anda cari !'); 
@@ -171,6 +201,42 @@ class GuestController extends Controller
         Session::flash('warning', 'Tidak ada tamu yang anda cari !'); 
         return view ( 'guests.searchresult' )->with(compact('guests'));
     	}
+    }
+
+    public function cekout(Request $request, $id)
+    {
+    
+            $param = Guest::findorfail($id);
+             $idate=$param->datein;
+             $start=Carbon::parse($idate);
+
+            $dateout = Carbon::now()->format('Y-m-d H:i:s');
+           
+            $odate=$param->datein;
+            $end=Carbon::parse($request->dateout);
+            $date_diff=$start->diff($end)->format('%d'.' Hari'.' %H'.' Jam'.' %i'.' Menit'.' %s'.' Detik');
+           
+            $id_status = 2;
+
+            
+            $guest = [
+            
+                'dateout' => $dateout,
+                'durasi' => $date_diff,
+                'id_status'=>$id_status,
+               
+            ];
+           
+            try {
+            
+             
+                $param->update($guest);
+                return redirect('/')->with('message','Guest Berhasil Di Check Out');
+            }
+            catch (\Exception $e) { 
+                return redirect('/')->with('gagal','Guest Gagal Di Check Out');
+            }
+
     }
 
 }
