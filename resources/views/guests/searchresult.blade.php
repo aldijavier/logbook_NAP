@@ -42,8 +42,8 @@
                           <p class="card-text text-dark">Nomor Rack: {{ $guest->noRack }}</p>
                           <p class="card-text text-dark">Nomor Loker: {{ $guest->noLoker }}</p>
                         <form action="{{ route('guests.destroy',$guest->id) }}" method="POST">
-                        {{-- <a class="btn btn-primary" href="{{ route('guests.edit',$guest->id) }}">Edit</a>
-                        @csrf --}}
+                        {{-- <a class="btn btn-primary" href="{{ route('guests.edit',$guest->id) }}">Edit</a> --}}
+                        @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Checkout</button>
                       </div>

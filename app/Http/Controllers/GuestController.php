@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Guest;
 use App\Lokasi;
 use Carbon\Carbon;
+use Validator;
 
 class GuestController extends Controller
 {
@@ -25,6 +26,10 @@ class GuestController extends Controller
     public function create() {
         $lokasis = Lokasi::all();
         return view('guests.create', compact('lokasis'));
+    }
+
+    public function success() {
+        return view('guests.success');
     }
 
     public function lokasis()
@@ -56,7 +61,7 @@ class GuestController extends Controller
             'activity' => 'required',
             'noRack' => 'required',
             'noLoker' => 'required',
-            'telephone' => 'required|numeric'
+            'telephone' => 'required|numeric|min:9'
          ]);
         $requestData = $request->all();
  
@@ -101,8 +106,8 @@ class GuestController extends Controller
             // 'id_status' => $id_status,
             // 'foto' => $namafoto
             $guest->save();
-            Session::flash('success', 'Data berhasil ditambahkan'); 
-            return redirect()->route('guests.index');
+            // Session::flash('success', 'Data berhasil ditambahkan'); 
+            return view('guests.success');
 
     }
 
@@ -142,7 +147,7 @@ class GuestController extends Controller
         $guest->foto = $namafoto;
         $guest->update();
 
-        Session::flash('success', 'Data berhasil diupdate'); 
+        // Session::flash('success', 'Data berhasil diupdate'); 
         return redirect()->route('guests.index');
     }
 
@@ -173,7 +178,8 @@ class GuestController extends Controller
             
              
                 $param->update($guest);
-                return redirect('/')->with('message','Guest Berhasil Di Check Out');
+                // return redirect('/')->with('message','Guest Berhasil Di Check Out');
+                return view('guests.success_checkout');
             }
             catch (\Exception $e) { 
                 return redirect('/')->with('gagal','Guest Gagal Di Check Out');
@@ -189,19 +195,20 @@ class GuestController extends Controller
     public function search (Request $request) {
         $q = $request->input( 'q' );
         if($q != ""){
-        $guests = Guest::where( 'guestsid', 'LIKE', '%' . $q . '%' )->paginate (5);
+        $guests = Guest::where( 'guestsid', 'LIKE', '%' . $q . '%')->whereIn( 'id_status', [1])->paginate (5);
         // ->orWhere ( 'dari', 'LIKE', '%' . $q . '%' )
-        if (count ( $guests ) > 0)
-
+        if (count ( $guests ) > 0) {
 	        Session::flash('info', 'Beberapa tamu yang mungkin anda cari !'); 
 	        return view('guests.searchresult',compact('guests'))
 	            ->with('i', (request()->input('page', 1) - 1) * 5);
         } else {
         $guests = 0;
-        Session::flash('warning', 'Tidak ada tamu yang anda cari !'); 
-        return view ( 'guests.searchresult' )->with(compact('guests'));
+        return view('guests.searchNotFound');
+        // Session::flash('warning', 'Tidak ada tamu yang anda cari !'); 
+        // return view ( 'guests.searchresult' )->with(compact('guests'));
     	}
     }
+}
 
     public function cekout(Request $request, $id)
     {

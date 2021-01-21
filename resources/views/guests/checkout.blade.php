@@ -7,7 +7,7 @@
         <form action="/guests/search" method="POST" role="search">
             {{ csrf_field() }}
             <div class="input-group">
-                <input type="text" class="form-control" name="q"
+                <input type="text" class="form-control" name="q" required
                     placeholder="Cari Tamu"> <span class="input-group-btn">
                     <button type="submit" class="btn btn-success" style="margin-left: 10px;">
                         <span class="glyphicon glyphicon-search">Cari</span>

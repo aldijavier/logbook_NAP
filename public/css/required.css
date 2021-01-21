@@ -1,0 +1,14 @@
+p.field-wrapper {
+    display: block;
+    width: 100%;
+}
+p.field-wrapper label::after { 
+    content: "\00a0\00a0 "; /* keeps spacing consistent */
+}
+p.field-wrapper input {
+    float: right;
+}
+p.required-field label::after { 
+    content: "*";
+    color: red;
+}

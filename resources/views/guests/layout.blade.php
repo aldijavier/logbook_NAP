@@ -75,6 +75,63 @@
                 }
             }
         </script>
+        <script> 
+
+            $("#test").on("input", function() {
+              if (/^9/.test(this.value)) {
+                this.value = this.value.replace(/^9/, "")
+              }
+              if (/^8/.test(this.value)) {
+                this.value = this.value.replace(/^8/, "")
+              }
+              if (/^7/.test(this.value)) {
+                this.value = this.value.replace(/^7/, "")
+              }
+              if (/^61/.test(this.value)) {
+                this.value = this.value.replace(/^61/,)
+              }
+              if (/^63/.test(this.value)) {
+                this.value = this.value.replace(/^63/,)
+              }
+              if (/^64/.test(this.value)) {
+                this.value = this.value.replace(/^64/,)
+              }
+              if (/^65/.test(this.value)) {
+                this.value = this.value.replace(/^65/,)
+              }
+              if (/^66/.test(this.value)) {
+                this.value = this.value.replace(/^66/,)
+              }
+              if (/^67/.test(this.value)) {
+                this.value = this.value.replace(/^67/,)
+              }
+              if (/^68/.test(this.value)) {
+                this.value = this.value.replace(/^68/,)
+              }
+              if (/^69/.test(this.value)) {
+                this.value = this.value.replace(/^69/,)
+              }
+              if (/^60/.test(this.value)) {
+                this.value = this.value.replace(/^60/,)
+              }
+          
+              if (/^5/.test(this.value)) {
+                this.value = this.value.replace(/^5/, "")
+              }
+              if (/^4/.test(this.value)) {
+                this.value = this.value.replace(/^4/, "")
+              }
+              if (/^3/.test(this.value)) {
+                this.value = this.value.replace(/^3/, "")
+              }
+              if (/^2/.test(this.value)) {
+                this.value = this.value.replace(/^2/, "")
+              }
+              if (/^1/.test(this.value)) {
+                this.value = this.value.replace(/^1/, "")
+              }
+            })
+            </script>           
         <!-- Copyright -->
     </footer>
     @yield('script')
