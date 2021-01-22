@@ -36,6 +36,10 @@ class GuestController extends Controller
         return view('guests.rating');
     }
 
+    public function chooseuser() {
+        return view('guests.chooseUser');
+    }
+
     public function lokasis()
     {
 

@@ -18,6 +18,7 @@ Route::get('/guests/create', 'GuestController@store' );
 Route::get('/guests/cekout', 'GuestController@cekout');
 Route::get('/guests/success', 'GuestController@success');
 Route::get('/guests/rating', 'GuestController@rating');
+Route::get('/guests/chooseuser', 'GuestController@chooseuser');
 // Route::patch('/co/{id}', 'GuestController@cekout');
 Route::resource('/guests', 'GuestController');
 //cari tamu
