@@ -32,6 +32,10 @@ class GuestController extends Controller
         return view('guests.success');
     }
 
+    public function rating() {
+        return view('guests.rating');
+    }
+
     public function lokasis()
     {
 
@@ -56,7 +60,7 @@ class GuestController extends Controller
         $this->validate($request,[
             'guestsid' => 'required',
             'name' => 'required',
-            'email' => 'required|unique:guests',
+            'email' => 'required',
             'company' => 'required',
             'activity' => 'required',
             'noRack' => 'required',
