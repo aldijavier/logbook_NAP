@@ -56,7 +56,7 @@ class GuestController extends Controller
         $this->validate($request,[
             'guestsid' => 'required',
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:guests',
             'company' => 'required',
             'activity' => 'required',
             'noRack' => 'required',
