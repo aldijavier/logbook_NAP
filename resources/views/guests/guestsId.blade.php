@@ -4,7 +4,9 @@
 <div class="container" style="margin-bottom: 3%;"><br />
     <div class="row">
         <div class="col-md-12">
-            <form action="{{ action('GuestController@store') }}" method="post" id="myform">
+            @if ($guests)
+            @foreach ($guests as $guest)
+            <form action="{{ action('GuestController@store',$guest->id) }}" method="post" id="myform">
                 {{ csrf_field() }}
                 <fieldset>
                     <legend>Tambah Tamu</legend>
@@ -30,33 +32,33 @@
                                 <div class="form-group col-md-6">
                                     <p style="margin-bottom: 10px;">Guest ID:<span style="color: red"></span></p>
                                     <button type="button" style="margin-left: 0px;"
-                                        onclick="getElementById('guestsid').value=Math.floor(Math.random()*10000)">Create
+                                        onclick="getElementById('guestsid').value=Math.floor(Math.random()*10000)" disabled>Create
                                         ID Number</button>
-                                    <input style="width: 50%" id="guestsid" name="guestsid" readonly="readonly" value="{{ old('guestsid')}}" required />
+                                    <input style="width: 50%" id="guestsid" name="guestsid" readonly="readonly" value=" {{ $guest['guestsid'] }} " required disabled/>
                                 </div>
                             </div>
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6">
                                     <label>Name<span style="color:red"> *</span></label>
                                     <input type="text" class="form-control" placeholder="Name" name="name" required
-                                        value="{{ old('name')}}">
+                                    value=" {{ $guest['name'] }} " disabled>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Telephone<span style="color:red"> *</span></label>
                                     <input id="test" type="tel" pattern="0.+" title="Must start with 0"class="form-control" placeholder="Telephone"
-                                        name="telephone" value="{{ old('telephone')}}" maxlength=13 required>
+                                        name="telephone" value=" {{ $guest['telephone'] }} " maxlength=13 required disabled>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Company<span style="color:red"> *</span></label>
                                     <input type="text" class="form-control" placeholder="Company" name="company"
-                                        value="{{ old('company')}}" required>
+                                    value=" {{ $guest['company'] }} " required disabled>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Email<span style="color:red"> *</span></label>
                                     <input type="email" class="form-control" placeholder="Email" name="email"
-                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="{{ old('email')}}" required>
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value=" {{ $guest['email'] }} " required disabled>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -84,14 +86,14 @@
                                 <div class="form-group col-md-6">
                                     <label>No Rack<span style="color:red"> *</span></label>
                                     <input type="text" class="form-control" placeholder="No Rack" name="noRack"
-                                        value="{{ old('noRack')}}" required>
+                                    value=" {{ $guest['noRack'] }} "required disabled>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>No Loker<span style="color:red"> *</span></label>
                                     <input type="text" class="form-control" placeholder="No Loker" name="noLoker"
-                                        value="{{ old('noLoker')}}" required>
+                                    value=" {{ $guest['noLoker'] }} " required disabled>
                                 </div>
                                 <div class="form-group col-md-6" id="star">
                                     {{-- <label @error('lokasi_id') class="text-danger" @enderror>Lokasi* :  @error('lokasi_id') | {{$message}}
@@ -128,53 +130,18 @@
                             <div class="resultFoto">
                                 <div id="my_result"></div>
                             </div><br />
+                            
                         </div>
                     </div><br />
-                    <?php 
-                    if (isset($_POST['submit'])) {
-                    // mengambil nomor handphone telah diinput
-                    $handphone = $_POST['handphone'];
-                    // menghitung jumlah digit nomor handphone tanpa kode negara (+62)
-                    $jumlah_digit_handphone = strlen(substr($handphone, 3));
-                    // nomor handphone yang ditampilkan jika berjumlah 9 digit
-                    if ($jumlah_digit_handphone == 9) {
-                        $tampil_handphone = "+62 " . substr($handphone, 3, 3) . "-" . substr($handphone, 6, 3) . "-" . substr($handphone, 9, 3);
-                    }
-                    // nomor handphone yang ditampilkan jika berjumlah 10 digit
-                    if ($jumlah_digit_handphone == 10) {
-                        $tampil_handphone = "+62 " . substr($handphone, 3, 3) . "-" . substr($handphone, 6, 4) . "-" . substr($handphone, 10, 3);
-                    }
-                    // nomor handphone yang ditampilkan jika berjumlah 11 digit
-                    if ($jumlah_digit_handphone == 11) {
-                        $tampil_handphone = "+62 " . substr($handphone, 3, 3) . "-" . substr($handphone, 6, 4) . "-" . substr($handphone, 10, 4);
-                    }
-                    // nomor handphone yang ditampilkan jika berjumlah 12 digit
-                    if ($jumlah_digit_handphone == 12) {
-                        $tampil_handphone = "+62 " . substr($handphone, 3, 3) . "-" . substr($handphone, 6, 4) . "-" . substr($handphone, 10, 5);
-                    }
-                    // validasi inputan nomor handphone
-                    if (!preg_match("/^[0-9|(\+|)]*$/", $handphone) OR strlen(strpos($handphone, "+", 1)) > 0) {
-                        echo "<strong>Handphone hanya boleh menggunakan angka dan diawali simbol +</strong>";
-                    }
-                    else if (substr($handphone, 0, 3) != "+62" ) {
-                        echo "<strong>Handphone harus diawali dengan kode negara +62</strong>";
-                    }
-                    else if (substr($handphone, 3, 1) == "0" ) {
-                        echo "<strong>Handphone tidak boleh diikuti dengan angka 0 setelah kode negara</strong>";
-                    }
-                    else {
-                    // menampilkan nomor handphone
-                        echo "<strong>Handphone : $tampil_handphone</strong>";
-                    }                
-                }
-                ?>
                     <div class="text-center" style="margin-left: 50px;">
-                        <button class="btn btn-primary mr-1" style="background-color: #151A48" value="submit"> Submit
+                        <button type="submit" class="btn btn-primary mr-1" style="background-color: #151A48" value="submit"> Submit
                         </button>
-                        <button class="btn btn-secondary" type="reset"> Reset </button>
+                        {{-- <button class="btn btn-secondary" type="reset"> Reset </button> --}}
                         <a style="margin-left: 5px;" class="btn btn-outline-info" href="{{ url('/')}}"> Back </a>
                     </div>
                 </fieldset>
+                @endforeach
+                @endif
             </form>
         </div>
     </div>

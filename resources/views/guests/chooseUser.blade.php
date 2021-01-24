@@ -21,20 +21,20 @@
         <div>
           <figure>
             <img src="{{ asset('images') }}/model.png" alt="" width="105" height="100">
-            <figcaption>If you are logged in, select here</figcaption>
+            <figcaption>New Customer? Register Here!</figcaption>
           </figure>
           
-          <a href="http://adventuretime.wikia.com/wiki/Finn">Learn more</a>
+          <button type="button" class="btn btn-dark"><a href="{{ route('guests.create') }}">Click Here!</a></button>
         </div>
       </section>
       <section class="flex" id="jake">
         <div>
           <figure>
             <img src="{{ asset('images') }}/model.png" alt="" width="105" height="100">
-            <figcaption>If you have never logged in, select here</figcaption>
+            <figcaption>Already have Guests ID? Check Here!</figcaption>
           </figure>
           
-          <a href="http://adventuretime.wikia.com/wiki/Jake">Learn more</a>
+          <button type="button" class="btn btn-light"><a href="/guests/getGuest">Click Here!</a></button>
         </div>
       </section>
     </article>

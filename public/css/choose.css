@@ -8,8 +8,10 @@
     display: flex;
     flex-direction: row;
     padding: 40px 5%;
-    min-height: 100vh;
-    margin-left: 240px;
+    padding-top: 100px;
+    padding-bottom: 5px;
+    height: 400px;;
+    margin-left: 220px;
   }
   @media screen and (max-width: 600px) {
     .flex-container {
@@ -22,7 +24,7 @@
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    padding: 20px;
+    padding: 25px;
   }
   figure img {
     border-radius: 50%;
@@ -43,7 +45,7 @@
     color: currentColor;
   }
   #finn {
-    background: rgb(179, 133, 158);
+    background: rgb(184, 180, 190);
     color: #151A48;
     padding-left: 60px;
   }

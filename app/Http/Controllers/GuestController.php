@@ -28,6 +28,8 @@ class GuestController extends Controller
         return view('guests.create', compact('lokasis'));
     }
 
+
+
     public function success() {
         return view('guests.success');
     }
@@ -39,6 +41,21 @@ class GuestController extends Controller
     public function chooseuser() {
         return view('guests.chooseUser');
     }
+
+    public function getGuest() {
+        return view('guests.searchGuest');
+    }
+
+    public function oldGuests() {
+        $lokasis = Lokasi::all();
+        return view('guests.guestsId', compact('lokasis'));
+    }
+
+    public function guestsId() {
+        $lokasis = Lokasi::all();
+        return view('guests.guestsId', compact('lokasis'));
+    }
+
 
     public function lokasis()
     {
@@ -58,7 +75,7 @@ class GuestController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-
+   
     //store
     public function store(StoreRequest $request) {
         $this->validate($request,[
@@ -132,8 +149,18 @@ class GuestController extends Controller
     }
 
     //update
-    public function update(StoreRequest $request, Guest $guest) {
+    public function update(StoreRequest $request) {
 
+         $this->validate($request,[
+            'guestsid' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'company' => 'required',
+            'activity' => 'required',
+            'noRack' => 'required',
+            'noLoker' => 'required',
+            'telephone' => 'required|numeric|min:9'
+         ]);
         $requestData = $request->all();
  
             if(!empty($_POST['foto'])){
@@ -146,17 +173,39 @@ class GuestController extends Controller
                     Storage::disk('public')->put('photos'.'/'.$namafoto, $binary_data);
                     //if (!$result) die("Could not save image!  Check file permissions.");
                 }
-        // $guest = Guest;
-        $guest->nama = $request->input('nama');
-        $guest->dari = $request->input('dari');
-        $guest->dari = $request->input('dari');
-        $guest->keperluan = $request->input('keperluan');
-        $guest->keterangan = $request->input('keterangan');
-        $guest->foto = $namafoto;
-        $guest->update();
-
-        // Session::flash('success', 'Data berhasil diupdate'); 
-        return redirect()->route('guests.index');
+                $datein = Carbon::now()->format('Y-m-d H:i:s');
+                $id_status = 1;
+            $guest = new Guest;
+            $guest->datein = $datein;
+            $guest->guestsid = $request->input('guestsid');
+            $guest->name = $request->input('name');
+            $guest->telephone = $request->input('telephone');
+            $guest->company = $request->input('company');
+            $guest->email = $request->input('email');
+            $guest->activity = $request->input('activity');
+            $guest->noRack = $request->input('noRack');
+            $guest->noLoker = $request->input('noLoker');
+            $guest->lokasi_id = $request->input('lokasi_id');
+            $guest->remarks = $request->input('remarks');
+            $guest->id_status = $id_status;
+            $guest->foto = $namafoto;
+            // 'datein' => $datein,
+            // 'lokasi' => $request->input('lokasi'),
+            // 'guestsid' => $request->input('guestsid'),
+            // 'name' => $request->input('name'),
+            // 'telephone' => $request->input('telephone'),
+            // 'company' => $request->input('company'),
+            // 'email' => $request->input('email'),
+            // 'activity' => $request->input('activity'),
+            // 'noRack' => $request->input('noRack'),
+            // 'noLoker' => $request->input('noLoker'),
+            // 'lokasi_id' => $request->input('lokasi_id'),
+            // 'remarks' => $request->input('remarks'),
+            // 'id_status' => $id_status,
+            // 'foto' => $namafoto
+            $guest->save();
+            // Session::flash('success', 'Data berhasil ditambahkan'); 
+            return view('guests.success');
     }
 
     //destroy
@@ -216,6 +265,22 @@ class GuestController extends Controller
         // return view ( 'guests.searchresult' )->with(compact('guests'));
     	}
     }
+}
+public function searchGuest (Request $request) {
+    $q = $request->input( 'q' );
+    if($q != ""){
+    $guests = Guest::where( 'guestsid', 'LIKE', '%' . $q . '%')->whereIn( 'id_status', [2])->paginate (5);
+    // ->orWhere ( 'dari', 'LIKE', '%' . $q . '%' )
+    if (count ( $guests ) > 0) {
+        $lokasis = Lokasi::all();
+        return view('guests.guestsId',compact('guests', 'lokasis'));
+    } else {
+    $guests = 0;
+    return view('guests.searchNotFound');
+    // Session::flash('warning', 'Tidak ada tamu yang anda cari !'); 
+    // return view ( 'guests.searchresult' )->with(compact('guests'));
+    }
+}
 }
 
     public function cekout(Request $request, $id)
