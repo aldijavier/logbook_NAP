@@ -6,7 +6,7 @@
         <div class="col-md-12">
             @if ($guests)
             @foreach ($guests as $guest)
-            <form action="{{ action('GuestController@store',$guest->id) }}" method="post" id="myform">
+            <form action="{{ route('guests.store') }}" method="post" id="myform">
                 {{ csrf_field() }}
                 <fieldset>
                     <legend>Tambah Tamu</legend>

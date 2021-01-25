@@ -30,3 +30,36 @@ Route::resource('/guests', 'GuestController');
 Route::any( '/guests/search', 'GuestController@search');
 Route::any( '/guests/searchGuest', 'GuestController@searchGuest');
 Route::get( '/guests/cekout', 'GuestController@cekout');
+
+
+//admin
+Route::get('/admin', 'AdminController@index');
+// Route::get('/guests/create', 'AdminController@create');
+// Route::post('/guests', 'AdminController@store');
+Route::get('/guests/{id}/show', 'AdminController@show');
+Route::get('/guests/{id}/edit', 'AdminController@edit');
+Route::patch('/guests/{id}', 'AdminController@update');
+
+Route::get('/co/{id}/cek', 'AdminController@cek');
+Route::patch('/co/{id}', 'AdminController@cekout');
+
+Route::delete('/guests/{id}', 'AdminController@destroy');
+// Route::get('/exportguest','GuestController@guestexport');
+
+// Route::get('/search','GuestController@index');
+// Route::get('/guestexport','GuestController@index');
+// Route::get('/cetak','GuestPrint@pdf')->name('l_guest');
+
+// Route::get('/cetakguest/{search1}/{search2}','GuestController@cetakguest')->name('cetakguest');
+Route::get('/print_siswa','AdminController@print');
+
+Route::get('/penilaian/create', 'PenilaianController@create');
+
+
+//sisi guest
+Route::get('/indexutamaguest', 'TamuController@index');
+Route::get('/checkin/create', 'TamuController@create');
+Route::post('/checkin', 'TamuController@store');
+Route::get('/indexcheckout', 'TamuController@indexcheckout');
+Route::get('/checkin/{id}/edit', 'TamuController@edit');
+Route::patch('/checkin/{id}', 'TamuController@update');
