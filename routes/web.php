@@ -34,27 +34,35 @@ Route::get( '/guests/cekout', 'GuestController@cekout');
 
 //admin
 Route::get('/admin', 'AdminController@index');
+
+Route::get('/login', 'AuthController@login');
+Route::get('/loginadmin', 'AuthController@login');
+Route::post('/postlogin', 'AuthController@postlogin');
+Route::get('/logoutadmin', 'AuthController@logout');
+
 // Route::get('/guests/create', 'AdminController@create');
 // Route::post('/guests', 'AdminController@store');
-Route::get('/guests/{id}/show', 'AdminController@show');
-Route::get('/guests/{id}/edit', 'AdminController@edit');
-Route::patch('/guests/{id}', 'AdminController@update');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/admin', 'AdminController@index');
+    Route::get('/guests/{id}/show', 'AdminController@show');
+    Route::get('/guests/{id}/edit', 'AdminController@edit');
+    Route::patch('/guests/{id}', 'AdminController@update');
 
-Route::get('/co/{id}/cek', 'AdminController@cek');
-Route::patch('/co/{id}', 'AdminController@cekout');
+    Route::get('/co/{id}/cek', 'AdminController@cek');
+    Route::patch('/co/{id}', 'AdminController@cekout');
 
-Route::delete('/guests/{id}', 'AdminController@destroy');
-// Route::get('/exportguest','GuestController@guestexport');
+    Route::delete('/guests/{id}', 'AdminController@destroy');
+    // Route::get('/exportguest','GuestController@guestexport');
 
-// Route::get('/search','GuestController@index');
-// Route::get('/guestexport','GuestController@index');
-// Route::get('/cetak','GuestPrint@pdf')->name('l_guest');
+    // Route::get('/search','GuestController@index');
+    // Route::get('/guestexport','GuestController@index');
+    // Route::get('/cetak','GuestPrint@pdf')->name('l_guest');
 
-// Route::get('/cetakguest/{search1}/{search2}','GuestController@cetakguest')->name('cetakguest');
-Route::get('/print_siswa','AdminController@print');
+    // Route::get('/cetakguest/{search1}/{search2}','GuestController@cetakguest')->name('cetakguest');
+    Route::get('/print_siswa','AdminController@print');
 
-Route::get('/penilaian/create', 'PenilaianController@create');
-
+    Route::get('/penilaian/create', 'PenilaianController@create');
+});
 
 //sisi guest
 Route::get('/indexutamaguest', 'TamuController@index');
@@ -63,3 +71,6 @@ Route::post('/checkin', 'TamuController@store');
 Route::get('/indexcheckout', 'TamuController@indexcheckout');
 Route::get('/checkin/{id}/edit', 'TamuController@edit');
 Route::patch('/checkin/{id}', 'TamuController@update');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

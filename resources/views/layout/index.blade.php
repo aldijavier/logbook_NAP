@@ -1,13 +1,13 @@
-@extends('master')
+@extends('master2')
+@section('after_style')
+@endsection
+@section('content')
 @section('title','Guest Book Nap Info')
 @section('content') 
 <script type="text/javascript">window.setTimeout("document.getElementById('successMessage').style.display='none';", 2000); </script>
 
         {{-- <a class="btn btn-icon icon-left btn-info" href="{{url('exportguest')}}" class="btn btn-success" ><i class="fa fa-file-excel-o" aria-hidden="true"></i> Export</a> --}}
-        
-   
 
-        
         <div class="card-header row justify-content-center">
              
             <form action="/admin" method="GET" enctype="multipart/form-data">
@@ -175,16 +175,16 @@
                    </tr>  
                 </tbody>
                    @else
-                        <h5> Data Tidak Ditemukan </h5>
+                        <h5> Data not found! </h5>
                         @endif
             </table>
             {{$guests->links()}}
             {{-- {!! $guests->render()!!} --}}
             
             {{-- {!! $guests->render()!!} --}}
-        Halaman : {{ $guests->currentPage() }} <br/>
-        Jumlah Data : {{ $guests->total() }} <br/>
-        Data Per Halaman : {{ $guests->perPage() }}
+        Page : {{ $guests->currentPage() }} <br/>
+        Total Data : {{ $guests->total() }} <br/>
+        Data Per Page : {{ $guests->perPage() }}
 
     </div>
 

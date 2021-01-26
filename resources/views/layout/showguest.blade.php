@@ -1,4 +1,7 @@
-@extends('master')
+@extends('master2')
+@section('after_style')
+@endsection
+@section('content')
 @section('title','Guest Book Nap Info')
 @section('content') 
 <div class="section-body"> 
@@ -41,7 +44,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             
-                            <label class="text-danger" @enderror>Telephone*</label>
+                            <label class="text" @enderror>Telephone*</label>
                             <input type="number" class="form-control"  placeholder="Telephone" name="telephone" value="{{old('telephone',$guest->telephone)}}" disabled>
                         </div>
                     </div>
@@ -90,9 +93,7 @@
                     
                     <div class="text-center" color="none">
                         <br>
-                        <i style="color:orange"> Ingat ID Anda Untuk Bisa Melakukan Rating !! </i>
-                        <br>
-                        <br>
+                        {{-- <i style="color:orange"> Ingat ID Anda Untuk Bisa Melakukan Rating !! </i> --}}
                         <a class="btn btn-outline-info" href="{{ url('/admin')}}"  > Back </a>
                         
                     </div>
