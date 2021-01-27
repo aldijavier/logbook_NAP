@@ -17,6 +17,8 @@ Route::get('/guests/searchresult', 'GuestController@search');
 
 Route::get('/guests/create', 'GuestController@store' );
 
+Route::get('/oldguests', 'GuestController@oldguests');
+
 Route::get('/guests/cekout', 'GuestController@cekout');
 Route::get('/guests/success', 'GuestController@success');
 Route::get('/guests/rating', 'GuestController@rating');
@@ -35,7 +37,7 @@ Route::get( '/guests/cekout', 'GuestController@cekout');
 //admin
 Route::get('/admin', 'AdminController@index');
 
-Route::get('/login', 'AuthController@login');
+Route::get('/login', 'AuthController@login')->name('login');
 Route::get('/loginadmin', 'AuthController@login');
 Route::post('/postlogin', 'AuthController@postlogin');
 Route::get('/logoutadmin', 'AuthController@logout');

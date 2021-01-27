@@ -46,14 +46,13 @@ class GuestController extends Controller
         return view('guests.searchGuest');
     }
 
-    public function oldGuests() {
+    public function guestsId() {
         $lokasis = Lokasi::all();
         return view('guests.guestsId', compact('lokasis'));
     }
 
-    public function guestsId() {
-        $lokasis = Lokasi::all();
-        return view('guests.guestsId', compact('lokasis'));
+    public function oldguests(){
+        return view('guests.guestsId');
     }
 
 

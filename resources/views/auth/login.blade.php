@@ -1,71 +1,99 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<head>
+    <meta charset="UTF-8">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
-                        @csrf
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{-- <link href="{{asset('js/loginAdmin.js')}}" rel="stylesheet" type="text/css"> --}}
+    <link href="{{asset('css/loginAdmin.css')}}" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+                    $('#login-button').click(function () {
+                        $('#login-button').fadeOut("slow", function () {
+                            $("#container").fadeIn();
+                            TweenMax.from("#container", .4, {
+                                scale: 0,
+                                ease: Sine.easeInOut
+                            });
+                            TweenMax.to("#container", .4, {
+                                scale: 1,
+                                ease: Sine.easeInOut
+                            });
+                        });
+                    });
 
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                    $(".close-btn").click(function () {
+                        TweenMax.from("#container", .4, {
+                            scale: 1,
+                            ease: Sine.easeInOut
+                        });
+                        TweenMax.to("#container", .4, {
+                            left: "0px",
+                            scale: 0,
+                            ease: Sine.easeInOut
+                        });
+                        $("#container, #forgotten-container").fadeOut(800, function () {
+                            $("#login-button").fadeIn(800);
+                        });
+                    });
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                    /* Forgotten Password */
+                    $('#forgotten').click(function () {
+                        $("#container").fadeOut(function () {
+                            $("#forgotten-container").fadeIn();
+                        });
+                    });
+                  });
+    </script>
+    <title>Login Administrator</title>
+</head>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+<body>
+    <div id="login-button">
+        <img src="https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png">
+        </img>
     </div>
-</div>
-@endsection
+    <div id="container">
+        <h1 style="margin-top: 20px;">Login Admin</h1>
+        <span class="close-btn">
+            <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+        </span>
+
+        <form action="/postlogin" method="post" id="myformlogin">
+          {{csrf_field()}}
+            <input type="email" name="email" placeholder="E-mail">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">Log In</button>
+            <div id="remember-container">
+                <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked" />
+                <span id="remember">Remember me</span>
+                {{-- <span id="forgotten">Forgotten password</span> --}}
+            </div>
+        </form>
+    </div>
+
+    <!-- Forgotten Password Container -->
+    <div id="forgotten-container">
+        <h1>Forgotten</h1>
+        <span class="close-btn">
+            <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+        </span>
+
+        <form>
+            <input type="email" name="email" placeholder="E-mail">
+            <a href="#" class="orange-btn">Get new password</a>
+        </form>
+    </div>
+</body>
+
+</html>
