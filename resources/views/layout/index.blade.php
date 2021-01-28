@@ -35,8 +35,8 @@
                             {{-- <p>Date From: <input type="text" id="datepicker" name="search1"></p>
                             <p>Date From: <input type="text" id="datepicker2" name="search2"></p> --}}
                             <p> To :   <input type="Date" name="search2" id="search2" class="form-control" placeholder="to" value="{{request()->get('search2')}}" > </p>
-                        <p> .<button type="submit" class="btn btn-primary mr-1" > <i class="fa fa-search" aria-hidden="true"></i></button> </p>
-                        <p> .<a  class="btn btn-primary mr-1" href="{{url('/admin')}}"> <i class="fa fa-history" aria-hidden="true" ></i></a></p>
+                        <p > .<button  style="margin-left: 10px; type="submit" class="btn btn-primary mr-1" > <i class="fa fa-search" aria-hidden="true"></i></button> </p>
+                        <p> .<a  class="btn btn-primary mr-1" href="{{url('/admin')}}"> <i class="fa fa-history" aria-hidden="true"></i></a></p>
                        <p>. <button name="guestexport" class="btn btn-success mr-1"> <i class="fa fa-file-excel-o" aria-hidden="true"></i></button></p>
                         {{-- <p>. <a class="btn btn-success mr-1" onClick="PrintPage('print')"><i class="fa fa-print" aria-hidden="true"></i></a></p> --}}
                         {{-- <p>. <a  href="{{route('l_guest')}}" target="_blank" class="btn btn-success mr-1"> <i class="fa fa-print" aria-hidden="true"></i></a></p> --}}

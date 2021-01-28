@@ -3,19 +3,60 @@
   }
   body {
     background: #f7f7f7;
+    margin: 0;
   }
   .flex-container {
     display: flex;
     flex-direction: row;
-    padding: 40px 5%;
-    padding-top: 100px;
-    padding-bottom: 5px;
-    height: 400px;;
-    margin-left: 220px;
+    background-color:#e5e5e5;
+    float:left;
+    width:100%;
+    padding:100px 280px 140px;
+    margin-top:-40px;
+    text-align:center;
   }
-  @media screen and (max-width: 600px) {
-    .flex-container {
+  @media screen and (max-width: 620px) {
+    .flex-container{
       flex-wrap: wrap;
+      padding-left: 150px;
+    }
+  }
+  @media only screen and (max-width:620px) {
+    /* For mobile phones: */
+    .flex, #finn{
+      margin-left: 0px;
+      text-align: left;
+      padding-right: 50px;
+    }
+  }
+  @media only screen and (max-width:620px) {
+    /* For mobile phones: */
+     #jake{
+      margin-top: 10px;
+      margin-left: 0px;
+      text-align: left;
+      padding-right: 50px;
+    }
+  }
+  @media only screen and (max-width:620px) {
+    /* For mobile phones: */
+     #jake figure img{
+      margin-top: 10px;
+      margin-left: 35px;
+    }
+  }
+  @media only screen and (max-width:620px) {
+    /* For mobile phones: */
+     #jake figure figcaption{
+      margin-top: 10px;
+      margin-left: 35px;
+    }
+  }
+  @media only screen and (max-width:620px) {
+    /* For mobile phones: */
+     #jake button{
+      margin-top: 10px;
+      margin-left: 35px;
     }
   }
   .flex {
@@ -35,14 +76,11 @@
     line-height: 30px;
     margin: 20px 0;
   }
-  p {
-    font-size: 14px;
-    line-height: 20px;
-    max-width: 80%;
-    margin: 20px auto;
-  }
   a {
     color: currentColor;
+  }
+  p {
+    line-height: 4;
   }
   #finn {
     background: rgb(184, 180, 190);

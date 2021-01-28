@@ -23,7 +23,7 @@
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon" style="margin-left: 150px;"></span>
         </button>
         <div id='stars'></div>
         <div id='stars2'></div>
@@ -45,10 +45,10 @@
         </div>
     </nav>
     @yield('content')
-    <footer class="page-footer font-small bg-success" style="margin-top: 9%;">
+    <footer class="page-footer font-small bg-success" style="margin-top: 9%;"> <!-- 9-->
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3" style="background-color: #151A48">
-            <p class="text-white">&copy; PT NAP Info Lintas Nusa. All Rights Reserved. <?php echo date("Y"); ?></p>
+            <p class="text-white" style="margin-top: 5px;">&copy; PT NAP Info Lintas Nusa. All Rights Reserved. <?php echo date("Y"); ?></p>
             <!-- <p class="text-white">Guests Book <a href="https://nap.net.id/home.html" class="text-white">PT NAP Info Lintas Nusa</a> </p>   -->
         </div>
         <script type="text/javascript">
