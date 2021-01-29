@@ -24,6 +24,13 @@
     <div class="row">
         <div class="col-md-12">
             <div class="container" style="margin-top: 10%;">
+                <style>
+                    @media screen and (max-width: 620px) {
+                    .text-center{
+                        padding-top: 20px;
+                    }
+                }
+                </style>
                 <h3 class="text-center" style="margin-top: -50px;">Daftar tamu terkini</h3>
             </div>
                 <div class="row" style="margin-top: 3%;">
@@ -31,7 +38,13 @@
                     @foreach ($guests as $guest)
                     {{-- <a href="{{ route('guests.show',$guest->id) }}"> --}}
                     <div class="col-md-4" style="margin-bottom: 7%;">
-                        
+                        <style>
+                            @media screen and (max-width: 620px) {
+                            .card{
+                                margin-left: 85px;
+                            }
+                        }
+                        </style> 
                     <div class="card" style="width: 18rem; height: 30rem">
                     <img class="card-img-top" src="{{ asset('/storage/photos/' . $guest->foto) }}" alt="Card image cap">
                       <div class="card-body">

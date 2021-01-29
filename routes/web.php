@@ -16,7 +16,6 @@ Route::get('/guests/checkout', 'GuestController@checkout');
 Route::get('/guests/searchresult', 'GuestController@search');
 
 Route::get('/guests/create', 'GuestController@store' );
-
 Route::get('/oldguests', 'GuestController@oldguests');
 
 Route::get('/guests/cekout', 'GuestController@cekout');

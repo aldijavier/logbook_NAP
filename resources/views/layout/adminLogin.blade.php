@@ -69,10 +69,25 @@
             <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
         </span>
 
+        @if ($message = Session::get('error'))
+            <div class="alert alert-danger alert-block">
+                <button type="button" class="close" data-dismiss="alert">X</button>
+                <strong style="color: white; margin-left: 150px;">{{ $message }}</strong>
+            </div>
+        @endif
+        @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="/postlogin" method="post" id="myformlogin">
           {{csrf_field()}}
-            <input type="email" name="email" placeholder="E-mail">
-            <input type="password" name="password" placeholder="Password">
+            <input type="email" name="email" placeholder="E-mail" required>
+            <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Log In</button>
             <div id="remember-container">
                 <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked" />

@@ -11,7 +11,7 @@ use App\Lokasi;
 use Carbon\Carbon;
 use Validator;
 
-class GuestController extends Controller
+class GuestCheckin extends Controller
 {
     // Buku Tamu home
     public function index () {

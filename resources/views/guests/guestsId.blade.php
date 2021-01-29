@@ -6,7 +6,7 @@
         <div class="col-md-12">
             @if ($guests)
             @foreach ($guests as $guest)
-            <form action="{{ route('guests.store') }}" method="post" id="myform">
+            <form action="{{ action('GuestController@store') }}" method="post" id="myform2">
                 {{ csrf_field() }}
                 <fieldset>
                     <legend>Tambah Tamu</legend>
@@ -140,9 +140,9 @@
                         <a style="margin-left: 5px;" class="btn btn-outline-info" href="{{ url('/')}}"> Back </a>
                     </div>
                 </fieldset>
-                @endforeach
-                @endif
             </form>
+            @endforeach
+            @endif
         </div>
     </div>
 </div>

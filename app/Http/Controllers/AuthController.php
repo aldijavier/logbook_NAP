@@ -16,6 +16,8 @@ use App\Lokasi;
 use Carbon\Carbon;
 use PDF;
 use File;
+use alert;
+use Illuminate\Support\Facades\Session;
 
 use Auth;
 
@@ -26,122 +28,9 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-            $search = $request->get('search');
-            $search1 = $request->get('search1');
-            $search2 = $request->get('search2');
-          
-            $guests = DB::table('guests');
-
-
-            
-            // $guests= Guest::with('lokasi')->get();
-
-            // $guests= Guest::with('lokasi');
-
-        $guests = Guest::leftJoin('lokasis', 'lokasis.id', 'guests.lokasi_id')->leftJoin('statuses', 'statuses.id', 'guests.id_status')
-            ->select(
-                'guests.*',
-                'lokasis.lokasi as lokasi',
-                'statuses.status as status' 
-                
-            );            
-
-            
-        // $guests = Guest::leftJoin('statuses', 'statuses.id', 'guests.id_status')
-        // ->select(
-        //     'guests.*',
-        //     'statuses.status as status'
-        // );  
-
-
-
-
-            if($search1){
-                $guests=$guests->whereDate('datein','>=',$search1);
-            }
-            
-            if($search2){
-                $guests=$guests->whereDate('datein','<=',$search2);
-            }
-
-            
-            if($search){
-                $guests=$guests->where('lokasi_id','like','%'.$search.'%');
-            }
-
-           
-            $guests = $guests->orderBy('id','desc')->paginate(10);
-            $guests=$guests->appends($request->all());
-
-            if($request->has('guestexport')){
-
-                $name_file = 'Guest_'.date('Y-m-d H:i:s').'.xlsx';
-                 return Excel::download(new GuestExport($search1,$search2, $search), $name_file);
-            }
-
-            if ($request->has('guestprint')){
-                $guests = Guest::leftJoin('lokasis', 'lokasis.id', 'guests.lokasi_id')
-            ->select(
-                'guests.*',
-                'lokasis.lokasi as lokasi'
-            );      
-                $search = $request->get('search');
-                $search1 = $request->get('search1');
-                $search2 = $request->get('search2');
-              
-             
-    
-                if($search1){
-                    $guests=$guests->whereDate('datein','>=',$search1);
-                }
-                
-                if($search2){
-                    $guests=$guests->whereDate('datein','<=',$search2);
-                }
-    
-                
-                if($search){
-                    $guests=$guests->where('lokasi_id','like','%'.$search.'%');
-                }
-    
-               
-                $guests = $guests->get();
-
-                return view('layout.cetakguest', compact('guests'));
-            }
-                
-         
-
-            // if ($request->has('guestprint'))
-            // {
-
-            // //     $pdf = PDF::loadView('layouts.index', compact('guests'));   
-            // // return $pdf->stream();
-
-            //     // select PDF
-            //     $PDFReport = $guests;
-            //     $pdf = PDF::loadView('layouts.index', ['layouts.index' => $PDFReport])->setPaper('a4', 'landscape');
-            //     return $pdf->download(new GuestPrint($search1,$search2, $search),'PDF-report.pdf');
-            // } 
-
-            // if ($request->has('guestprint'))
-            // {
-            //     // select PDF
-            //     $PDFReport = DB::select("SELECT * FROM guests WHERE datein BETWEEN '$search1' AND '$search2'");
-            //     $pdf = PDF::loadView('layouts.index', ['PDFReport' => $PDFReport])->setPaper('a4', 'landscape');
-            //     return $pdf->download('PDF-report.pdf');
-            // } 
-            // $guests = Guest::leftJoin('lokasis', 'lokasis.id', 'guests.lokasi_id')
-            // ->select(
-            //     'guests.*',
-            //     'lokasis.lokasi as lokasi'
-            // )
-            // ->paginate(10);            
-
-            return view('layout.index', compact('guests'));
-            // return view('layouts.index', ['guests' => $guests]);
+        return view('layout.adminLogin');
     }
       
 
@@ -157,12 +46,29 @@ class AuthController extends Controller
     }
 
     public function postlogin(Request $request){
-        if(Auth::attempt($request->only('email','password'))){
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required|alphaNum|min:3'
+            ]);
+
+            $user_data = array(
+                'email' => $request->get('email'),
+                'password' => $request->get('password'),
+            );
+
+        if(Auth::attempt($user_data)){
             return redirect('/admin');
         }
         else{
-            return redirect('/loginadmin');
+            return back()->with('error', 'Email or Password Wrong!');
         }
+        // if(Auth::attempt($request->only('email','password'))){
+        //     return redirect('/admin');
+        // }
+        // else{
+        //     return redirect('/loginadmin');
+        //     Session::flash('warning', 'Email or Password Wrong!');
+        // }
     }
 
     public function logout(){

@@ -47,6 +47,13 @@
     @yield('content')
     <footer class="page-footer font-small bg-success" style="margin-top: 9%;"> <!-- 9-->
         <!-- Copyright -->
+        <style>
+          @media screen and (max-width: 620px) {
+          .footer-copyright{
+              margin-top: 135px;
+          }
+        }
+        </style>
         <div class="footer-copyright text-center py-3" style="background-color: #151A48">
             <p class="text-white" style="margin-top: 5px;">&copy; PT NAP Info Lintas Nusa. All Rights Reserved. <?php echo date("Y"); ?></p>
             <!-- <p class="text-white">Guests Book <a href="https://nap.net.id/home.html" class="text-white">PT NAP Info Lintas Nusa</a> </p>   -->

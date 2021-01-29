@@ -29,7 +29,18 @@
                     @foreach ($guests as $guest)
                     {{-- <a href="{{ route('guests.show',$guest->id) }}"> --}}
                     <div class="col-md-4" style="margin-bottom: 3%;">
-                        
+                        <style>
+                            @media screen and (max-width: 620px) {
+                            .card{
+                                margin-left: 82px;
+                            }
+                          }
+                          @media screen and (max-width: 620px) {
+                            .button{
+                                margin-left: 150px;
+                            }
+                          }
+                          </style>
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top" src="{{ asset('/storage/photos/' . $guest->foto) }}" alt="Card image cap">
                         <div class="card-body">
