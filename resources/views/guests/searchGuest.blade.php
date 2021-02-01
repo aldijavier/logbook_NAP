@@ -16,6 +16,19 @@
             </div>
         </form>
 </div>
+<style>
+    @media screen and (max-width: 620px) {
+    .footer{
+        padding-bottom: 260px;
+    }
+}
+
+    @media only screen and (min-width: 1401px) {
+    .footer{
+        margin-bottom: 270px;
+    }
+}
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -53,7 +66,11 @@
                 @endif
                 </div> --}}
         </div>
-    </div><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    </div>
+    <div class="footer">
+
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
     <!-- end of container -->
 @endsection

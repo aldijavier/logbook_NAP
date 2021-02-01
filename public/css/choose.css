@@ -59,6 +59,57 @@
       margin-left: 35px;
     }
   }
+
+
+  /* For Screen Higher than 1400px */ 
+  @media only screen and (min-width: 1401px) {
+    .flex-container{
+      flex-wrap: wrap;
+      padding-left: 570px;
+      padding-bottom: 370px;
+      padding-top: 220px;
+    }
+  }
+
+  @media only screen and (min-width: 1401px) {
+    .flex, #finn{
+      margin-left: 0px;
+      text-align: center;
+      padding-right: 70px;
+    }
+  }
+  
+
+  @media only screen and (min-width: 1401px) {
+    #jake{
+      margin-top:-0px;
+      margin-left: 0px;
+      text-align: center;
+      padding-right: 30px;
+    }
+  }
+
+  @media only screen and (min-width: 1401px) {
+    #jake figure img{
+      margin-top: 10px;
+      margin-left: 35px;
+    }
+  }
+
+  @media only screen and (min-width: 1401px) {
+    #jake figure figcaption{
+      margin-top: 10px;
+      margin-left: 35px;
+    }
+  }
+
+  @media only screen and (min-width: 1401px) {
+    #jake button{
+      margin-top: 10px;
+      margin-left: 35px;
+    }
+  }
+
   .flex {
     display: flex;
     align-items: center;

@@ -132,7 +132,7 @@
                             {{-- <a href="" onclick="window.open('/image/{{$guest->foto}}','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1090px, height=550px, top=25px left=120px' ); return false;">  --}}
                                 {{-- <a data-fancybox="gallery" href="/image/{{$guest->foto}}"> --}}
                                     <a href="#" class="pop">
-                                    <img src="/image/{{$guest->foto}}" width="60" height="60" alt="" ></a>     
+                                    <img src="{{ asset('/storage/photos/' . $guest->foto) }}" width="60" height="60" alt="" ></a>
                                     @else
                                 <i>NULL</i>
                             @endif

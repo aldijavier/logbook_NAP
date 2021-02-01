@@ -11,7 +11,7 @@ use App\Lokasi;
 use Carbon\Carbon;
 use Validator;
 
-class GuestCheckin extends Controller
+class GuestCheckinController extends Controller
 {
     // Buku Tamu home
     public function index () {
@@ -25,7 +25,7 @@ class GuestCheckin extends Controller
     //create
     public function create() {
         $lokasis = Lokasi::all();
-        return view('guests.create', compact('lokasis'));
+        return view('guests.guestsId', compact('lokasis'));
     }
 
 

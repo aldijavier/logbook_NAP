@@ -3,6 +3,7 @@
 @endsection
 @section('content')
 @include('guests.pesan')
+
 <div class="container" style="margin-top: 3%;">
         <form action="/guests/search" method="POST" role="search">
             {{ csrf_field() }}
@@ -16,13 +17,27 @@
             </div>
         </form>
 </div>
+<style>
+    @media screen and (max-width: 620px) {
+    .footer{
+        padding-bottom: 260px;
+    }
+}
+
+    @media only screen and (min-width: 1401px) {
+    .footer{
+        margin-bottom: 270px;
+    }
+}
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="container" style="margin-top: 3%;">
                 <h3 class="text-center" >Masukkan Guest ID Anda</h3>
             </div>
-
+           
+            
                 {{-- <div class="row" style="margin-top: 3%;">
                                     @if ($guests)
                     @foreach ($guests as $guest)
@@ -53,7 +68,11 @@
                 @endif
                 </div> --}}
         </div>
-    </div><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    </div>
+    <div class="footer">
+
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
     <!-- end of container -->
 @endsection

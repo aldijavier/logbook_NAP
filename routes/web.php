@@ -16,6 +16,7 @@ Route::get('/guests/checkout', 'GuestController@checkout');
 Route::get('/guests/searchresult', 'GuestController@search');
 
 Route::get('/guests/create', 'GuestController@store' );
+
 Route::get('/oldguests', 'GuestController@oldguests');
 
 Route::get('/guests/cekout', 'GuestController@cekout');
@@ -27,6 +28,7 @@ Route::get('/guests/oldGuests', 'GuestController@oldGuests');
 Route::get('/guests/guestId', 'GuestController@guestsId');
 // Route::patch('/co/{id}', 'GuestController@cekout');
 Route::resource('/guests', 'GuestController');
+// Route::resource('/guests', 'GuestCheckinController');
 //cari tamu
 Route::any( '/guests/search', 'GuestController@search');
 Route::any( '/guests/searchGuest', 'GuestController@searchGuest');

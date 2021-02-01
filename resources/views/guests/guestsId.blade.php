@@ -4,15 +4,15 @@
 <div class="container" style="margin-bottom: 3%;"><br />
     <div class="row">
         <div class="col-md-12">
-            @if ($guests)
-            @foreach ($guests as $guest)
-            <form action="{{ action('GuestController@store') }}" method="post" id="myform2">
+            <form action="{{ action('GuestController@store') }}" method="post" id="myform">
                 {{ csrf_field() }}
                 <fieldset>
                     <legend>Tambah Tamu</legend>
                     <div class="row">
                         <div class="col-md-8">
                             {{-- menampilkan error validasi --}}
+                            @if ($guests)
+                            @foreach ($guests as $guest)
                             @if (count($errors) > 0)
                             <div class="alert alert-danger">
                                 <ul>
@@ -34,31 +34,31 @@
                                     <button type="button" style="margin-left: 0px;"
                                         onclick="getElementById('guestsid').value=Math.floor(Math.random()*10000)" disabled>Create
                                         ID Number</button>
-                                    <input style="width: 50%" id="guestsid" name="guestsid" readonly="readonly" value=" {{ $guest['guestsid'] }} " required disabled/>
+                                    <input style="width: 50%" id="guestsid" name="guestsid" readonly="readonly" value=" {{ $guest['guestsid'] }} "/>
                                 </div>
                             </div>
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6">
                                     <label>Name<span style="color:red"> *</span></label>
-                                    <input type="text" class="form-control" placeholder="Name" name="name" required
-                                    value=" {{ $guest['name'] }} " disabled>
+                                    <input type="text" class="form-control" placeholder="Name" name="name"
+                                    value=" {{ $guest['name'] }} ">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Telephone<span style="color:red"> *</span></label>
                                     <input id="test" type="tel" pattern="0.+" title="Must start with 0"class="form-control" placeholder="Telephone"
-                                        name="telephone" value=" {{ $guest['telephone'] }} " maxlength=13 required disabled>
+                                        name="telephone" value=" {{ $guest['telephone'] }} " maxlength=13 >
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Company<span style="color:red"> *</span></label>
                                     <input type="text" class="form-control" placeholder="Company" name="company"
-                                    value=" {{ $guest['company'] }} " required disabled>
+                                    value=" {{ $guest['company'] }} " >
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Email<span style="color:red"> *</span></label>
                                     <input type="email" class="form-control" placeholder="Email" name="email"
-                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value=" {{ $guest['email'] }} " required disabled>
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value=" {{ $guest['email'] }} " >
                                 </div>
                             </div>
                             <div class="form-row">
@@ -86,14 +86,14 @@
                                 <div class="form-group col-md-6">
                                     <label>No Rack<span style="color:red"> *</span></label>
                                     <input type="text" class="form-control" placeholder="No Rack" name="noRack"
-                                    value=" {{ $guest['noRack'] }} "required disabled>
+                                    value=" {{ $guest['noRack'] }} " >
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>No Loker<span style="color:red"> *</span></label>
                                     <input type="text" class="form-control" placeholder="No Loker" name="noLoker"
-                                    value=" {{ $guest['noLoker'] }} " required disabled>
+                                    value=" {{ $guest['noLoker'] }} "  >
                                 </div>
                                 <div class="form-group col-md-6" id="star">
                                     {{-- <label @error('lokasi_id') class="text-danger" @enderror>Lokasi* :  @error('lokasi_id') | {{$message}}
@@ -130,7 +130,6 @@
                             <div class="resultFoto">
                                 <div id="my_result"></div>
                             </div><br />
-                            
                         </div>
                     </div><br />
                     <div class="text-center" style="margin-left: 50px;">

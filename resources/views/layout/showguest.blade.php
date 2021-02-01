@@ -17,7 +17,7 @@
                 <br>
                     <div class="form-row justify-content-center">  
                         <div class="card" style="width:380px">
-                            <img class="card-img-top" src="/image/{{$guest->foto}}"  alt="Card image cap" style="width: 400px; height: 264px;">
+                            <img class="card-img-top" src="{{ asset('/storage/photos/' . $guest->foto) }}"  alt="Card image cap" style="width: 400px; height: 264px;">
                             <span >{{old('foto',$guest->foto)}}"</span>
                         </div>  
                         
