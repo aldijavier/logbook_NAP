@@ -210,6 +210,7 @@ class GuestController extends Controller
 
     //destroy
     public function destroy(Request $request, $id) {
+        $requestData = $request->all();
         $param = Guest::findorfail($id);
              $idate=$param->datein;
              $start=Carbon::parse($idate);
@@ -223,17 +224,18 @@ class GuestController extends Controller
             $id_status = 2;
 
             
+            
             $guest = [
             
                 'dateout' => $dateout,
                 'durasi' => $date_diff,
                 'id_status'=>$id_status,
-               
+                'star' =>$request->input('star'),
+                $request->input('star2'),
+                $request->input('star3'),
             ];
            
             try {
-            
-             
                 $param->update($guest);
                 $param->delete($guest);
                 // return redirect('/')->with('message','Guest Berhasil Di Check Out');

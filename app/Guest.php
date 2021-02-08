@@ -18,7 +18,7 @@ class Guest extends Model
     protected $fillable = [
         'datein', 'dateout', 'guestid', 'name', 'telephone','company', 'email', 
         'activity', 'noRack', 'noLoker', 'lokasi_id', 'remarks', 
-        'durasi', 'foto', 'id_status'
+        'durasi', 'foto', 'star', 'id_status'
     ];
     public function lokasi(){
         return $this->belongsTo('App\Lokasi');
