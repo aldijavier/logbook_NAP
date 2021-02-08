@@ -107,6 +107,9 @@
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Durasi </th>
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Lokasi </th>
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Remarks </th>
+                            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Service Quality </th>
+                            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Infrastructure Quality </th>
+                            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Clean </th>
                             <th width="30px" class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699" >Status </th>
                             {{-- <th  class="text-center" colspan="4" style="white-space: nowrap !important;background-color:#336699">Action</th> --}}
                         </tr>
@@ -141,6 +144,9 @@
                         {{-- <td>{{$guest->lokasi}}</td> --}}
                         <td>{{$guest->lokasi}}</td>
                         <td>{{$guest->remarks}}</td>
+                        <td>{{$guest->service_quality}}</td>
+                        <td>{{$guest->infrastructure_quality}}</td>
+                        <td>{{$guest->clean_quality}}</td>
                         <td> 
                             @if($guest->id_status==2)
                             <label class="btn btn-danger btn-md"  style="font-size:12px"> {{$guest->status}} </label>
