@@ -230,9 +230,9 @@ class GuestController extends Controller
                 'dateout' => $dateout,
                 'durasi' => $date_diff,
                 'id_status'=>$id_status,
-                'star' =>$request->input('star'),
-                $request->input('star2'),
-                $request->input('star3'),
+                'service_quality' =>$request->input('service_quality'),
+                'infrastructure_quality' =>$request->input('infrastructure_quality'),
+                'clean_quality' =>$request->input('clean_quality'),
             ];
            
             try {

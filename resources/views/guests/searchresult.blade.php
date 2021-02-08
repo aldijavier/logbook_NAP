@@ -44,43 +44,43 @@
             <div class="stars">
                 <form action="{{ route('guests.destroy',$guest->id) }}" method="POST">
                 <section>
-                  <input class="star star-5" id="star-5" type="radio" name="star" value="Tidak Memuaskan"/>
+                  <input class="star star-5" id="star-5" type="radio" name="service_quality" value="Sangat Memuaskan"/>
                   <label class="star star-5" for="star-5"></label>
-                  <input class="star star-4" id="star-4" type="radio" name="star" value="Kurang Memuaskan"/>
+                  <input class="star star-4" id="star-4" type="radio" name="service_quality" value="Memuaskan"/>
                   <label class="star star-4" for="star-4"></label>
-                  <input class="star star-3" id="star-3" type="radio" name="star" value="Cukup Memuaskan"/>
+                  <input class="star star-3" id="star-3" type="radio" name="service_quality" value="Cukup Memuaskan"/>
                   <label class="star star-3" for="star-3"></label>
-                  <input class="star star-2" id="star-2" type="radio" name="star" value="Memuaskan"/>
+                  <input class="star star-2" id="star-2" type="radio" name="service_quality" value="Kurang Memuaskan"/>
                   <label class="star star-2" for="star-2"></label>
-                  <input class="star star-1" id="star-1" type="radio" name="star" value="Sangat Memuaskan"/>
+                  <input class="star star-1" id="star-1" type="radio" name="service_quality" value="Tidak Memuaskan"/>
                   <label class="star star-1" for="star-1"></label>
-                  <p style="text-align: center">Kebersihan</p>
+                  <p style="text-align: center">Service Quality</p>
                 </section>
                 <section>
-                  <input class="star star-5" id="star-52" type="radio" name="star2" value="Tidak Memuaskan"/>
+                  <input class="star star-5" id="star-52" type="radio" name="infrastructure_quality" value="Sangat Memuaskan"/>
                   <label class="star star-5" for="star-52"></label>
-                  <input class="star star-4" id="star-42" type="radio" name="star2" value="Kurang Memuaskan"/>
+                  <input class="star star-4" id="star-42" type="radio" name="infrastructure_quality" value="Memuaskan"/>
                   <label class="star star-4" for="star-42"></label>
-                  <input class="star star-3" id="star-32" type="radio" name="star2" value="Cukup Memuaskan"/>
+                  <input class="star star-3" id="star-32" type="radio" name="infrastructure_quality" value="Cukup Memuaskan"/>
                   <label class="star star-3" for="star-32"></label>
-                  <input class="star star-2" id="star-22" type="radio" name="star2" value="Memuaskan"/>
+                  <input class="star star-2" id="star-22" type="radio" name="infrastructure_quality" value="Kurang Memuaskan"/>
                   <label class="star star-2" for="star-22"></label>
-                  <input class="star star-1" id="star-12" type="radio" name="star2" value="Sangat Memuaskan"/>
+                  <input class="star star-1" id="star-12" type="radio" name="infrastructure_quality" value="Tidak Memuaskan"/>
                   <label class="star star-1" for="star-12"></label>
-                  <p style="text-align: center">Keamanan</p>
+                  <p style="text-align: center">Quality of Infrastructure</p>
                 </section>
                 <section>
-                    <input class="star star-5" id="star-53" type="radio" name="star3" value="Tidak Memuaskan"/>
+                    <input class="star star-5" id="star-53" type="radio" name="clean_quality" value="Sangat Memuaskan"/>
                     <label class="star star-5" for="star-53"></label>
-                    <input class="star star-4" id="star-43" type="radio" name="star3" value="Kurang Memuaskan"/>
+                    <input class="star star-4" id="star-43" type="radio" name="clean_quality" value="Memuaskan"/>
                     <label class="star star-4" for="star-43"></label>
-                    <input class="star star-3" id="star-33" type="radio" name="star3" value="Cukup Memuaskan"/>
+                    <input class="star star-3" id="star-33" type="radio" name="clean_quality" value="Cukup Memuaskan"/>
                     <label class="star star-3" for="star-33"></label>
-                    <input class="star star-2" id="star-23" type="radio" name="star3" value="Memuaskan"/>
+                    <input class="star star-2" id="star-23" type="radio" name="clean_quality" value="Kurang Memuaskan"/>
                     <label class="star star-2" for="star-23"></label>
-                    <input class="star star-1" id="star-13" type="radio" name="star3" value="Sangat Memuaskan"/>
+                    <input class="star star-1" id="star-13" type="radio" name="clean_quality" value="Tidak Memuaskan"/>
                     <label class="star star-1" for="star-13"></label>
-                    <p style="text-align: center">Kepuasaan</p>
+                    <p style="text-align: center">cleanliness</p>
                   </section>
                 
               </div>
