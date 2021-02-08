@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Telephone<span style="color:red"> *</span></label>
-                                    <input id="test" type="tel" pattern="0.+" title="Must start with 0"class="form-control" placeholder="Telephone"
+                                    <input type="tel" pattern="0.+" title="Must start with 0" class="form-control" placeholder="Telephone"
                                         name="telephone" value=" {{ $guest['telephone'] }} " maxlength=13 >
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
                         <button type="submit" class="btn btn-primary mr-1" style="background-color: #151A48" value="submit"> Submit
                         </button>
                         {{-- <button class="btn btn-secondary" type="reset"> Reset </button> --}}
-                        <a style="margin-left: 5px;" class="btn btn-outline-info" href="{{ url('/')}}"> Back </a>
+                        <a style="margin-left: 5px;" class="btn btn-outline-info" href="{{ url('/guests/getGuest')}}"> Back </a>
                     </div>
                 </fieldset>
             </form>

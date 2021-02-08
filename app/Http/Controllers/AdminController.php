@@ -74,7 +74,7 @@ class AdminController extends Controller
             }
 
            
-            $guests = $guests->orderBy('id','desc')->paginate(10);
+            $guests = $guests->withTrashed()->orderBy('id','desc')->paginate(10);
             $guests=$guests->appends($request->all());
 
             if($request->has('guestexport')){

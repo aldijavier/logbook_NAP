@@ -235,6 +235,7 @@ class GuestController extends Controller
             
              
                 $param->update($guest);
+                $param->delete($guest);
                 // return redirect('/')->with('message','Guest Berhasil Di Check Out');
                 return view('guests.success_checkout');
             }
@@ -269,15 +270,22 @@ class GuestController extends Controller
 public function searchGuest (Request $request) {
     $q = $request->input( 'q' );
     if($q != ""){
-    $guests = Guest::where( 'guestsid', 'LIKE', '%' . $q . '%')->whereIn( 'id_status', [2])->paginate (1);
+    // $guests = Guest::onlyTrashed()
+    //                 ->where( 'guestsid', 'LIKE', '%' . $q . '%')
+    //                 // ->whereIn( 'id_status', [2])
+    //                 // ->orWhere(   'id_status', '!=', [1])
+    //                 ->paginate(1);
     // ->orWhere ( 'dari', 'LIKE', '%' . $q . '%' )
-    if (count ( $guests ) > 0) {
+     if($guests = Guest::onlyTrashed()->where( 'guestsid', 'LIKE', '%' . $q . '%')->where('id_status', [2])->paginate(1)) {
         $lokasis = Lokasi::all();
         return view('guests.guestsId',compact('guests', 'lokasis'))
         ->with('i', (request()->input('page', 1) - 1) * 1);
-    } else {
+    }else if($guests = Guest::where( 'guestsid', 'LIKE', '%' . $q . '%')->where('id_status', [1])->paginate(1)) {
+        Session::flash('warning', 'Tidak ada tamu yang anda cari !'); 
+        return view ( 'guests.searchresult' )->with(compact('guests'));
+    }else {
     $guests = 0;
-    return view('guests.searchNotFound');
+    return view('guests.searchGuestsNotFound');
     // Session::flash('warning', 'Tidak ada tamu yang anda cari !'); 
     // return view ( 'guests.searchresult' )->with(compact('guests'));
     }

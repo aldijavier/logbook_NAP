@@ -107,8 +107,8 @@
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Durasi </th>
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Lokasi </th>
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Remarks </th>
-                            <th widht="30px" class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699" >Status </th>
-                            <th  class="text-center" colspan="4" style="white-space: nowrap !important;background-color:#336699">Action</th>
+                            <th width="30px" class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699" >Status </th>
+                            {{-- <th  class="text-center" colspan="4" style="white-space: nowrap !important;background-color:#336699">Action</th> --}}
                         </tr>
                     </thead>
                         <tbody>
@@ -154,9 +154,9 @@
                         {{-- <td> 
                             <a href="{{ url("co/{$guest->id}/cek") }}" class="btn btn-outline-secondary"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></a>
                         </td> --}}
-                        <td > 
+                        {{-- <td > 
                             <a href="{{ url("guests/{$guest->id}/show") }}" class="btn btn-outline-info"><i class="fa fa-info-circle"></i></a>
-                        </td>
+                        </td> --}}
                         {{-- <td> 
                             <a href="{{ url("guests/{$guest->id}/edit") }}" class="btn btn-outline-success"><i class="fa fa-edit"></i></a>
                         </td>
