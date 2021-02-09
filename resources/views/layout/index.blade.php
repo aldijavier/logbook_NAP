@@ -42,7 +42,7 @@
                         {{-- <p>. <a  href="{{route('l_guest')}}" target="_blank" class="btn btn-success mr-1"> <i class="fa fa-print" aria-hidden="true"></i></a></p> --}}
                         {{-- <p>. <a  href="" onclick="this.href='/cetakguest/'+document.getElementById('search1').value+'/'+document.getElementById('search2').value" target="_blank" class="btn btn-success mr-1"> <i class="fa fa-print" aria-hidden="true"></i></a></p> --}}
                             {{-- <p>. <a  href="{{url('/print_siswa')}}" target="_blank" class="btn btn-success mr-1"> <i class="fa fa-print" aria-hidden="true"></i></a></p> --}}
-                            <p>. <button type="submit" name="guestprint"  class="btn btn-success mr-1" formtarget="_blank"> <i class="fa fa-print" aria-hidden="true"></i></button></p>
+                            {{-- <p>. <button type="submit" name="guestprint"  class="btn btn-success mr-1" formtarget="_blank"> <i class="fa fa-print" aria-hidden="true"></i></button></p> --}}
                   
                     </div>
                 </div>
