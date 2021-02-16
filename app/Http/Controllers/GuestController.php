@@ -255,7 +255,7 @@ class GuestController extends Controller
     public function search (Request $request) {
         $q = $request->input( 'q' );
         if($q != ""){
-        $guests = Guest::where( 'guestsid', 'LIKE', '%' . $q . '%')->whereIn( 'id_status', [1])->paginate (1);
+        $guests = Guest::where( 'telephone', 'LIKE', '%' . $q . '%')->whereIn( 'id_status', [1])->paginate (1);
         // ->orWhere ( 'dari', 'LIKE', '%' . $q . '%' )
         if (count ( $guests ) > 0) {
 	        Session::flash('info', 'Beberapa tamu yang mungkin anda cari !'); 
@@ -273,7 +273,7 @@ public function searchGuest (Request $request) {
     $q = $request->input( 'q' );
     if($q != ""){
     $guests = Guest::onlyTrashed()
-                    ->where( 'guestsid', 'LIKE', '%' . $q . '%')
+                    ->where( 'telephone', 'LIKE', '%' . $q . '%')
                     ->whereIn( 'id_status', [2])
                     // ->orWhere(   'id_status', '!=', [1])
                     ->paginate(1);

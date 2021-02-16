@@ -18,13 +18,15 @@
                     </div> 
                     <span class="input-group-prepend">
                         <div class="col-md-3.5">
-                        <p> Lokasi :  <select name="search" id="search" class="form-control " ></p>
+                        <p> Lokasi :  <select name="search" id="search" class="form-control" ></p>
                    
                         <option value="">- Pilih Lokasi -</option>
-                        <option @if(request()->get('search')=="1") selected @endif value="1" >Plaza Kuningan</option>
-                        <option @if(request()->get('search')=="2") selected @endif value="2" >Cyber</option>
-                        
-                        
+                        <option @if(request()->get('search')=="1") selected @endif value="1" >MDC JK1 - Plaza Kuningan</option>
+                        <option @if(request()->get('search')=="2") selected @endif value="2" >MDC JK2 - Cyber 1</option>
+                        <option @if(request()->get('search')=="3") selected @endif value="3" >MDC JK3 - Pantai Mutiara</option>
+                        <option @if(request()->get('search')=="4") selected @endif value="4" >MDC BM1 - Nongsa</option>
+                        <option @if(request()->get('search')=="5") selected @endif value="5" >MDC SG1 - North Changi</option>
+              
                     </select> 
                     
                 </span>
@@ -89,7 +91,7 @@
                    
                     {{-- <table id="example1" class="table table-bordered table-striped"> --}}
                     @if(count($guests))
-                    
+        
                     <thead class="thead-dark">
                         <tr>
                             <th width="30px" class="text-center" width="30" style="white-space: nowrap !important;background-color:#336699">No </th>
@@ -107,9 +109,11 @@
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Durasi </th>
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Lokasi </th>
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Remarks </th>
-                            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Service Quality </th>
-                            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Infrastructure Quality </th>
-                            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Clean </th>
+                            
+                            <th class="text-center" scope="col" style=" width: 10px; white-space: nowrap !important;background-color:#336699">Service</th>
+                            <th class="text-center" scope="col" style=" width: 10px; white-space: nowrap !important;background-color:#336699">Infrastructure</th>
+                            <th class="text-center" scope="col" style=" width: 10px; white-space: nowrap !important;background-color:#336699">Clean</th>
+
                             <th width="30px" class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699" >Status </th>
                             {{-- <th  class="text-center" colspan="4" style="white-space: nowrap !important;background-color:#336699">Action</th> --}}
                         </tr>
@@ -144,9 +148,11 @@
                         {{-- <td>{{$guest->lokasi}}</td> --}}
                         <td>{{$guest->lokasi}}</td>
                         <td>{{$guest->remarks}}</td>
+                        
                         <td>{{$guest->service_quality}}</td>
                         <td>{{$guest->infrastructure_quality}}</td>
                         <td>{{$guest->clean_quality}}</td>
+
                         <td> 
                             @if($guest->id_status==2)
                             <label class="btn btn-danger btn-md"  style="font-size:12px"> {{$guest->status}} </label>

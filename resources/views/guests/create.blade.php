@@ -1,6 +1,14 @@
 @extends('guests.layout')
 @section('content')
 <link href="{{asset('css/required.css')}}" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+function submitbtn(){
+    getElementById("Submit_id").disabled=true;
+//Validation code goes here
+}
+</script>
 <div class="container" style="margin-bottom: 3%;"><br />
     <div class="row">
         <div class="col-md-12">
@@ -29,10 +37,10 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <p style="margin-bottom: 10px;">Guest ID:<span style="color: red"></span></p>
-                                    <button type="button" style="margin-left: 0px;"
+                                    {{-- <button class="disable" type="button" style="margin-left: 0px;" id='btnTest'
                                         onclick="getElementById('guestsid').value=Math.floor(Math.random()*10000)">Create
-                                        ID Number</button>
-                                    <input style="width: 50%" id="guestsid" name="guestsid" readonly="readonly" value="{{ old('guestsid')}}" required />
+                                        ID Number</button> --}}
+                                    <input onclick="getElementById('guestsid').value=Math.floor(Math.random()*10000); var e=this;setTimeout(function(){e.disabled=true;},0);return true;" style="width: 50%" id="guestsid" name="guestsid" readonly="readonly" value="{{ old('guestsid')}}" required />
                                 </div>
                             </div>
                             <div class="form-row justify-content-center">
@@ -81,18 +89,6 @@
                                         </option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label>No Rack<span style="color:red"> *</span></label>
-                                    <input type="text" class="form-control" placeholder="No Rack" name="noRack"
-                                        value="{{ old('noRack')}}" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>No Loker<span style="color:red"> *</span></label>
-                                    <input type="text" class="form-control" placeholder="No Loker" name="noLoker"
-                                        value="{{ old('noLoker')}}" required>
-                                </div>
                                 <div class="form-group col-md-6" id="star">
                                     {{-- <label @error('lokasi_id') class="text-danger" @enderror>Lokasi* :  @error('lokasi_id') | {{$message}}
                                     @enderror</label><br> --}}
@@ -109,6 +105,53 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>No Loker<span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" placeholder="No Loker" name="noLoker"
+                                        value="{{ old('noLoker')}}" required>
+                                </div>
+                                {{-- <label>No Rack<span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" placeholder="No Rack" name="noRack"
+                                        value="{{ old('noRack')}}" required> --}}
+                                <div class="form-group col-md-6">
+                                    <div class="row align-items-start" style="margin-left: 15px;">
+                                        <div class="col">
+                                          Lantai
+                                          <select name="lokasi_id" class="form-control">
+                                            <option value="">- Pilih Lokasi -</option>
+    
+                                            @foreach ($lokasis as $lokasi )
+                                            <option value="{{$lokasi->id}}"
+                                                {{old('lokasi_id')==$lokasi->id? 'selected' :null}}>
+                                                {{$lokasi->lokasi}}</option>
+    
+                                            @endforeach
+                                        </select>
+                                        </div>
+                                        <div class="col">
+                                          Ruang
+                                          <select name="lokasi_id" class="form-control">
+                                            <option value="">- Pilih Lokasi -</option>
+    
+                                            @foreach ($lokasis as $lokasi )
+                                            <option value="{{$lokasi->id}}"
+                                                {{old('lokasi_id')==$lokasi->id? 'selected' :null}}>
+                                                {{$lokasi->lokasi}}</option>
+    
+                                            @endforeach
+                                        </select>
+                                        </div>
+                                        <div class="col">
+                                          No. Rack
+                                          <input type="text" class="form-control" placeholder="No Rack" name="noRack"
+                                        value="{{ old('noRack')}}" required>
+                                        </div>
+                                      </div>
+                                </div>
+                                
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -116,6 +159,7 @@
                                     <textarea type="text" class="form-control" placeholder="Leave your comments"
                                         name="remarks"></textarea>
                                 </div>
+                                
                             </div>
                             <div class="cam">
                                 <div id="my_camera" class="rounded"></div>

@@ -120,12 +120,15 @@
   }
   figure img {
     border-radius: 50%;
+    margin-left: -130px;
     border: 5px solid rgba(0, 0, 0, 0.2);
   }
   figure figcaption {
     font-size: 20px;
     line-height: 30px;
     margin: 20px 0;
+    margin-left: -130px;
+
   }
   a {
     color: currentColor;
@@ -136,10 +139,11 @@
   #finn {
     background: rgb(184, 180, 190);
     color: #151A48;
-    padding-left: 60px;
+    padding-left: 150px;
   }
   #jake {
     background: #151A48;
     color: #fff;
+    padding-left: 150px;
   }
   

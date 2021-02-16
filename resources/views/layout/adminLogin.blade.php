@@ -90,8 +90,7 @@
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Log In</button>
             <div id="remember-container">
-                <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked" />
-                <span id="remember">Remember me</span>
+                
                 {{-- <span id="forgotten">Forgotten password</span> --}}
             </div>
         </form>

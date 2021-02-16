@@ -53,9 +53,9 @@ class AuthController extends Controller
 
             $user_data = array(
                 'email' => $request->get('email'),
-                'password' => $request->get('password'),
+                'password' => $request->get('password')
             );
-
+            
         if(Auth::attempt($user_data)){
             return redirect('/admin');
         }

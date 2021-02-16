@@ -21,20 +21,20 @@
         <div>
           <figure>
             <img src="{{ asset('images') }}/model.png" alt="" width="105" height="100">
-            <figcaption>New Customer? Register Here!</figcaption>
+            <figcaption>New Customer? <br/> Register Here!</figcaption>
           </figure>
           
-          <button type="button" class="btn btn-dark"><a href="{{ route('guests.create') }}">Click Here!</a></button>
+          <button type="button" style="margin-right: 125px;" class="btn btn-dark"><a href="{{ route('guests.create') }}">Here!</a></button>
         </div>
       </section>
       <section class="flex" id="jake">
         <div>
           <figure>
             <img src="{{ asset('images') }}/model.png" alt="" width="105" height="100">
-            <figcaption>Already have Guests ID? Check Here!</figcaption>
+            <figcaption>Returning <br/> Customer</figcaption>
           </figure>
           
-          <button type="button" class="btn btn-light"><a href="/guests/getGuest">Click Here!</a></button>
+          <button style="margin-right: 125px;" type="button" class="btn btn-light"><a href="/guests/getGuest">Here!</a></button>
         </div>
       </section>
     </article>
