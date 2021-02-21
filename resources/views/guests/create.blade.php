@@ -1,7 +1,8 @@
 @extends('guests.layout')
 @section('content')
 <link href="{{asset('css/required.css')}}" rel="stylesheet" type="text/css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <script type="text/javascript">
 function submitbtn(){
@@ -40,7 +41,7 @@ function submitbtn(){
                                     {{-- <button class="disable" type="button" style="margin-left: 0px;" id='btnTest'
                                         onclick="getElementById('guestsid').value=Math.floor(Math.random()*10000)">Create
                                         ID Number</button> --}}
-                                    <input onclick="getElementById('guestsid').value=Math.floor(Math.random()*10000); var e=this;setTimeout(function(){e.disabled=true;},0);return true;" style="width: 50%" id="guestsid" name="guestsid" readonly="readonly" value="{{ old('guestsid')}}" required />
+                                    <input onclick="getElementById('guestsid').value=Math.floor(Math.random()*10000); var e=this;setTimeout(function(){e.disabled=false;},0);return true;" style="width: 50%" id="guestsid" name="guestsid" value="{{ old('guestsid')}}" required />
                                 </div>
                             </div>
                             <div class="form-row justify-content-center">
@@ -94,15 +95,17 @@ function submitbtn(){
                                     @enderror</label><br> --}}
                                     {{-- <label class="text-black" @enderror>Lokasi: </label><br> --}}
                                     <label>Lokasi<span style="color:red"> *</span></label>
-                                    <select name="lokasi_id" class="form-control">
+                                    <select name="lokasi_id" id="lokasi_id" class="form-control" data-dependent="lokasi">
                                         <option value="">- Pilih Lokasi -</option>
-
-                                        @foreach ($lokasis as $lokasi )
+                                        @foreach ($lokasi as $lokasi)
+                                            <option value="{{ $lokasi->id }}">{{ $lokasi->lokasi }}</option>
+                                        @endforeach
+                                        {{-- @foreach ($lokasis as $lokasi )
                                         <option value="{{$lokasi->id}}"
                                             {{old('lokasi_id')==$lokasi->id? 'selected' :null}}>
                                             {{$lokasi->lokasi}}</option>
 
-                                        @endforeach
+                                        @endforeach --}}
                                     </select>
                                 </div>
                                 
@@ -120,29 +123,16 @@ function submitbtn(){
                                     <div class="row align-items-start" style="margin-left: 15px;">
                                         <div class="col">
                                           Lantai
-                                          <select name="lokasi_id" class="form-control">
-                                            <option value="">- Pilih Lokasi -</option>
-    
-                                            @foreach ($lokasis as $lokasi )
-                                            <option value="{{$lokasi->id}}"
-                                                {{old('lokasi_id')==$lokasi->id? 'selected' :null}}>
-                                                {{$lokasi->lokasi}}</option>
-    
-                                            @endforeach
+                                          <select class="form-control" name="lantai_id" id="lantai_id" data-dependent="lantai">
+                                                <option value="0" selected="true"> Pilih Lantai </option>
                                         </select>
+
                                         </div>
                                         <div class="col">
                                           Ruang
-                                          <select name="lokasi_id" class="form-control">
-                                            <option value="">- Pilih Lokasi -</option>
-    
-                                            @foreach ($lokasis as $lokasi )
-                                            <option value="{{$lokasi->id}}"
-                                                {{old('lokasi_id')==$lokasi->id? 'selected' :null}}>
-                                                {{$lokasi->lokasi}}</option>
-    
-                                            @endforeach
-                                        </select>
+                                          <select class="form-control" name="ruangan_id" id="ruangan_id" data-dependent="ruangan">
+                                            <option value="0" selected="true"> Pilih Ruangan </option>
+                                    </select>
                                         </div>
                                         <div class="col">
                                           No. Rack
@@ -151,6 +141,40 @@ function submitbtn(){
                                         </div>
                                       </div>
                                 </div>
+                                <script type="text/javascript">
+                                jQuery(document).ready(function ($) {
+                                    $('#lokasi_id').on('change', function(e){
+                                        console.log(e);
+                                        var id_lokasi = e.target.value;
+                                        $.get('/json-lantai?id=' + id_lokasi, function(data){
+                                            console.log(data);
+                                            $('#lantai_id').empty();
+                                            $('#lantai_id').append('<option value="0" selected="true"> Pilih Lantai</option>');
+
+                                            $('#ruangan_id').empty();
+                                            $('#ruangan_id').append('<option value="0" selected="true"> Pilih Ruangan</option>');
+                                            
+                                            $.each(data, function(index, lantaiObj){
+                                                $('#lantai_id').append('<option value="' + lantaiObj.id_lantai +'">' + lantaiObj.name_lantai +'</option>');
+                                            })
+                                          });
+                                    });
+
+                                    $('#lantai_id').on('change', function(e){
+                                        console.log(e);
+                                        var id_lantai = e.target.value;
+                                        $.get('/json-ruangan?id_lantai=' + id_lantai, function(data){
+                                            console.log(data);
+                                            $('#ruangan_id').empty();
+                                            $('#ruangan_id').append('<option value="0" selected="true"> Pilih Ruangan</option>');
+                                            
+                                            $.each(data, function(index, ruanganObj){
+                                                $('#ruangan_id').append('<option value="' + ruanganObj.id_ruang +'">' + ruanganObj.name_ruang +'</option>');
+                                            })
+                                          });
+                                    });
+                                });
+                                </script>
                                 
                             </div>
                             <div class="form-row">
@@ -248,4 +272,80 @@ function submitbtn(){
         });
     }
 </script>
+
+{{-- <script type="text/javascript">
+    $(document).ready(function(){
+ 
+ // Department Change
+ $('#lokasi_id').change(function(){
+
+    // Department id
+    var id = $(this).val();
+
+    // Empty the dropdown
+    $('#lantai_id').find('option').not(':first').remove();
+
+    // AJAX request 
+    $.ajax({
+      url: 'getEmployees/'+id,
+      type: 'get',
+      dataType: 'json',
+      success: function(response){
+
+        var len = 0;
+        if(response['data'] != null){
+          len = response['data'].length;
+        }
+
+        if (len>0) {
+          // Read data and create &lt;option &gt;
+          for (var i = 0; i<len; i++) {
+
+            var id = response['data'][i].id;
+            var lokasi = response['data'][i].lokasi;
+
+            var option = "<option value='"+id+"'>"+lokasi+"</option>"; 
+
+            $("#lantai_id").append(option); 
+          }
+        }
+
+      }
+   });
+ });
+
+});
+</script> --}}
+{{-- <script type="text/javascript">
+    $(document).ready(function () {
+       $('#lokasi_id').change(function () {
+         var id = $(this).val();
+
+         $('#lantai_id').find('option').not(':first').remove();
+
+         $.ajax({
+            url:'lokasi_id/'+id,
+            type:'get',
+            dataType:'json',
+            success:function (response) {
+                var len = 0;
+                if (response.data != null) {
+                    len = response.data.length;
+                }
+
+                if (len>0) {
+                    for (var i = 0; i<len; i++) {
+                         var id = response.data[i].id;
+                         var lokasi = response.data[i].lokasi;
+
+                         var option = "<option value='"+id+"'>"+lokasi+"</option>"; 
+
+                         $("#lantai_id").append(option);
+                    }
+                }
+            }
+         })
+       });
+    });
+</script> --}}
 @endsection

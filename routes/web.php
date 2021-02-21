@@ -34,6 +34,13 @@ Route::any( '/guests/search', 'GuestController@search');
 Route::any( '/guests/searchGuest', 'GuestController@searchGuest');
 Route::get( '/guests/cekout', 'GuestController@cekout');
 
+Route::get('/getLantai/{id}', 'LokasiController@getLantai');
+
+
+// Route::get('/guests/logbook', 'GuestController@lokasi');
+Route::get('/json-lantai', 'GuestController@lantai');
+Route::get('/json-ruangan', 'GuestController@ruangan');
+
 
 //admin
 Route::get('/admin', 'AdminController@index');

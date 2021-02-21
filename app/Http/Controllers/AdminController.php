@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\Guest;
+use App\Ruang;
+use App\Lantai;
 use App\Lokasi;
 use Carbon\Carbon;
 use PDF;
@@ -42,13 +44,17 @@ class AdminController extends Controller
 
             // $guests= Guest::with('lokasi');
 
-        $guests = Guest::leftJoin('lokasis', 'lokasis.id', 'guests.lokasi_id')->leftJoin('statuses', 'statuses.id', 'guests.id_status')
+        $guests = Guest::leftJoin('lokasis', 'lokasis.id', 'guests.lokasi_id')->leftJoin('statuses', 'statuses.id', 'guests.id_status')->leftJoin('ruangs', 'ruangs.id_ruang', 'guests.ruangan_id')
+        ->leftJoin('lantais', 'lantais.id_lantai', 'guests.lantai_id')
             ->select(
                 'guests.*',
                 'lokasis.lokasi as lokasi',
+                'ruangs.name_ruang as ruang',
+                'lantais.name_lantai as lantai',
                 'statuses.status as status' 
                 
-            );            
+            );       
+
 
             
         // $guests = Guest::leftJoin('statuses', 'statuses.id', 'guests.id_status')

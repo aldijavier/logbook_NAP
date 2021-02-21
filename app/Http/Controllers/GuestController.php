@@ -8,8 +8,12 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use App\Guest;
 use App\Lokasi;
+use App\Lantai;
+use App\Ruang;
 use Carbon\Carbon;
 use Validator;
+use Illuminate\Support\Facades\Input;
+use DB;
 
 class GuestController extends Controller
 {
@@ -22,12 +26,40 @@ class GuestController extends Controller
 
     }
 
-    //create
     public function create() {
-        $lokasis = Lokasi::all();
-        return view('guests.create', compact('lokasis'));
+        $lokasi = Lokasi::all();
+        return view('guests.create', compact('lokasi'));
     }
 
+    public function lokasi(){
+        $lokasi = Lokasi::all();
+        return view('guests.create', compact('lokasi'));
+    }
+
+    public function lantai(){
+        $id_lokasi = input::get('id');
+        $lantai = Lantai::where('id_lantai', '=', $id_lokasi)->get();
+        return response()->json($lantai);
+    }
+
+    public function ruangan(){
+        $id_lantai = input::get('id_lantai');
+        $ruangan = Ruang::where('id_ruang', '=', $id_lantai)->get();
+        return response()->json($ruangan);
+    }
+
+    /**
+     * Get Ajax Request and restun Data
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function myformAjax($id)
+    {
+        $cities = DB::table("lantais")
+                    ->where("lokasis",$id)
+                    ->lists("name_lantai","id");
+        return json_encode($cities);
+    }
 
 
     public function success() {
@@ -110,9 +142,11 @@ class GuestController extends Controller
             $guest->company = $request->input('company');
             $guest->email = $request->input('email');
             $guest->activity = $request->input('activity');
-            $guest->noRack = $request->input('noRack');
             $guest->noLoker = $request->input('noLoker');
             $guest->lokasi_id = $request->input('lokasi_id');
+            $guest->lantai_id = $request->input('lantai_id');
+            $guest->ruangan_id = $request->input('ruangan_id');
+            $guest->noRack = $request->input('noRack');
             $guest->remarks = $request->input('remarks');
             $guest->id_status = $id_status;
             $guest->foto = $namafoto;

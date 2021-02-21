@@ -66,7 +66,7 @@ class GuestExport implements WithHeadings,ShouldAutoSize, FromQuery
     {
         
         $guests=DB::table('guests');
-        $guests = Guest::withTrashed()->leftJoin('lokasis', 'lokasis.id', 'guests.lokasi_id')
+        $guests = Guest::withTrashed()->leftJoin('lokasis', 'lokasis.id', 'guests.lokasi_id')->leftJoin('ruangs', 'ruangs.id_ruang', 'guests.ruangan_id')->leftJoin('lantais', 'lantais.id_lantai', 'guests.lantai_id')
             ->select(
                 'guests.id',
                 'guests.guestsid',
@@ -82,6 +82,8 @@ class GuestExport implements WithHeadings,ShouldAutoSize, FromQuery
                 'guests.foto',
                 'guests.durasi',
                 'lokasis.lokasi as lokasi',
+                'ruangs.name_ruang as ruang',
+                'lantais.name_lantai as lantai',
                 'guests.remarks',
                 'guests.service_quality',
                 'guests.infrastructure_quality',
@@ -134,6 +136,8 @@ class GuestExport implements WithHeadings,ShouldAutoSize, FromQuery
             'Foto',
             'Durasi',
             'Lokasi',
+            'Ruang',
+            'Lantai',
             'Remarks',
             'service_quality',
             'infrastructure_quality',

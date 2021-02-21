@@ -108,6 +108,8 @@
                             <th  class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Foto </th>
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Durasi </th>
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Lokasi </th>
+                            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Ruangan </th>
+                            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Lantai </th>
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Remarks </th>
                             
                             <th class="text-center" scope="col" style=" width: 10px; white-space: nowrap !important;background-color:#336699">Service</th>
@@ -147,6 +149,8 @@
                         <td style="white-space: nowrap !important;">{{$guest->durasi}}</td>
                         {{-- <td>{{$guest->lokasi}}</td> --}}
                         <td>{{$guest->lokasi}}</td>
+                        <td>{{$guest->ruang}}</td>
+                        <td>{{$guest->lantai}}</td>
                         <td>{{$guest->remarks}}</td>
                         
                         <td>{{$guest->service_quality}}</td>
