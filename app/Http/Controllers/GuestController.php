@@ -313,9 +313,9 @@ public function searchGuest (Request $request) {
                     ->paginate(1);
     // ->orWhere ( 'dari', 'LIKE', '%' . $q . '%' )
     if (count ( $guests ) > 0) {
-        $lokasis = Lokasi::all();
+        $lokasi = Lokasi::all();
         Session::flash('info', 'Beberapa tamu yang mungkin anda cari !'); 
-        return view('guests.guestsId',compact('guests', 'lokasis'))
+        return view('guests.guestsId',compact('guests', 'lokasi'))
             ->with('i', (request()->input('page', 1) - 1) * 1);
     }else {
     $guests = 0;

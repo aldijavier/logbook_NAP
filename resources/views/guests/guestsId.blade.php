@@ -1,6 +1,16 @@
 @extends('guests.layout')
 @section('content')
 <link href="{{asset('css/required.css')}}" rel="stylesheet" type="text/css">
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script type="text/javascript">
+function submitbtn(){
+    getElementById("Submit_id").disabled=true;
+//Validation code goes here
+}
+</script>
+
 <div class="container" style="margin-bottom: 3%;"><br />
     <div class="row">
         <div class="col-md-12">
@@ -83,34 +93,91 @@
                                         </option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label>No Rack<span style="color:red"> *</span></label>
-                                    <input type="text" class="form-control" placeholder="No Rack" name="noRack"
-                                    value=" {{ $guest['noRack'] }} " >
+                                <div class="form-group col-md-6" id="star">
+                                    {{-- <label @error('lokasi_id') class="text-danger" @enderror>Lokasi* :  @error('lokasi_id') | {{$message}}
+                                    @enderror</label><br> --}}
+                                    {{-- <label class="text-black" @enderror>Lokasi: </label><br> --}}
+                                    <label>Lokasi<span style="color:red"> *</span></label>
+                                    <select name="lokasi_id" id="lokasi_id" class="form-control" data-dependent="lokasi">
+                                        <option value="">- Pilih Lokasi -</option>
+                                        @foreach ($lokasi as $lokasi)
+                                            <option value="{{ $lokasi->id }}">{{ $lokasi->lokasi }}</option>
+                                        @endforeach
+                                        {{-- @foreach ($lokasis as $lokasi )
+                                        <option value="{{$lokasi->id}}"
+                                            {{old('lokasi_id')==$lokasi->id? 'selected' :null}}>
+                                            {{$lokasi->lokasi}}</option>
+
+                                        @endforeach --}}
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>No Loker<span style="color:red"> *</span></label>
                                     <input type="text" class="form-control" placeholder="No Loker" name="noLoker"
-                                    value=" {{ $guest['noLoker'] }} "  >
+                                        value="{{ old('noLoker')}}" required>
                                 </div>
-                                <div class="form-group col-md-6" id="star">
-                                    {{-- <label @error('lokasi_id') class="text-danger" @enderror>Lokasi* :  @error('lokasi_id') | {{$message}}
-                                    @enderror</label><br> --}}
-                                    {{-- <label class="text-black" @enderror>Lokasi: </label><br> --}}
-                                    <label>Lokasi<span style="color:red"> *</span></label>
-                                    <select name="lokasi_id" class="form-control">
-                                        <option value="">- Pilih Lokasi -</option>
+                                {{-- <label>No Rack<span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" placeholder="No Rack" name="noRack"
+                                        value="{{ old('noRack')}}" required> --}}
+                                <div class="form-group col-md-6">
+                                    <div class="row align-items-start" style="margin-left: 15px;">
+                                        <div class="col">
+                                          Lantai
+                                          <select class="form-control" name="lantai_id" id="lantai_id" data-dependent="lantai">
+                                                <option value="0" selected="true"> Pilih Lantai </option>
+                                        </select>
 
-                                        @foreach ($lokasis as $lokasi )
-                                        <option value="{{$lokasi->id}}"
-                                            {{old('lokasi_id')==$lokasi->id? 'selected' :null}}>
-                                            {{$lokasi->lokasi}}</option>
-
-                                        @endforeach
+                                        </div>
+                                        <div class="col">
+                                          Ruang
+                                          <select class="form-control" name="ruangan_id" id="ruangan_id" data-dependent="ruangan">
+                                            <option value="0" selected="true"> Pilih Ruangan </option>
                                     </select>
+                                        </div>
+                                        <div class="col">
+                                          No. Rack
+                                          <input type="text" class="form-control" placeholder="No Rack" name="noRack"
+                                        value="{{ old('noRack')}}" required>
+                                        </div>
+                                      </div>
                                 </div>
+                                <script type="text/javascript">
+                                jQuery(document).ready(function ($) {
+                                    $('#lokasi_id').on('change', function(e){
+                                        console.log(e);
+                                        var id_lokasi = e.target.value;
+                                        $.get('/json-lantai?id=' + id_lokasi, function(data){
+                                            console.log(data);
+                                            $('#lantai_id').empty();
+                                            $('#lantai_id').append('<option value="0" selected="true"> Pilih Lantai</option>');
+
+                                            $('#ruangan_id').empty();
+                                            $('#ruangan_id').append('<option value="0" selected="true"> Pilih Ruangan</option>');
+                                            
+                                            $.each(data, function(index, lantaiObj){
+                                                $('#lantai_id').append('<option value="' + lantaiObj.id_lantai +'">' + lantaiObj.name_lantai +'</option>');
+                                            })
+                                          });
+                                    });
+
+                                    $('#lantai_id').on('change', function(e){
+                                        console.log(e);
+                                        var id_lantai = e.target.value;
+                                        $.get('/json-ruangan?id_lantai=' + id_lantai, function(data){
+                                            console.log(data);
+                                            $('#ruangan_id').empty();
+                                            $('#ruangan_id').append('<option value="0" selected="true"> Pilih Ruangan</option>');
+                                            
+                                            $.each(data, function(index, ruanganObj){
+                                                $('#ruangan_id').append('<option value="' + ruanganObj.id_ruang +'">' + ruanganObj.name_ruang +'</option>');
+                                            })
+                                          });
+                                    });
+                                });
+                                </script>
+                                
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">

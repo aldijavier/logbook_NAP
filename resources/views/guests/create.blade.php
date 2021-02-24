@@ -41,7 +41,7 @@ function submitbtn(){
                                     {{-- <button class="disable" type="button" style="margin-left: 0px;" id='btnTest'
                                         onclick="getElementById('guestsid').value=Math.floor(Math.random()*10000)">Create
                                         ID Number</button> --}}
-                                    <input onclick="getElementById('guestsid').value=Math.floor(Math.random()*10000); var e=this;setTimeout(function(){e.disabled=false;},0);return true;" style="width: 50%" id="guestsid" name="guestsid" value="{{ old('guestsid')}}" required />
+                                    <input onclick="getElementById('guestsid').value=Math.floor(Math.random()*10000); var e=this;setTimeout(function(){e.disabled=true;},0);return true;" style="width: 50%" id="guestsid" name="guestsid" value="{{ old('guestsid')}}" required />
                                 </div>
                             </div>
                             <div class="form-row justify-content-center">
@@ -108,7 +108,6 @@ function submitbtn(){
                                         @endforeach --}}
                                     </select>
                                 </div>
-                                
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
