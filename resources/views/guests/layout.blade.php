@@ -88,56 +88,53 @@
 
             $("#test").on("input", function() {
               if (/^9/.test(this.value)) {
-                this.value = this.value.replace(/^9/, "")
+                this.value = this.value.replace(/^9/, "0")
               }
               if (/^8/.test(this.value)) {
-                this.value = this.value.replace(/^8/, "")
+                this.value = this.value.replace(/^8/, "0")
               }
               if (/^7/.test(this.value)) {
-                this.value = this.value.replace(/^7/, "")
+                this.value = this.value.replace(/^7/, "0")
               }
               if (/^61/.test(this.value)) {
-                this.value = this.value.replace(/^61/,)
+                this.value = this.value.replace(/^61/, "62")
               }
               if (/^63/.test(this.value)) {
-                this.value = this.value.replace(/^63/,)
+                this.value = this.value.replace(/^63/, "62")
               }
               if (/^64/.test(this.value)) {
-                this.value = this.value.replace(/^64/,)
-              }
-              if (/^65/.test(this.value)) {
-                this.value = this.value.replace(/^65/,)
+                this.value = this.value.replace(/^64/, "62")
               }
               if (/^66/.test(this.value)) {
-                this.value = this.value.replace(/^66/,)
+                this.value = this.value.replace(/^66/, "62")
               }
               if (/^67/.test(this.value)) {
-                this.value = this.value.replace(/^67/,)
+                this.value = this.value.replace(/^67/, "62")
               }
               if (/^68/.test(this.value)) {
-                this.value = this.value.replace(/^68/,)
+                this.value = this.value.replace(/^68/, "62")
               }
               if (/^69/.test(this.value)) {
-                this.value = this.value.replace(/^69/,)
+                this.value = this.value.replace(/^69/, "62")
               }
               if (/^60/.test(this.value)) {
-                this.value = this.value.replace(/^60/,)
+                this.value = this.value.replace(/^60/, "62")
               }
           
               if (/^5/.test(this.value)) {
-                this.value = this.value.replace(/^5/, "")
+                this.value = this.value.replace(/^5/, "0")
               }
               if (/^4/.test(this.value)) {
-                this.value = this.value.replace(/^4/, "")
+                this.value = this.value.replace(/^4/, "0")
               }
               if (/^3/.test(this.value)) {
-                this.value = this.value.replace(/^3/, "")
+                this.value = this.value.replace(/^3/, "0")
               }
               if (/^2/.test(this.value)) {
-                this.value = this.value.replace(/^2/, "")
+                this.value = this.value.replace(/^2/, "0")
               }
               if (/^1/.test(this.value)) {
-                this.value = this.value.replace(/^1/, "")
+                this.value = this.value.replace(/^1/, "0")
               }
             })
             </script>           

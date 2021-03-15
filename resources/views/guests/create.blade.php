@@ -59,12 +59,18 @@
                                     <input type="text" class="form-control" placeholder="Name" name="name" required
                                         value="{{ old('name')}}">
                                 </div>
+                                {{-- <script type="text/javascript">
+                                        $("#test").on("input", function () {
+                                            
+                                        })
+                                </script> --}}
                                 <div class="form-group col-md-6">
                                     <label>Telephone<span style="color:red"> *</span></label>
-                                    <input id="test" type="tel" pattern="0.+" title="Must start with 0"
+                                    <input id="test" title="Must start with 0"
                                         class="form-control" placeholder="Telephone" name="telephone"
                                         value="{{ old('telephone')}}" maxlength=13 required>
                                 </div>
+                                {{-- pattern="0.+" --}}
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -226,44 +232,7 @@
                             </div><br />
                         </div>
                     </div><br />
-                    <?php 
-                    if (isset($_POST['submit'])) {
-                    // mengambil nomor handphone telah diinput
-                    $handphone = $_POST['handphone'];
-                    // menghitung jumlah digit nomor handphone tanpa kode negara (+62)
-                    $jumlah_digit_handphone = strlen(substr($handphone, 3));
-                    // nomor handphone yang ditampilkan jika berjumlah 9 digit
-                    if ($jumlah_digit_handphone == 9) {
-                        $tampil_handphone = "+62 " . substr($handphone, 3, 3) . "-" . substr($handphone, 6, 3) . "-" . substr($handphone, 9, 3);
-                    }
-                    // nomor handphone yang ditampilkan jika berjumlah 10 digit
-                    if ($jumlah_digit_handphone == 10) {
-                        $tampil_handphone = "+62 " . substr($handphone, 3, 3) . "-" . substr($handphone, 6, 4) . "-" . substr($handphone, 10, 3);
-                    }
-                    // nomor handphone yang ditampilkan jika berjumlah 11 digit
-                    if ($jumlah_digit_handphone == 11) {
-                        $tampil_handphone = "+62 " . substr($handphone, 3, 3) . "-" . substr($handphone, 6, 4) . "-" . substr($handphone, 10, 4);
-                    }
-                    // nomor handphone yang ditampilkan jika berjumlah 12 digit
-                    if ($jumlah_digit_handphone == 12) {
-                        $tampil_handphone = "+62 " . substr($handphone, 3, 3) . "-" . substr($handphone, 6, 4) . "-" . substr($handphone, 10, 5);
-                    }
-                    // validasi inputan nomor handphone
-                    if (!preg_match("/^[0-9|(\+|)]*$/", $handphone) OR strlen(strpos($handphone, "+", 1)) > 0) {
-                        echo "<strong>Handphone hanya boleh menggunakan angka dan diawali simbol +</strong>";
-                    }
-                    else if (substr($handphone, 0, 3) != "+62" ) {
-                        echo "<strong>Handphone harus diawali dengan kode negara +62</strong>";
-                    }
-                    else if (substr($handphone, 3, 1) == "0" ) {
-                        echo "<strong>Handphone tidak boleh diikuti dengan angka 0 setelah kode negara</strong>";
-                    }
-                    else {
-                    // menampilkan nomor handphone
-                        echo "<strong>Handphone : $tampil_handphone</strong>";
-                    }                
-                }
-                ?>
+
                     <div class="text-center" style="margin-left: 50px;">
                         <button class="btn btn-primary mr-1" style="background-color: #151A48" value="submit"> Submit
                         </button>
