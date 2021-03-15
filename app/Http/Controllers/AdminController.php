@@ -90,7 +90,7 @@ class AdminController extends Controller
             }
 
             if ($request->has('guestprint')){
-                $guests = Guest::leftJoin('lokasis', 'lokasis.id', 'guests.lokasi_id')
+                $guests = Guest::withTrashed()->leftJoin('lokasis', 'lokasis.id', 'guests.lokasi_id')
             ->select(
                 'guests.*',
                 'lokasis.lokasi as lokasi'

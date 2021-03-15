@@ -93,13 +93,14 @@
     #jake figure img{
       margin-top: 10px;
       margin-left: 35px;
+      margin-left: -90px;
     }
   }
 
   @media only screen and (min-width: 1401px) {
     #jake figure figcaption{
       margin-top: 10px;
-      margin-left: 35px;
+      margin-left: -90px;
     }
   }
 
@@ -109,6 +110,14 @@
       margin-left: 35px;
     }
   }
+
+
+
+
+
+
+
+  
 
   .flex {
     display: flex;

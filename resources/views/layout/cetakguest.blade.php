@@ -7,7 +7,7 @@
             .portrait {page: port;}
             .landscape {page: land;}
             </style>
-        <title> GUESTBOOK-NAP</title>
+        <title> Logbook NAP</title>
     </head>
 <body class="landscape">
     <div class="card-header table-responsive">
@@ -27,17 +27,20 @@
             <th  class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Foto </th>
             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Durasi </th>
             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Lokasi </th>
+            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Ruangan </th>
+            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Lantai </th>
+            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Service </th>
+            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Infrastructure </th>
+            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Clean </th>
             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Remarks </th>
         </tr>
     </thead>
         <tbody>
 @foreach ($guests as $guest)
     <tr>
-      
-
         <td style="  border: 0.1px solid;">{{ $loop->iteration}} </td>
         <td style=" border: 0.1px solid;">{{$guest->datein}}</td>
-        <td style="  border: 0.1ch solid;">{{$guest->dateout}}</td>
+        <td style="  border: 0.1px solid;">{{$guest->dateout}}</td>
         <td style="  border: 0.1px solid;">{{$guest->name}}</td>
         <td style="  border: 0.1px solid;">{{$guest->telephone}}</td>
         <td style="  border: 0.1px solid;">{{$guest->company}}</td>
@@ -47,13 +50,21 @@
         <td style="  border: 0.1px solid;">{{$guest->noLoker}}</td>
         <td style="  border: 0.1px solid;">
             @if($guest->foto)
-                    <img src="/image/{{$guest->foto}}" width="60" height="70" alt="" ></a>     
-                    @else
-                <i>NULL</i>
-            @endif
+                            {{-- <a href="" onclick="window.open('/image/{{$guest->foto}}','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1090px, height=550px, top=25px left=120px' ); return false;">  --}}
+                                {{-- <a data-fancybox="gallery" href="/image/{{$guest->foto}}"> --}}
+                                    <a href="#" class="pop">
+                                    <img src="{{ asset('/storage/photos/' . $guest->foto) }}" width="60" height="60" alt="" ></a>
+                                    @else
+                                <i>NULL</i>
+                            @endif
         </td>
         <td style="white-space: nowrap !important; border: 0.1px solid;">{{$guest->durasi}}</td>
         <td style="  border: 0.1px solid;">{{$guest->lokasi}}</td>
+        <td style="  border: 0.1px solid;">{{$guest->ruang}}</td>
+        <td style="  border: 0.1px solid;">{{$guest->lantai}}</td>
+        <td style="  border: 0.1px solid;">{{$guest->service_quality}}</td>
+        <td style="  border: 0.1px solid;">{{$guest->infrastructure_quality}}</td>
+        <td style="  border: 0.1px solid;">{{$guest->clean_quality}}</td>
         <td style="  border: 0.1px solid;">{{$guest->remarks}}</td>
       
 @endforeach

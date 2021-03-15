@@ -40,11 +40,11 @@
                         <p > .<button  style="margin-left: 10px; type="submit" class="btn btn-primary mr-1" > <i class="fa fa-search" aria-hidden="true"></i></button> </p>
                         <p> .<a  class="btn btn-primary mr-1" href="{{url('/admin')}}"> <i class="fa fa-history" aria-hidden="true"></i></a></p>
                        <p>. <button name="guestexport" class="btn btn-success mr-1"> <i class="fa fa-file-excel-o" aria-hidden="true"></i></button></p>
-                        {{-- <p>. <a class="btn btn-success mr-1" onClick="PrintPage('print')"><i class="fa fa-print" aria-hidden="true"></i></a></p> --}}
-                        {{-- <p>. <a  href="{{route('l_guest')}}" target="_blank" class="btn btn-success mr-1"> <i class="fa fa-print" aria-hidden="true"></i></a></p> --}}
-                        {{-- <p>. <a  href="" onclick="this.href='/cetakguest/'+document.getElementById('search1').value+'/'+document.getElementById('search2').value" target="_blank" class="btn btn-success mr-1"> <i class="fa fa-print" aria-hidden="true"></i></a></p> --}}
+                        {{-- <p>. <a class="btn btn-success mr-1" onClick="PrintPage('print')"><i class="fa fa-print" aria-hidden="true"></i></a></p>
+                        <p>. <a  href="{{route('l_guest')}}" target="_blank" class="btn btn-success mr-1"> <i class="fa fa-print" aria-hidden="true"></i></a></p>
+                        <p>. <a  href="" onclick="this.href='/cetakguest/'+document.getElementById('search1').value+'/'+document.getElementById('search2').value" target="_blank" class="btn btn-success mr-1"> <i class="fa fa-print" aria-hidden="true"></i></a></p> --}}
                             {{-- <p>. <a  href="{{url('/print_siswa')}}" target="_blank" class="btn btn-success mr-1"> <i class="fa fa-print" aria-hidden="true"></i></a></p> --}}
-                            {{-- <p>. <button type="submit" name="guestprint"  class="btn btn-success mr-1" formtarget="_blank"> <i class="fa fa-print" aria-hidden="true"></i></button></p> --}}
+                            <p>. <button type="submit" name="guestprint"  class="btn btn-success mr-1" formtarget="_blank"> <i class="fa fa-print" aria-hidden="true"></i></button></p>
                   
                     </div>
                 </div>

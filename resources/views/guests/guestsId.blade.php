@@ -116,7 +116,7 @@ function submitbtn(){
                                 <div class="form-group col-md-6">
                                     <label>No Loker<span style="color:red"> *</span></label>
                                     <input type="text" class="form-control" placeholder="No Loker" name="noLoker"
-                                        value="{{ old('noLoker')}}" required>
+                                    value=" {{ $guest['noLoker'] }} "" required>
                                 </div>
                                 {{-- <label>No Rack<span style="color:red"> *</span></label>
                                     <input type="text" class="form-control" placeholder="No Rack" name="noRack"
@@ -139,7 +139,7 @@ function submitbtn(){
                                         <div class="col">
                                           No. Rack
                                           <input type="text" class="form-control" placeholder="No Rack" name="noRack"
-                                        value="{{ old('noRack')}}" required>
+                                          value=" {{ $guest['noRack'] }} " " required>
                                         </div>
                                       </div>
                                 </div>
