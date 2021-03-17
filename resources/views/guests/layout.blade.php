@@ -136,6 +136,33 @@
               if (/^1/.test(this.value)) {
                 this.value = this.value.replace(/^1/, "0")
               }
+              if (/^1/.test(this.value)) {
+                this.value = this.value.replace(/^1/, "0")
+              }
+              if (/^+61/.test(this.value)) {
+                this.value = this.value.replace(/^+61/, "+62")
+              }
+              if (/^+63/.test(this.value)) {
+                this.value = this.value.replace(/^+63/, "+62")
+              }
+              if (/^+64/.test(this.value)) {
+                this.value = this.value.replace(/^+64/, "+62")
+              }
+              if (/^+66/.test(this.value)) {
+                this.value = this.value.replace(/^+66/, "+62")
+              }
+              if (/^+67/.test(this.value)) {
+                this.value = this.value.replace(/^+67/, "+62")
+              }
+              if (/^+68/.test(this.value)) {
+                this.value = this.value.replace(/^+68/, "+62")
+              }
+              if (/^+69/.test(this.value)) {
+                this.value = this.value.replace(/^+69/, "+62")
+              }
+              if (/^+60/.test(this.value)) {
+                this.value = this.value.replace(/^+60/, "+62")
+              }
             })
             </script>           
         <!-- Copyright -->

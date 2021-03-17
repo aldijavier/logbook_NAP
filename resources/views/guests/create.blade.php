@@ -78,9 +78,15 @@
                                     <input type="text" class="form-control" placeholder="Company" name="company"
                                         value="{{ old('company')}}" required>
                                 </div>
+                                <style>
+                                    .form-lower{
+                                        text-transform: lowercase;
+                                    }
+                                  }
+                                  </style>
                                 <div class="form-group col-md-6">
                                     <label>Email<span style="color:red"> *</span></label>
-                                    <input type="email" class="form-control" placeholder="Email" name="email"
+                                    <input type="email" class="form-control form-lower" placeholder="Email" name="email"
                                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="{{ old('email')}}"
                                         required>
                                 </div>
