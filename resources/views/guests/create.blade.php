@@ -181,12 +181,12 @@
                                                 console.log(data);
                                                 $('#lantai_id').empty();
                                                 $('#lantai_id').append(
-                                                    '<option value="0" selected="true"> Pilih Lantai</option>'
+                                                    '<option value="0" selected="true"> Choose Floor</option>'
                                                 );
 
                                                 $('#ruangan_id').empty();
                                                 $('#ruangan_id').append(
-                                                    '<option value="0" selected="true"> Pilih Ruangan</option>'
+                                                    '<option value="0" selected="true"> Choose Room</option>'
                                                 );
 
                                                 $.each(data, function (index, lantaiObj) {
@@ -207,7 +207,7 @@
                                                 console.log(data);
                                                 $('#ruangan_id').empty();
                                                 $('#ruangan_id').append(
-                                                    '<option value="0" selected="true"> Pilih Ruangan</option>'
+                                                    '<option value="0" selected="true"> Choose Room</option>'
                                                 );
 
                                                 $.each(data, function (index, ruanganObj) {
