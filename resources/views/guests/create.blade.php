@@ -112,10 +112,10 @@
                                             {{ old('activity') == "Keluar Barang" ? 'selected' : '' }}>Stuff Out
                                         </option>
                                         <option value="Survey"
-                                            {{ old('activity') == "Survey" ? 'selected' : '' }}>Survey Barang
+                                            {{ old('activity') == "Survey" ? 'selected' : '' }}>Survey
                                         </option>
                                         <option value="Terminated"
-                                            {{ old('activity') == "Terminated" ? 'selected' : '' }}>Terminated Barang
+                                            {{ old('activity') == "Terminated" ? 'selected' : '' }}>Terminated
                                         </option>
                                     </select>
                                 </div>
