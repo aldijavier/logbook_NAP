@@ -98,7 +98,7 @@
                                         <option value="">- Choose Activity -</option>
                                         <option value="Instalasi"
                                             {{ old('activity') == "Instalasi" ? 'selected' : '' }}>
-                                            Instalasi</option>
+                                            Installation</option>
                                         <option value="Maintenance"
                                             {{ old('activity') == "Maintenance" ? 'selected' : '' }}>Maintenance
                                         </option>
