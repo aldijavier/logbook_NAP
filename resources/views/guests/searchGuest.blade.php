@@ -8,9 +8,9 @@
             {{ csrf_field() }}
             <div class="input-group">
                 <input type="text" class="form-control" name="q" required
-                    placeholder="Cari Tamu"> <span class="input-group-btn">
+                    placeholder="Find Guest"> <span class="input-group-btn">
                     <button type="submit" class="btn btn-success" style="margin-left: 10px;">
-                        <span class="glyphicon glyphicon-search">Cari</span>
+                        <span class="glyphicon glyphicon-search">Search!</span>
                     </button>
                 </span>
             </div>
@@ -33,7 +33,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="container" style="margin-top: 3%;">
-                <h3 class="text-center" >Masukkan Nomor Telephone Anda</h3>
+                <h3 class="text-center" >Please Input your Phone Number</h3>
             </div>
 
                 {{-- <div class="row" style="margin-top: 3%;">

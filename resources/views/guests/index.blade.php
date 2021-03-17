@@ -31,7 +31,7 @@
                     }
                 }
                 </style>
-                <h3 class="text-center" style="margin-top: -50px;">Daftar tamu terkini</h3>
+                <h3 class="text-center" style="margin-top: -50px;">List Guests</h3>
             </div>
                 <div class="row" style="margin-top: 3%;">
                                     @if ($guests)
@@ -50,9 +50,9 @@
                       <div class="card-body">
                         <h5 class="card-title text-dark">{{ $guest->name }} </h5>
                         <h5 class="card-text text-dark">{{ $guest->datein }} </h5>
-                        <p class="card-text text-dark">Aktivitas : {{ $guest->activity }}</p>
-                        <p class="card-text text-dark">Nomor Rack: {{ $guest->noRack }}</p>
-                        <p class="card-text text-dark">Nomor Loker: {{ $guest->noLoker }}</p>
+                        <p class="card-text text-dark">Activity : {{ $guest->activity }}</p>
+                        <p class="card-text text-dark">Number Rack: {{ $guest->noRack }}</p>
+                        <p class="card-text text-dark">Number Locker: {{ $guest->noLoker }}</p>
                         <div class="card-footer" style="width: 116.5%; padding-left:50px; margin-left:-20px; margin-top: 30px; background-color: #151A48;">
                             <p class="text-white" style="padding-left: 17px; padding-top:1px;">{{ $guest->company }}</p>
                           </div> 

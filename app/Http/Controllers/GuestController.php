@@ -292,7 +292,7 @@ class GuestController extends Controller
         $guests = Guest::where( 'telephone', 'LIKE', '%' . $q . '%')->whereIn( 'id_status', [1])->paginate (1);
         // ->orWhere ( 'dari', 'LIKE', '%' . $q . '%' )
         if (count ( $guests ) > 0) {
-	        Session::flash('info', 'Beberapa tamu yang mungkin anda cari !'); 
+	        Session::flash('info', 'Some of the guests you might be looking for!'); 
 	        return view('guests.searchresult',compact('guests'))
 	            ->with('i', (request()->input('page', 1) - 1) * 1);
         } else {
@@ -314,7 +314,7 @@ public function searchGuest (Request $request) {
     // ->orWhere ( 'dari', 'LIKE', '%' . $q . '%' )
     if (count ( $guests ) > 0) {
         $lokasi = Lokasi::all();
-        Session::flash('info', 'Beberapa tamu yang mungkin anda cari !'); 
+        Session::flash('info', 'Some of the guests you might be looking for!'); 
         return view('guests.guestsId',compact('guests', 'lokasi'))
             ->with('i', (request()->input('page', 1) - 1) * 1);
     }else {

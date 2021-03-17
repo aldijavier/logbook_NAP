@@ -117,10 +117,10 @@
                                     {{-- <label @error('lokasi_id') class="text-danger" @enderror>Lokasi* :  @error('lokasi_id') | {{$message}}
                                     @enderror</label><br> --}}
                                     {{-- <label class="text-black" @enderror>Lokasi: </label><br> --}}
-                                    <label>Lokasi<span style="color:red"> *</span></label>
+                                    <label>Location<span style="color:red"> *</span></label>
                                     <select name="lokasi_id" id="lokasi_id" class="form-control"
                                         data-dependent="lokasi">
-                                        <option value="">- Pilih Lokasi -</option>
+                                        <option value="">- Choose Location -</option>
                                         @foreach ($lokasi as $lokasi)
                                         <option value="{{ $lokasi->id }}">{{ $lokasi->lokasi }}</option>
                                         @endforeach
@@ -145,18 +145,18 @@
                                 <div class="form-group col-md-6">
                                     <div class="row align-items-start" style="margin-left: 15px;">
                                         <div class="col">
-                                            Lantai
+                                            Floor
                                             <select class="form-control" name="lantai_id" id="lantai_id"
                                                 data-dependent="lantai">
-                                                <option value="0" selected="true"> Pilih Lantai </option>
+                                                <option value="0" selected="true"> Choose Lantai </option>
                                             </select>
 
                                         </div>
                                         <div class="col">
-                                            Ruang
+                                            Room
                                             <select class="form-control" name="ruangan_id" id="ruangan_id"
                                                 data-dependent="ruangan">
-                                                <option value="0" selected="true"> Pilih Ruangan </option>
+                                                <option value="0" selected="true"> Choose Ruangan </option>
                                             </select>
                                         </div>
                                         <div class="col">

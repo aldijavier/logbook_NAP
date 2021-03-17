@@ -35,7 +35,7 @@
                     <a class="nav-link btn pull-right text-white" href="#">Guests Book</i> </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn pull-right text-white" href="/guests/chooseuser">Tambah tamu <i
+                    <a class="nav-link btn pull-right text-white" href="/guests/chooseuser">Add Guests <i
                             class="fa fa-group"></i> </a>
                 </li>
                 <li class="nav-item">

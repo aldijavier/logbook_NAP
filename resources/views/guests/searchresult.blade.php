@@ -21,7 +21,7 @@
             {{ csrf_field() }}
             <div class="input-group">
                 <input type="text" class="form-control" name="q"
-                    placeholder="Cari Tamu"> <span class="input-group-btn">
+                    placeholder="Find Guest"> <span class="input-group-btn">
                     <button type="submit" class="btn btn-success"  style="margin-left: 10px;"> 
                         <span class="glyphicon glyphicon-search">Cari</span>
                     </button>
@@ -108,9 +108,9 @@
                           <label>Date out : </label>
                             <div id="time" style="background-color: #ecf0f1; border: 1px dashed grey; height: auto; margin: 1px 0px; padding: 3px; text-align: left; width: auto;">   
                             </div>  
-                          <p class="card-text text-dark">Aktivitas : {{ $guest->activity }}</p>
-                          <p class="card-text text-dark">Nomor Rack: {{ $guest->noRack }}</p>
-                          <p class="card-text text-dark">Nomor Loker: {{ $guest->noLoker }}</p>
+                          <p class="card-text text-dark">Activity : {{ $guest->activity }}</p>
+                          <p class="card-text text-dark">Number Rack: {{ $guest->noRack }}</p>
+                          <p class="card-text text-dark">Number Loker: {{ $guest->noLoker }}</p>
                           
                         {{-- <form action="{{ route('guests.destroy',$guest->id) }}" method="POST"> --}}
                         {{-- <a class="btn btn-primary" href="{{ route('guests.edit',$guest->id) }}">Edit</a> --}}
