@@ -106,10 +106,16 @@
                                             {{ old('activity') == "Troubleshoot" ? 'selected' : '' }}>Troubleshoot
                                         </option>
                                         <option value="Masuk Barang"
-                                            {{ old('activity') == "Masuk Barang" ? 'selected' : '' }}>Masuk Barang
+                                            {{ old('activity') == "Masuk Barang" ? 'selected' : '' }}>Stuff IN
                                         </option>
                                         <option value="Keluar Barang"
-                                            {{ old('activity') == "Keluar Barang" ? 'selected' : '' }}>Keluar Barang
+                                            {{ old('activity') == "Keluar Barang" ? 'selected' : '' }}>Stuff Out
+                                        </option>
+                                        <option value="Survey"
+                                            {{ old('activity') == "Survey" ? 'selected' : '' }}>Survey Barang
+                                        </option>
+                                        <option value="Terminated"
+                                            {{ old('activity') == "Terminated" ? 'selected' : '' }}>Terminated Barang
                                         </option>
                                     </select>
                                 </div>
