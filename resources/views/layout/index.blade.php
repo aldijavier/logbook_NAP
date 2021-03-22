@@ -16,7 +16,7 @@
                     <div class="card-body text-left">
                         {{-- <a class="btn btn-icon icon-left btn-info" href="{{url('guests/create')}}" name="btnIn" ><i class="fa fa-plus" aria-hidden="true" > Add Guest</i></a> --}}
                     </div>
-                    <p> Search:   <input type="text"  name="search1" id="search1" class="form-control" placeholder="Search" value="{{request()->get('search1')}}"></p>
+                    <p> Search Company:   <input type="text"  name="searchAll" id="searchAll" class="form-control" placeholder="Input your company" value="{{request()->get('searchAll')}}"></p>
                     <span></span>&nbsp;&nbsp;&nbsp;
                     <span class="input-group-prepend">
                         <div class="col-md-3.5">

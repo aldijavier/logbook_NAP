@@ -31,10 +31,11 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
+    {   
             $search = $request->get('search');
             $search1 = $request->get('search1');
             $search2 = $request->get('search2');
+            $searchAll = $request->get('searchAll');
           
             $guests = DB::table('guests');
 
@@ -78,6 +79,10 @@ class AdminController extends Controller
             if($search){
                 $guests=$guests->where('lokasi_id','like','%'.$search.'%');
             }
+            
+            if($searchAll){
+                $guests=$guests->where('company','like','%'.$searchAll.'%');
+            }
 
            
             $guests = $guests->withTrashed()->orderBy('id','desc')->paginate(10);
@@ -86,7 +91,7 @@ class AdminController extends Controller
             if($request->has('guestexport')){
 
                 $name_file = 'Guest_'.date('Y-m-d H:i:s').'.xlsx';
-                 return Excel::download(new GuestExport($search1,$search2, $search), $name_file);
+                 return Excel::download(new GuestExport($search1,$search2, $search, $searchAll), $name_file);
             }
 
             if ($request->has('guestprint')){
@@ -114,6 +119,10 @@ class AdminController extends Controller
                 
                 if($search){
                     $guests=$guests->where('lokasi_id','like','%'.$search.'%');
+                }
+
+                if($searchAll){
+                    $guests=$guests->where('company','like','%'.$searchAll.'%');
                 }
     
                

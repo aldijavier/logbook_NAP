@@ -34,6 +34,7 @@ class GuestExport implements WithHeadings,ShouldAutoSize, FromQuery
     protected $search1;
     protected $search2;
     protected $search;
+    protected $searchAll;
     // public function __construct(String $search = null,String $search1 = null , String $search2 = null)
     // {
     //     // $this->search = $search;
@@ -44,11 +45,12 @@ class GuestExport implements WithHeadings,ShouldAutoSize, FromQuery
     // }
     
 
-    function __construct($search1,$search2, $search) {
+    function __construct($search1,$search2, $search, $searchAll) {
      
         $this->search1 = $search1;
         $this->search2 = $search2;
         $this->search = $search;
+        $this->searchAll = $searchAll;
     }
 
     // public function collection()
@@ -101,6 +103,10 @@ class GuestExport implements WithHeadings,ShouldAutoSize, FromQuery
 
         if($this->search){
             $guests=$guests->where('lokasi_id','like','%'.$this->search.'%');
+        }
+
+        if($this->searchAll){
+            $guests=$guests->where('company','like','%'.$this->searchAll.'%');
         }
 
         $guests = $guests->orderBy('id');
