@@ -19,7 +19,7 @@ class Guest extends Model
     // protected $guarded = ['id'];
     protected $fillable = [
         'datein', 'dateout', 'guestid', 'name', 'telephone','company', 'email', 
-        'activity', 'noRack', 'noLoker', 'lokasi_id', 'lantai_id', 'ruangan_id', 'remarks', 
+        'activity', 'noRack', 'noLoker', 'lokasi_id', 'lantai_id', 'ruangan_id', 'access', 'remarks', 
         'durasi', 'foto', 'service_quality', 'infrastructure_quality','clean_quality','id_status'
     ];
     public function lokasi(){

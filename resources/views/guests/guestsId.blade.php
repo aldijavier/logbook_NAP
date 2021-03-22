@@ -35,7 +35,7 @@ function submitbtn(){
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6">
                                     <label>Date in : </label>
-                                    <div id="time"
+                                    <div  id="time"
                                         style="background-color: #ecf0f1; border: 1px dashed grey; height: auto; margin: 1px 0px; padding: 3px; text-align: left; width: auto;">
                                     </div>
                                 </div>
@@ -114,7 +114,7 @@ function submitbtn(){
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label>No Loker<span style="color:red"> *</span></label>
+                                    <label>No Loker</label>
                                     <input type="text" class="form-control" placeholder="No Loker" name="noLoker"
                                     value=" {{ $guest['noLoker'] }} "" required>
                                 </div>
@@ -184,6 +184,11 @@ function submitbtn(){
                                     <label>Remarks: </label>
                                     <textarea type="text" class="form-control" placeholder="Leave your comments"
                                         name="remarks"></textarea>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Access Card: </label>
+                                    <input type="text" class="form-control" placeholder="Input your access card number"
+                                        name="access"/>
                                 </div>
                             </div>
                             <div class="cam">

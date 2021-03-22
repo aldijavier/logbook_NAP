@@ -32,6 +32,7 @@
             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Service </th>
             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Infrastructure </th>
             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Clean </th>
+            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Access </th>
             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Remarks </th>
         </tr>
     </thead>
@@ -65,6 +66,7 @@
         <td style="  border: 0.1px solid;">{{$guest->service_quality}}</td>
         <td style="  border: 0.1px solid;">{{$guest->infrastructure_quality}}</td>
         <td style="  border: 0.1px solid;">{{$guest->clean_quality}}</td>
+        <td style="  border: 0.1px solid;">{{$guest->access}}</td>
         <td style="  border: 0.1px solid;">{{$guest->remarks}}</td>
       
 @endforeach

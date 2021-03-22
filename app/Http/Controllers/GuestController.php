@@ -117,8 +117,11 @@ class GuestController extends Controller
             'company' => 'required',
             'activity' => 'required',
             'noRack' => 'required',
-            'noLoker' => 'required',
-            'telephone' => 'required|numeric|min:9'
+            // 'noLoker' => 'required',
+            'foto' => 'required',
+            'telephone' => 'required|numeric|min:9',
+            'foto' => 'required',
+            'access' => 'required'
          ]);
         $requestData = $request->all();
  
@@ -147,6 +150,7 @@ class GuestController extends Controller
             $guest->lantai_id = $request->input('lantai_id');
             $guest->ruangan_id = $request->input('ruangan_id');
             $guest->noRack = $request->input('noRack');
+            $guest->access = $request->input('access');
             $guest->remarks = $request->input('remarks');
             $guest->id_status = $id_status;
             $guest->foto = $namafoto;

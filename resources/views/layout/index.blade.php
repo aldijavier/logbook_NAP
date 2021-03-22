@@ -15,7 +15,9 @@
                 <div class="input-group-prepend">
                     <div class="card-body text-left">
                         {{-- <a class="btn btn-icon icon-left btn-info" href="{{url('guests/create')}}" name="btnIn" ><i class="fa fa-plus" aria-hidden="true" > Add Guest</i></a> --}}
-                    </div> 
+                    </div>
+                    <p> Search:   <input type="text"  name="search1" id="search1" class="form-control" placeholder="Search" value="{{request()->get('search1')}}"></p>
+                    <span></span>&nbsp;&nbsp;&nbsp;
                     <span class="input-group-prepend">
                         <div class="col-md-3.5">
                         <p> Lokasi :  <select name="search" id="search" class="form-control" ></p>
@@ -110,6 +112,7 @@
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Lokasi </th>
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Ruangan </th>
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Lantai </th>
+                            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Access </th>
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Remarks </th>
                             
                             <th class="text-center" scope="col" style=" width: 10px; white-space: nowrap !important;background-color:#336699">Service</th>
@@ -151,6 +154,7 @@
                         <td>{{$guest->lokasi}}</td>
                         <td>{{$guest->ruang}}</td>
                         <td>{{$guest->lantai}}</td>
+                        <td>{{$guest->access}}</td>
                         <td>{{$guest->remarks}}</td>
                         
                         <td>{{$guest->service_quality}}</td>

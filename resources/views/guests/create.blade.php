@@ -141,7 +141,8 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label>No Loker<span style="color:red"> *</span></label>
+                                    {{-- <span style="color:red"> *</span> --}}
+                                    <label>No Loker</label>
                                     <input type="text" class="form-control" placeholder="No Loker" name="noLoker"
                                         value="{{ old('noLoker')}}" required>
                                 </div>
@@ -228,6 +229,11 @@
                                     <label>Remarks: </label>
                                     <textarea type="text" class="form-control" placeholder="Leave your comments"
                                         name="remarks"></textarea>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Access Card: </label>
+                                    <input type="text" class="form-control" placeholder="Input your access card number"
+                                        name="access"/>
                                 </div>
 
                             </div>

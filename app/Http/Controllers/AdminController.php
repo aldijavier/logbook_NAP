@@ -90,10 +90,12 @@ class AdminController extends Controller
             }
 
             if ($request->has('guestprint')){
-                $guests = Guest::withTrashed()->leftJoin('lokasis', 'lokasis.id', 'guests.lokasi_id')
+                $guests = Guest::withTrashed()->leftJoin('lokasis', 'lokasis.id', 'guests.lokasi_id')->leftJoin('ruangs', 'ruangs.id_ruang', 'guests.ruangan_id')->leftJoin('lantais', 'lantais.id_lantai', 'guests.lantai_id')
             ->select(
                 'guests.*',
-                'lokasis.lokasi as lokasi'
+                'lokasis.lokasi as lokasi',
+                'ruangs.name_ruang as ruang',
+                'lantais.name_lantai as lantai',
             );      
                 $search = $request->get('search');
                 $search1 = $request->get('search1');
