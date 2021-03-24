@@ -38,13 +38,13 @@ class GuestController extends Controller
 
     public function lantai(){
         $id_lokasi = input::get('id');
-        $lantai = Lantai::where('id_lantai', '=', $id_lokasi)->get();
+        $lantai = Lantai::where('id_lokasi', '=', $id_lokasi)->get();
         return response()->json($lantai);
     }
 
     public function ruangan(){
         $id_lantai = input::get('id_lantai');
-        $ruangan = Ruang::where('id_ruang', '=', $id_lantai)->get();
+        $ruangan = Ruang::where('lantais', '=', $id_lantai)->get();
         return response()->json($ruangan);
     }
 
@@ -168,6 +168,7 @@ class GuestController extends Controller
             // 'remarks' => $request->input('remarks'),
             // 'id_status' => $id_status,
             // 'foto' => $namafoto
+            // dd($guest);
             $guest->save();
             // Session::flash('success', 'Data berhasil ditambahkan'); 
             return view('guests.success');
