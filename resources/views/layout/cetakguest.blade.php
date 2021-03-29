@@ -15,6 +15,7 @@
     <thead class="thead-dark">
         <tr>
             <th class="text-center" width="30" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">No </th>
+            <th class="text-center" width="30" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Guests ID </th>
             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Date In</th>
             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Date Out</th>
             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Nama </th>
@@ -40,6 +41,7 @@
 @foreach ($guests as $guest)
     <tr>
         <td style="  border: 0.1px solid;">{{ $loop->iteration}} </td>
+        <td style=" border: 0.1px solid;">{{$guest->guestsid}}</td>
         <td style=" border: 0.1px solid;">{{$guest->datein}}</td>
         <td style="  border: 0.1px solid;">{{$guest->dateout}}</td>
         <td style="  border: 0.1px solid;">{{$guest->name}}</td>
