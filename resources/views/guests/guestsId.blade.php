@@ -55,8 +55,9 @@ function submitbtn(){
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Telephone<span style="color:red"> *</span></label>
-                                    <input type="tel" pattern="0.+" title="Must start with 0" class="form-control" placeholder="Telephone"
-                                        name="telephone" value="{{ $guest['telephone'] }}" maxlength=13 >
+                                    <input id="test" title="Must start with 0 / 62 / 65"
+                                        class="form-control" placeholder="Telephone" name="telephone"
+                                        value="{{ old('telephone')}}" value="{{ $guest['telephone'] }}" maxlength=13 required>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -78,7 +79,7 @@ function submitbtn(){
                                         <option value="">- Choose Activity -</option>
                                         <option value="Instalasi"
                                             {{ old('activity') == "Instalasi" ? 'selected' : '' }}>
-                                            Instalasi</option>
+                                            Installation</option>
                                         <option value="Maintenance"
                                             {{ old('activity') == "Maintenance" ? 'selected' : '' }}>Maintenance
                                         </option>
@@ -86,10 +87,16 @@ function submitbtn(){
                                             {{ old('activity') == "Troubleshoot" ? 'selected' : '' }}>Troubleshoot
                                         </option>
                                         <option value="Masuk Barang"
-                                            {{ old('activity') == "Masuk Barang" ? 'selected' : '' }}>Masuk Barang
+                                            {{ old('activity') == "Masuk Barang" ? 'selected' : '' }}>Stuff IN
                                         </option>
                                         <option value="Keluar Barang"
-                                            {{ old('activity') == "Keluar Barang" ? 'selected' : '' }}>Keluar Barang
+                                            {{ old('activity') == "Keluar Barang" ? 'selected' : '' }}>Stuff Out
+                                        </option>
+                                        <option value="Survey"
+                                            {{ old('activity') == "Survey" ? 'selected' : '' }}>Survey
+                                        </option>
+                                        <option value="Terminated"
+                                            {{ old('activity') == "Terminated" ? 'selected' : '' }}>Terminated
                                         </option>
                                     </select>
                                 </div>
@@ -186,7 +193,7 @@ function submitbtn(){
                                         name="remarks"></textarea>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label>Access Card: </label>
+                                    <label>Access Card: <span style="color:red"> *</span> </label>
                                     <input type="text" class="form-control" placeholder="Input your access card number"
                                         name="access"/>
                                 </div>

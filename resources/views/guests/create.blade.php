@@ -66,7 +66,7 @@
                                 </script> --}}
                                 <div class="form-group col-md-6">
                                     <label>Telephone<span style="color:red"> *</span></label>
-                                    <input id="test" title="Must start with 0"
+                                    <input id="test" title="Must start with 0 / 62 / 65"
                                         class="form-control" placeholder="Telephone" name="telephone"
                                         value="{{ old('telephone')}}" maxlength=13 required>
                                 </div>
