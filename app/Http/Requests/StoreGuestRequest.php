@@ -29,8 +29,8 @@ class StoreGuestRequest extends FormRequest
             'email' => 'required',
             'company' => 'required',
             'activity' => 'required',
-            'noRack' => 'required',
-            'noLoker' => 'required',
+            // 'noRack' => 'required',
+            // 'noLoker' => 'required',
             'telephone' => 'required|numeric'
         ];
     }
@@ -43,8 +43,8 @@ class StoreGuestRequest extends FormRequest
             'name.required' => 'name harus diisi',
             'email.required' => 'email harus diisi',
             'activity.required' => 'activity harus diisi',
-            'noRack.required' => 'noRack harus diisi',
-            'noLoker.required' => 'noLoker harus diisi',
+            // 'noRack.required' => 'noRack harus diisi',
+            // 'noLoker.required' => 'noLoker harus diisi',
             'telephone.required' => 'telephone harus diisi',
         ];
     }
