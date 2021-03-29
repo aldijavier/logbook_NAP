@@ -116,7 +116,7 @@ class GuestController extends Controller
             'email' => 'required',
             'company' => 'required',
             'activity' => 'required',
-            'noRack' => 'required',
+            // 'noRack' => 'required',
             // 'noLoker' => 'required',
             'foto' => 'required',
             'telephone' => 'required|numeric|min:9',

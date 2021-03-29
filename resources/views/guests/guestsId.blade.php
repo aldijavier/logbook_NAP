@@ -44,31 +44,31 @@ function submitbtn(){
                                     <button type="button" style="margin-left: 0px;"
                                         onclick="getElementById('guestsid').value=Math.floor(Math.random()*10000)" disabled>Create
                                         ID Number</button>
-                                    <input style="width: 50%" id="guestsid" name="guestsid" readonly="readonly" value=" {{ $guest['guestsid'] }} "/>
+                                    <input style="width: 50%" id="guestsid" name="guestsid" readonly="readonly" value="{{ $guest['guestsid'] }}"/>
                                 </div>
                             </div>
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6">
                                     <label>Name<span style="color:red"> *</span></label>
                                     <input type="text" class="form-control" placeholder="Name" name="name"
-                                    value=" {{ $guest['name'] }} ">
+                                    value="{{ $guest['name'] }}">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Telephone<span style="color:red"> *</span></label>
                                     <input type="tel" pattern="0.+" title="Must start with 0" class="form-control" placeholder="Telephone"
-                                        name="telephone" value=" {{ $guest['telephone'] }} " maxlength=13 >
+                                        name="telephone" value="{{ $guest['telephone'] }}" maxlength=13 >
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Company<span style="color:red"> *</span></label>
                                     <input type="text" class="form-control" placeholder="Company" name="company"
-                                    value=" {{ $guest['company'] }} " >
+                                    value="{{ $guest['company'] }}" >
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Email<span style="color:red"> *</span></label>
                                     <input type="email" class="form-control" placeholder="Email" name="email"
-                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value=" {{ $guest['email'] }} " >
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="{{ $guest['email'] }}" >
                                 </div>
                             </div>
                             <div class="form-row">
@@ -97,7 +97,7 @@ function submitbtn(){
                                     {{-- <label @error('lokasi_id') class="text-danger" @enderror>Lokasi* :  @error('lokasi_id') | {{$message}}
                                     @enderror</label><br> --}}
                                     {{-- <label class="text-black" @enderror>Lokasi: </label><br> --}}
-                                    <label>Lokasi<span style="color:red"> *</span></label>
+                                    <label>Location<span style="color:red"> *</span></label>
                                     <select name="lokasi_id" id="lokasi_id" class="form-control" data-dependent="lokasi">
                                         <option value="">- Pilih Lokasi -</option>
                                         @foreach ($lokasi as $lokasi)
@@ -116,22 +116,22 @@ function submitbtn(){
                                 <div class="form-group col-md-6">
                                     <label>No Loker</label>
                                     <input type="text" class="form-control" placeholder="No Loker" name="noLoker"
-                                    value=" {{ $guest['noLoker'] }} "" required>
+                                    value="{{ $guest['noLoker'] }}">
                                 </div>
                                 {{-- <label>No Rack<span style="color:red"> *</span></label>
                                     <input type="text" class="form-control" placeholder="No Rack" name="noRack"
                                         value="{{ old('noRack')}}" required> --}}
                                 <div class="form-group col-md-6">
                                     <div class="row align-items-start" style="margin-left: 15px;">
-                                        <div class="col">
-                                          Lantai
+                                        <div class="col"> 
+                                          Floor <span style="color:red"> *</span>
                                           <select class="form-control" name="lantai_id" id="lantai_id" data-dependent="lantai">
                                                 <option value="0" selected="true"> Pilih Lantai </option>
                                         </select>
 
                                         </div>
                                         <div class="col">
-                                          Ruang
+                                          Room <span style="color:red"> *</span>
                                           <select class="form-control" name="ruangan_id" id="ruangan_id" data-dependent="ruangan">
                                             <option value="0" selected="true"> Pilih Ruangan </option>
                                     </select>
@@ -139,7 +139,7 @@ function submitbtn(){
                                         <div class="col">
                                           No. Rack
                                           <input type="text" class="form-control" placeholder="No Rack" name="noRack"
-                                          value=" {{ $guest['noRack'] }} " " required>
+                                          value="{{ $guest['noRack'] }}">
                                         </div>
                                       </div>
                                 </div>
@@ -196,7 +196,7 @@ function submitbtn(){
                             </div><br />
                             <div class="takephoto">
                                 <a href="javascript:void(take_snapshot())" style="margin-left: 90px;"
-                                    class="btn btn-dark">Ambil foto</a>
+                                    class="btn btn-dark">Take a picture</a>
                                 <input type="hidden" id="foto" name="foto" value="">
                             </div><br />
                             <div class="resultFoto">

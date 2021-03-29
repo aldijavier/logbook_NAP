@@ -38,7 +38,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <p style="margin-bottom: 10px;">Guest ID:<span style="color: red"></span></p>
+                                    <p style="margin-bottom: 10px;">Guest ID: <span style="color:red"> *</span></p>
                                     <button type="button" style="margin-left: 0px;" id='formSave'
                                         onclick="getElementById('guestsid').value=Math.floor(Math.random()*10000)">Create
                                         ID Number</button>
@@ -144,7 +144,7 @@
                                     {{-- <span style="color:red"> *</span> --}}
                                     <label>No Loker</label>
                                     <input type="text" class="form-control" placeholder="No Loker" name="noLoker"
-                                        value="{{ old('noLoker')}}" required>
+                                        value="{{ old('noLoker')}}">
                                 </div>
                                 {{-- <label>No Rack<span style="color:red"> *</span></label>
                                     <input type="text" class="form-control" placeholder="No Rack" name="noRack"
@@ -152,7 +152,7 @@
                                 <div class="form-group col-md-6">
                                     <div class="row align-items-start" style="margin-left: 15px;">
                                         <div class="col">
-                                            Floor
+                                            Floor <span style="color:red"> *</span>
                                             <select class="form-control" name="lantai_id" id="lantai_id"
                                                 data-dependent="lantai">
                                                 <option value="0" selected="true"> Choose Lantai </option>
@@ -160,7 +160,7 @@
 
                                         </div>
                                         <div class="col">
-                                            Room
+                                            Room <span style="color:red"> *</span>
                                             <select class="form-control" name="ruangan_id" id="ruangan_id"
                                                 data-dependent="ruangan">
                                                 <option value="0" selected="true"> Choose Ruangan </option>
@@ -169,7 +169,7 @@
                                         <div class="col">
                                             No. Rack
                                             <input type="text" class="form-control" placeholder="No Rack" name="noRack"
-                                                value="{{ old('noRack')}}" required>
+                                                value="{{ old('noRack')}}">
                                         </div>
                                     </div>
                                 </div>
@@ -231,7 +231,7 @@
                                         name="remarks"></textarea>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label>Access Card: </label>
+                                    <label>Access Card: <span style="color:red"> *</span> </label>
                                     <input type="text" class="form-control" placeholder="Input your access card number"
                                         name="access"/>
                                 </div>
@@ -242,7 +242,7 @@
                             </div><br />
                             <div class="takephoto">
                                 <a href="javascript:void(take_snapshot())" style="margin-left: 90px;"
-                                    class="btn btn-dark">Ambil foto</a>
+                                    class="btn btn-dark">Take a picture</a>
                                 <input type="hidden" id="foto" name="foto" value="">
                             </div><br />
                             <div class="resultFoto">
