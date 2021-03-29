@@ -123,7 +123,7 @@ function submitbtn(){
                                 <div class="form-group col-md-6">
                                     <label>No Loker</label>
                                     <input type="text" class="form-control" placeholder="No Loker" name="noLoker"
-                                    value="{{ $guest['noLoker'] }}">
+                                    >
                                 </div>
                                 {{-- <label>No Rack<span style="color:red"> *</span></label>
                                     <input type="text" class="form-control" placeholder="No Rack" name="noRack"
@@ -146,7 +146,7 @@ function submitbtn(){
                                         <div class="col">
                                           No. Rack
                                           <input type="text" class="form-control" placeholder="No Rack" name="noRack"
-                                          value="{{ $guest['noRack'] }}">
+                                          >
                                         </div>
                                       </div>
                                 </div>

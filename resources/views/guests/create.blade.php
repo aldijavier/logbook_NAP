@@ -203,7 +203,7 @@
                                         $('#lantai_id').on('change', function (e) {
                                             console.log(e);
                                             var id_lantai = e.target.value;
-                                            $.get('/json-ruangan?id_lantai=' + id_lantai, function (
+                                            $.get('/json-ruangan?lantais=' + id_lantai, function (
                                                 data) {
                                                 console.log(data);
                                                 $('#ruangan_id').empty();
