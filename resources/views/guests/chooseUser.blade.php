@@ -34,7 +34,7 @@
             <figcaption>Returning <br/> Customer</figcaption>
           </figure>
           
-          <button style="margin-right: 125px;" type="button" class="btn btn-light"><a href="/guests/getGuest">Here!</a></button>
+          <button style="margin-right: 125px;" type="button" class="btn btn-light"><a href="{{ route('getGuest')}}">Here!</a></button>
         </div>
       </section>
     </article>

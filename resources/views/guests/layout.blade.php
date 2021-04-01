@@ -35,11 +35,11 @@
                     <a class="nav-link btn pull-right text-white" href="#">Guests Book</i> </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn pull-right text-white" href="/guests/chooseuser">Add Guests <i
+                    <a class="nav-link btn pull-right text-white" href="{{ route('chooseuser') }}">Add Guests <i
                             class="fa fa-group"></i> </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn pull-right text-white" href="/guests/checkout">Checkout <i
+                    <a class="nav-link btn pull-right text-white" href="{{ route('checkout') }}">Checkout <i
                             class="fa fa-sign-out"></i> </a>
                 </li>
             </ul>

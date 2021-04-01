@@ -12,18 +12,18 @@
 */
 
 Route::get('/', 'GuestController@index' );
-Route::get('/guests/checkout', 'GuestController@checkout');
-Route::get('/guests/searchresult', 'GuestController@search');
+Route::get('/guests/checkout', 'GuestController@checkout')->name('checkout');
+Route::get('/guests/searchresult', 'GuestController@search')->name('searchresult');
 
-Route::get('/guests/create', 'GuestController@store' );
+Route::get('/guests/create', 'GuestController@store' )->name('create');
 
 Route::get('/oldguests', 'GuestController@oldguests');
 
 Route::get('/guests/cekout', 'GuestController@cekout');
 Route::get('/guests/success', 'GuestController@success');
 Route::get('/guests/rating', 'GuestController@rating');
-Route::get('/guests/chooseuser', 'GuestController@chooseuser');
-Route::get('/guests/getGuest', 'GuestController@getGuest');
+Route::get('/guests/chooseuser', 'GuestController@chooseuser')->name('chooseuser');
+Route::get('/guests/getGuest', 'GuestController@getGuest')->name('getGuest');
 Route::get('/guests/oldGuests', 'GuestController@oldGuests');
 Route::get('/guests/guestId', 'GuestController@guestsId');
 // Route::patch('/co/{id}', 'GuestController@cekout');
