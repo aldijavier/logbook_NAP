@@ -4,7 +4,7 @@
 @section('content')
 @include('guests.pesan')
 <div class="container" style="margin-top: 3%;">
-        <form action="/guests/searchGuest" method="POST" role="search">
+        <form action="{{ route('searchGuest')}}" method="POST" role="search">
             {{ csrf_field() }}
             <div class="input-group">
                 <input type="text" class="form-control" name="q" required

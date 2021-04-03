@@ -15,7 +15,7 @@ Route::get('/', 'GuestController@index' );
 Route::get('/guests/checkout', 'GuestController@checkout')->name('checkout');
 Route::get('/guests/searchresult', 'GuestController@search')->name('searchresult');
 
-Route::get('/guests/create', 'GuestController@store' )->name('create');
+Route::get('/guests/create', 'GuestController@store')->name('Store');
 
 Route::get('/oldguests', 'GuestController@oldguests');
 
@@ -30,8 +30,8 @@ Route::get('/guests/guestId', 'GuestController@guestsId');
 Route::resource('/guests', 'GuestController');
 // Route::resource('/guests', 'GuestCheckinController');
 //cari tamu
-Route::any( '/guests/search', 'GuestController@search');
-Route::any( '/guests/searchGuest', 'GuestController@searchGuest');
+Route::any( '/guests/search', 'GuestController@search')->name('search');
+Route::any( '/guests/searchGuest', 'GuestController@searchGuest')->name('searchGuest');
 Route::get( '/guests/cekout', 'GuestController@cekout');
 
 Route::get('/getLantai/{id}', 'LokasiController@getLantai');
@@ -43,12 +43,12 @@ Route::get('/json-ruangan', 'GuestController@ruangan');
 
 
 //admin
-Route::get('/admin', 'AdminController@index');
+Route::get('/admin', 'AdminController@index')->name('admin');
 
 Route::get('/login', 'AuthController@login')->name('login');
-Route::get('/loginadmin', 'AuthController@login');
-Route::post('/postlogin', 'AuthController@postlogin');
-Route::get('/logoutadmin', 'AuthController@logout');
+Route::get('/loginadmin', 'AuthController@login')->name('loginadmin');
+Route::post('/postlogin', 'AuthController@postlogin')->name('postlogin');
+Route::get('/logoutadmin', 'AuthController@logout')->name('logout');
 
 // Route::get('/guests/create', 'AdminController@create');
 // Route::post('/guests', 'AdminController@store');

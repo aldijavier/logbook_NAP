@@ -17,7 +17,7 @@
 </script>
 <link href="{{asset('css/backlight.css')}}" rel="stylesheet" type="text/css">
 <div class="container" style="margin-top: 3%;">
-        <form action="/guests/search" method="POST" role="search">
+        <form action="{{route('search')}}" method="POST" role="search">
             {{ csrf_field() }}
             <div class="input-group">
                 <input type="text" class="form-control" name="q"
