@@ -38,8 +38,8 @@ Route::get('/getLantai/{id}', 'LokasiController@getLantai');
 
 
 // Route::get('/guests/logbook', 'GuestController@lokasi');
-Route::get('/json-lantai', 'GuestController@lantai');
-Route::get('/json-ruangan', 'GuestController@ruangan');
+Route::get('/logbook_NAP/json-lantai', 'GuestController@lantai');
+Route::get('/logbook_NAP/json-ruangan', 'GuestController@ruangan');
 
 
 //admin

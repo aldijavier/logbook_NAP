@@ -14,7 +14,7 @@
 <div class="container" style="margin-bottom: 3%;"><br />
     <div class="row">
         <div class="col-md-12">
-            <form action="{{ route('GuestController@store') }}" method="post" id="myform">
+            <form action="{{ action('GuestController@store') }}" method="post" id="myform">
                 {{ csrf_field() }}
                 <fieldset>
                     <legend>Tambah Tamu</legend>
