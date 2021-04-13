@@ -51,7 +51,8 @@
 
   <script>
     setTimeout(function(){
-        window.location.href = '/guests/checkout';
+        window.location.href = "{{ route('checkout')}}";
+        // '/guests/checkout';
     }, 3000);
 </script>
       <!-- end of container -->

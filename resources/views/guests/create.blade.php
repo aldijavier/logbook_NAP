@@ -178,7 +178,7 @@
                                         $('#lokasi_id').on('change', function (e) {
                                             console.log(e);
                                             var id_lokasi = e.target.value;
-                                            $.get('/json-lantai?id=' + id_lokasi, function (data) {
+                                            $.get('{{ route('jsonLantai')}}?id=' + id_lokasi, function (data) {
                                                 console.log(data);
                                                 $('#lantai_id').empty();
                                                 $('#lantai_id').append(
@@ -203,7 +203,7 @@
                                         $('#lantai_id').on('change', function (e) {
                                             console.log(e);
                                             var id_lantai = e.target.value;
-                                            $.get('/json-ruangan?id_lantai=' + id_lantai, function (
+                                            $.get('{{ route('jsonRuang')}}?id_lantai=' + id_lantai, function (
                                                 data) {
                                                 console.log(data);
                                                 $('#ruangan_id').empty();

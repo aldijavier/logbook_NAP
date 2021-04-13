@@ -151,39 +151,55 @@ function submitbtn(){
                                       </div>
                                 </div>
                                 <script type="text/javascript">
-                                jQuery(document).ready(function ($) {
-                                    $('#lokasi_id').on('change', function(e){
-                                        console.log(e);
-                                        var id_lokasi = e.target.value;
-                                        $.get('/json-lantai?id=' + id_lokasi, function(data){
-                                            console.log(data);
-                                            $('#lantai_id').empty();
-                                            $('#lantai_id').append('<option value="0" selected="true"> Pilih Lantai</option>');
+                                    jQuery(document).ready(function ($) {
+                                        $('#lokasi_id').on('change', function (e) {
+                                            console.log(e);
+                                            var id_lokasi = e.target.value;
+                                            $.get('{{ route('jsonLantai')}}?id=' + id_lokasi, function (data) {
+                                                console.log(data);
+                                                $('#lantai_id').empty();
+                                                $('#lantai_id').append(
+                                                    '<option value="0" selected="true"> Choose Floor</option>'
+                                                );
 
-                                            $('#ruangan_id').empty();
-                                            $('#ruangan_id').append('<option value="0" selected="true"> Pilih Ruangan</option>');
-                                            
-                                            $.each(data, function(index, lantaiObj){
-                                                $('#lantai_id').append('<option value="' + lantaiObj.id_lantai +'">' + lantaiObj.name_lantai +'</option>');
-                                            })
-                                          });
-                                    });
+                                                $('#ruangan_id').empty();
+                                                $('#ruangan_id').append(
+                                                    '<option value="0" selected="true"> Choose Room</option>'
+                                                );
 
-                                    $('#lantai_id').on('change', function(e){
-                                        console.log(e);
-                                        var id_lantai = e.target.value;
-                                        $.get('/json-ruangan?id_lantai=' + id_lantai, function(data){
-                                            console.log(data);
-                                            $('#ruangan_id').empty();
-                                            $('#ruangan_id').append('<option value="0" selected="true"> Pilih Ruangan</option>');
-                                            
-                                            $.each(data, function(index, ruanganObj){
-                                                $('#ruangan_id').append('<option value="' + ruanganObj.id_ruang +'">' + ruanganObj.name_ruang +'</option>');
-                                            })
-                                          });
+                                                $.each(data, function (index, lantaiObj) {
+                                                    $('#lantai_id').append(
+                                                        '<option value="' +
+                                                        lantaiObj.id_lantai + '">' +
+                                                        lantaiObj.name_lantai +
+                                                        '</option>');
+                                                })
+                                            });
+                                        });
+
+                                        $('#lantai_id').on('change', function (e) {
+                                            console.log(e);
+                                            var id_lantai = e.target.value;
+                                            $.get('{{ route('jsonRuang')}}?id_lantai=' + id_lantai, function (
+                                                data) {
+                                                console.log(data);
+                                                $('#ruangan_id').empty();
+                                                $('#ruangan_id').append(
+                                                    '<option value="0" selected="true"> Choose Room</option>'
+                                                );
+
+                                                $.each(data, function (index, ruanganObj) {
+                                                    $('#ruangan_id').append(
+                                                        '<option value="' +
+                                                        ruanganObj.id_ruang + '">' +
+                                                        ruanganObj.name_ruang +
+                                                        '</option>');
+                                                })
+                                            });
+                                        });
                                     });
-                                });
                                 </script>
+
                                 
                             </div>
                             <div class="form-row">

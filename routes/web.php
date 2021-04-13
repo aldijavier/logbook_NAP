@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'GuestController@index' );
+Route::get('/', 'GuestController@index' )->name('index');
 Route::get('/guests/checkout', 'GuestController@checkout')->name('checkout');
 Route::get('/guests/searchresult', 'GuestController@search')->name('searchresult');
 
@@ -38,8 +38,8 @@ Route::get('/getLantai/{id}', 'LokasiController@getLantai');
 
 
 // Route::get('/guests/logbook', 'GuestController@lokasi');
-Route::get('/logbook_NAP/json-lantai', 'GuestController@lantai');
-Route::get('/logbook_NAP/json-ruangan', 'GuestController@ruangan');
+Route::get('/json-lantai', 'GuestController@lantai')->name('jsonLantai');
+Route::get('/json-ruangan', 'GuestController@ruangan')->name('jsonRuang');
 
 
 //admin
