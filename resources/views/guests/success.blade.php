@@ -33,7 +33,7 @@
   </div>
   <script>
     setTimeout(function(){
-        window.location.href = '/';
+        window.location.href = "{{ route('index')}}";
     }, 5000);
 </script>
       <!-- end of container -->
