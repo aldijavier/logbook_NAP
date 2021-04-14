@@ -53,7 +53,7 @@ Route::get('/logoutadmin', 'AuthController@logout')->name('logout');
 // Route::get('/guests/create', 'AdminController@create');
 // Route::post('/guests', 'AdminController@store');
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/admin', 'AdminController@index');
+    Route::get('/admin', 'AdminController@index')->name('admin');
     Route::get('/guests/{id}/show', 'AdminController@show');
     Route::get('/guests/{id}/edit', 'AdminController@edit');
     Route::patch('/guests/{id}', 'AdminController@update');

@@ -10,7 +10,7 @@
 
         <div class="card-header row justify-content-center">
              
-            <form action="/admin" method="GET" enctype="multipart/form-data">
+            <form action="{{ route('admin') }}" method="GET" enctype="multipart/form-data">
             {{csrf_field()}}
                 <div class="input-group-prepend">
                     <div class="card-body text-left">

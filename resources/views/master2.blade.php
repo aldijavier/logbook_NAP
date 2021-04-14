@@ -18,7 +18,7 @@
 
 <body>
     <nav style="background-color: #151A48" class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand text-white" href="/guests">
+        <a class="navbar-brand text-white" href="{{ route('index')}}">
             <img src="{{ asset('images') }}/matrixlogo.png" alt="" width="120" height="50">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
