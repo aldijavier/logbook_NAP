@@ -48,8 +48,8 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/login', 'AuthController@login')->name('login');
 Route::get('/loginadmin', 'AuthController@login')->name('loginadmin');
 Route::post('/postlogin', 'AuthController@postlogin')->name('postlogin');
-Route::get('/logoutadmin', 'AuthController@logout')->name('logout');
-
+Route::get('/logoutadmin', 'AuthController@logout')->name('logoutadmin');
+Route::get('/logout', 'AuthController@logout')->name('logout');
 // Route::get('/guests/create', 'AdminController@create');
 // Route::post('/guests', 'AdminController@store');
 Route::group(['middleware' => 'auth'], function () {

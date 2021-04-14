@@ -69,7 +69,7 @@
             <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
         </span>
 
-        <form action="/postlogin" method="post" id="myformlogin">
+        <form action="{{ route('postlogin')}}" method="post" id="myformlogin">
           {{csrf_field()}}
             <input type="email" name="email" placeholder="E-mail">
             <input type="password" name="password" placeholder="Password">
