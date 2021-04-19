@@ -18,7 +18,7 @@
 
 <body>
     <nav style="background-color: #151A48" class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand text-white" href="{{ route('index') }}">
+        <a class="navbar-brand text-white">
             <img src="{{ asset('images') }}/matrixlogo.png" alt="" width="120" height="50">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link btn pull-right text-white" href="#">Welcome Administrator</i> </a>
+                    <a class="nav-link btn pull-right text-white" href="#">Welcome</i> </a>
                 </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link btn pull-right text-white" href="/guests/chooseuser">Tambah tamu <i

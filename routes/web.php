@@ -19,6 +19,8 @@ Route::get('/guests/create', 'GuestController@store')->name('Store');
 
 Route::get('/oldguests', 'GuestController@oldguests');
 
+// Route::get('/', 'Auth\AuthController@index')->name('login');
+
 Route::get('/guests/cekout', 'GuestController@cekout');
 Route::get('/guests/success', 'GuestController@success');
 Route::get('/guests/rating', 'GuestController@rating');
@@ -43,17 +45,55 @@ Route::get('/json-ruangan', 'GuestController@ruangan')->name('jsonRuang');
 
 
 //admin
-Route::get('/admin', 'AdminController@index')->name('admin');
+// Route::get('/admin', 'AdminController@index')->name('admin');
 
-Route::get('/login', 'AuthController@login')->name('login');
-Route::get('/loginadmin', 'AuthController@login')->name('loginadmin');
-Route::post('/postlogin', 'AuthController@postlogin')->name('postlogin');
-Route::get('/logoutadmin', 'AuthController@logout')->name('logoutadmin');
-Route::get('/logout', 'AuthController@logout')->name('logout');
+// Route::get('/login', 'AuthController@login')->name('login');
+// Route::get('/loginadmin', 'AuthController@login')->name('loginadmin');
+// Route::post('/postlogin', 'AuthController@postlogin')->name('postlogin');
+// Route::get('/logoutadmin', 'AuthController@logout')->name('logoutadmin');
+// Route::get('/logout', 'AuthController@logout')->name('logout');
 // Route::get('/guests/create', 'AdminController@create');
 // Route::post('/guests', 'AdminController@store');
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/admin', 'AdminController@index')->name('admin');
+
+// Route::group(['middleware' => 'auth'], function () {
+//     Route::get('/admin', 'AdminController@index')->name('admin');
+//     Route::get('/guests/{id}/show', 'AdminController@show');
+//     Route::get('/guests/{id}/edit', 'AdminController@edit');
+//     Route::patch('/guests/{id}', 'AdminController@update');
+
+//     Route::get('/co/{id}/cek', 'AdminController@cek');
+//     Route::patch('/co/{id}', 'AdminController@cekout');
+
+//     Route::delete('/guests/{id}', 'AdminController@destroy');
+//     Route::get('/exportguest','GuestController@guestexport');
+
+//     Route::get('/search','GuestController@index');
+//     Route::get('/guestexport','GuestController@index');
+//     Route::get('/cetak','GuestPrint@pdf')->name('l_guest');
+
+//     Route::get('/cetakguest/{search1}/{search2}','GuestController@cetakguest')->name('cetakguest');
+//     Route::get('/print_siswa','AdminController@print');
+
+//     Route::get('/penilaian/create', 'PenilaianController@create');
+// });
+
+//sisi guest
+Route::get('/indexutamaguest', 'TamuController@index');
+Route::get('/checkin/create', 'TamuController@create');
+Route::post('/checkin', 'TamuController@store');
+Route::get('/indexcheckout', 'TamuController@indexcheckout');
+Route::get('/checkin/{id}/edit', 'TamuController@edit');
+Route::patch('/checkin/{id}', 'TamuController@update');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/', 'Auth\AuthController@index')->name('login');
+Route::post('/login', 'Auth\AuthController@login')->name('logins');
+Route::get('/logoutadmin', 'Auth\AuthController@logout')->name('logoutadmin');
+Route::get('/logout', 'Auth\AuthController@logout')->name('logout');
+
+Route::group(['middleware' => 'auth', 'ceklevel:Super Admin'], function(){
+    Route::get('/admin', 'Auth\AuthController@index')->name('admin');
     Route::get('/guests/{id}/show', 'AdminController@show');
     Route::get('/guests/{id}/edit', 'AdminController@edit');
     Route::patch('/guests/{id}', 'AdminController@update');
@@ -74,13 +114,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/penilaian/create', 'PenilaianController@create');
 });
 
-//sisi guest
-Route::get('/indexutamaguest', 'TamuController@index');
-Route::get('/checkin/create', 'TamuController@create');
-Route::post('/checkin', 'TamuController@store');
-Route::get('/indexcheckout', 'TamuController@indexcheckout');
-Route::get('/checkin/{id}/edit', 'TamuController@edit');
-Route::patch('/checkin/{id}', 'TamuController@update');
-Auth::routes();
+Route::group(['middleware' => 'auth', 'ceklevel:Admin,User'], function(){
+    Route::get('/admin', 'Auth\AuthController@index')->name('admin');
+    Route::get('/guests/{id}/show', 'AdminController@show');
+    Route::get('/guests/{id}/edit', 'AdminController@edit');
+    Route::patch('/guests/{id}', 'AdminController@update');
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/co/{id}/cek', 'AdminController@cek');
+    Route::patch('/co/{id}', 'AdminController@cekout');
+
+    Route::delete('/guests/{id}', 'AdminController@destroy');
+    Route::get('/search','GuestController@index');
+});

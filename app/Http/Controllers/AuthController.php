@@ -57,7 +57,7 @@ class AuthController extends Controller
             );
             
         if(Auth::attempt($user_data)){
-            return redirect()->action('AdminController@index');
+            return redirect()->action('Auth\AuthController@index');
         }
         else{
             return back()->with('error', 'Email or Password Wrong!');

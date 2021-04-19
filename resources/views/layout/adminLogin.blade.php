@@ -84,7 +84,7 @@
                 </ul>
             </div>
         @endif
-        <form action="{{ action('AuthController@postlogin') }}" method="post" id="myformlogin">
+        <form action="{{ route('logins') }}" method="post" id="myformlogin">
           {{csrf_field()}}
             <input type="email" name="email" placeholder="E-mail" required>
             <input type="password" name="password" placeholder="Password" required>
