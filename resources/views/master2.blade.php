@@ -49,6 +49,7 @@
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3" style="background-color: #151A48">
             <p class="text-white">&copy; PT NAP Info Lintas Nusa. All Rights Reserved. <?php echo date("Y"); ?></p>
+            <p class="text-right">asd</p>
             <!-- <p class="text-white">Guests Book <a href="https://nap.net.id/home.html" class="text-white">PT NAP Info Lintas Nusa</a> </p>   -->
         </div>
         <script type="text/javascript">
@@ -76,8 +77,8 @@
                 }
             }
         </script>
-        <script> 
-
+        <script type="text/javascript"> 
+    
             $("#test").on("input", function() {
               if (/^9/.test(this.value)) {
                 this.value = this.value.replace(/^9/, "")

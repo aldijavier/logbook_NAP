@@ -16,28 +16,30 @@
 
 <html>
   <body>
-    <article class="flex-container">
-      <section class="flex" id="finn">
+    <br><br><br><br>
+    <div class="row justify-content-center">
+        <section class="flex" id="finn">
+          <div class="col-12">
         <div>
-          <figure>
+          <figure class="text-center">
             <img src="{{ asset('images') }}/model.png" alt="" width="105" height="100">
             <figcaption>New Customer? <br/> Register Here!</figcaption>
           </figure>
           
-          <button type="button" style="margin-right: 125px;" class="btn btn-dark"><a href="{{ route('guests.create') }}">Here!</a></button>
+          <button type="button" class="btn btn-light text-center"><a href="{{ route('guests.create') }}">Here!</a></button>
         </div>
       </section>
       <section class="flex" id="jake">
-        <div>
-          <figure>
+        <div class="col-12">
+          <figure class="text-center">
             <img src="{{ asset('images') }}/model.png" alt="" width="105" height="100">
             <figcaption>Returning <br/> Customer</figcaption>
           </figure>
           
-          <button style="margin-right: 125px;" type="button" class="btn btn-light"><a href="{{ route('getGuest')}}">Here!</a></button>
+          <button type="button" class="btn btn-light"><a href="{{ route('getGuest')}}">Here!</a></button>
         </div>
       </section>
-    </article>
+    </div>
   </body>
 </html>
 

@@ -56,7 +56,7 @@
         }
         </style>
         <div class="footer-copyright text-center py-3" style="background-color: #151A48">
-            <p class="text-white" style="margin-top: 5px;">&copy; PT NAP Info Lintas Nusa. All Rights Reserved. <?php echo date("Y"); ?></p>
+          <p class="text-white" style="margin-top: 5px;">&copy; PT NAP Info Lintas Nusa. All Rights Reserved. <?php echo date("Y"); ?></p><span class="text-white text-right">Version 1.0</span>
             <!-- <p class="text-white">Guests Book <a href="https://nap.net.id/home.html" class="text-white">PT NAP Info Lintas Nusa</a> </p>   -->
         </div>
         <script type="text/javascript">

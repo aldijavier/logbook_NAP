@@ -41,9 +41,13 @@
             </header>
             @if ($guests)
             @foreach ($guests as $guest)
-            <div class="stars">
-                <form action="{{ route('guests.destroy',$guest->id) }}" method="POST">
+            
+            
+            <form action="{{ route('guests.destroy',$guest->id) }}" method="POST">
+                <div class="row justify-content-center" style="text-align: center">    
+                    
                 <section>
+                <div class="col-12">
                   <input class="star star-5" id="star-5" type="radio" name="service_quality" value="5"/>
                   <label class="star star-5" for="star-5"></label>
                   <input class="star star-4" id="star-4" type="radio" name="service_quality" value="4"/>
@@ -53,10 +57,13 @@
                   <input class="star star-2" id="star-2" type="radio" name="service_quality" value="2"/>
                   <label class="star star-2" for="star-2"></label>
                   <input class="star star-1" id="star-1" type="radio" name="service_quality" value="1"/>
-                  <label class="star star-1" for="star-1"></label>
-                  <p style="text-align: center">Service Quality</p>
+                  <label class="star star-1" for="star-1"></label><br><br><br>
+                  <p class="col-12">Service Quality</p>
+                </div>
                 </section>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <section>
+                    <div class="col-12">
                   <input class="star star-5" id="star-52" type="radio" name="infrastructure_quality" value="5"/>
                   <label class="star star-5" for="star-52"></label>
                   <input class="star star-4" id="star-42" type="radio" name="infrastructure_quality" value="4"/>
@@ -68,8 +75,11 @@
                   <input class="star star-1" id="star-12" type="radio" name="infrastructure_quality" value="1"/>
                   <label class="star star-1" for="star-12"></label>
                   <p style="text-align: center">Quality of Infrastructure</p>
+                  </div>
                 </section>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <section>
+                    <div class="row-md-6">
                     <input class="star star-5" id="star-53" type="radio" name="clean_quality" value="5"/>
                     <label class="star star-5" for="star-53"></label>
                     <input class="star star-4" id="star-43" type="radio" name="clean_quality" value="4"/>
@@ -81,10 +91,12 @@
                     <input class="star star-1" id="star-13" type="radio" name="clean_quality" value="1"/>
                     <label class="star star-1" for="star-13"></label>
                     <p style="text-align: center">Cleanliness</p>
+                    </div>
                   </section>
-                
+                </div>
               </div>
-                <div class="row" style="margin-top: 3%; margin-left: 400px;">
+              </div>
+                <div class="row justify-content-center" style="margin-top: 3%;">
                                    
                     {{-- <a href="{{ route('guests.show',$guest->id) }}"> --}}
                     <div class="col-md-4" style="margin-bottom: 3%;">

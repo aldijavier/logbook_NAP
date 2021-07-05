@@ -49,16 +49,18 @@
     /* For mobile phones: */
      #jake figure figcaption{
       margin-top: 10px;
-      margin-left: 35px;
     }
   }
   @media only screen and (max-width:620px) {
     /* For mobile phones: */
      #jake button{
       margin-top: 10px;
-      margin-left: 35px;
     }
   }
+
+  button{
+    margin: 0 auto;
+}
 
 
   /* For Screen Higher than 1400px */ 
@@ -106,7 +108,6 @@
   @media only screen and (min-width: 1401px) {
     #jake button{
       margin-top: 10px;
-      margin-left: 35px;
     }
   }
 
@@ -128,14 +129,11 @@
   }
   figure img {
     border-radius: 50%;
-    margin-left: -130px;
     border: 5px solid rgba(0, 0, 0, 0.2);
   }
   figure figcaption {
     font-size: 20px;
     line-height: 30px;
-    margin: 20px 0;
-    margin-left: -130px;
 
   }
   a {
@@ -147,11 +145,11 @@
   #finn {
     background: rgb(184, 180, 190);
     color: #151A48;
-    padding-left: 150px;
+    width: 400px;
   }
   #jake {
     background: #151A48;
     color: #fff;
-    padding-left: 150px;
+    width: 400px;
   }
   

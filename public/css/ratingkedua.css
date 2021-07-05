@@ -1,7 +1,7 @@
 div.stars {
     width: 270px;
     display: inline-block;
-    margin-left: 420px;
+    align-items: center;
     margin-top: 30px;;
   }
   

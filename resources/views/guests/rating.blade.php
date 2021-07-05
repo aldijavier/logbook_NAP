@@ -21,7 +21,7 @@
         <h3>How satisfied are you with our service?</h3>
         <p><b>Let us know, to improve our service performance</b></p>
     </header>
-    <div class="stars">
+    <div class="stars text-center">
         <form action="">
         <section>
           <input class="star star-5" id="star-5" type="radio" name="star"/>
