@@ -30,7 +30,9 @@ class AuthController extends Controller
      */
     public function index()
     {
-        return view('layout.adminLogin');
+        dd('hai');
+        // return view('layout.adminLogin');
+        return redirect('http://localhost:8000/signout');
     }
       
 
@@ -42,10 +44,12 @@ class AuthController extends Controller
 
 
     public function login(){
-        return view('layout.adminLogin');
+        dd('hai');
+        // return view('layout.adminLogin');
+        return redirect('http://localhost:8000/signout');
     }
 
-    public function postlogin(Request $request){
+    public function postlogin(Request $request, $q){
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required|alphaNum|min:3'

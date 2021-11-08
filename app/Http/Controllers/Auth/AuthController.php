@@ -213,20 +213,44 @@ class AuthController extends Controller
            
             $guests = $guests->withTrashed()->orderBy('id','desc')->paginate(10);
             $guests=$guests->appends($request->all());
+            
         }
             return view('layout.index', compact('guests'));
             // return view('layouts.index', ['guests' => $guests]);
     }
 
-    public function login(Request $request){
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+    public function sso(){
+        dd('hai');
+    }
+    public function login(Request $request, $q){
+        $email =base64_decode($q);
+        $password='-';
+
+        // $email=$request->email;
+
+        // $password=$request->password;
+
+        $credentials = [
+
+            'email' => $email,
+
+            'password' => $password
+
+        ];
+        // dd('email', $credentials);
+
+        if(Auth::attempt($credentials)){
+            // dd('hai');
             return redirect()->action('Auth\AuthController@index');
         }
-        return redirect()->action('Auth\AuthController@login')->with('message','email atau password salah !');
+        // return redirect()->action('Auth\AuthController@login')->with('message','email atau password salah !');
+        return redirect('http://localhost:8000/signout');
     }
 
     public function logout(Request $request){
-        Auth::logout();
-        return redirect()->route('logins');
+        // Auth::logout();
+        $email_user=auth()->user()->email;
+        return redirect('http://localhost:8000/portal/'.$email_user);
+        // return redirect()->route('logins');
     }
 }

@@ -15,6 +15,8 @@ Route::get('/', 'GuestController@index' )->name('index');
 Route::get('/guests/checkout', 'GuestController@checkout')->name('checkout');
 Route::get('/guests/searchresult', 'GuestController@search')->name('searchresult');
 
+Route::get('/redirect-logbook/{q}', 'Auth\AuthController@login');
+
 Route::get('/guests/create', 'GuestController@store')->name('Store');
 
 Route::get('/oldguests', 'GuestController@oldguests');
@@ -88,6 +90,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/', 'Auth\AuthController@index')->name('login');
+Route::get('/admin', 'Auth\AuthController@sso')->name('login_awal');
 Route::post('/login', 'Auth\AuthController@login')->name('logins');
 Route::get('/logoutadmin', 'Auth\AuthController@logout')->name('logoutadmin');
 Route::get('/logout', 'Auth\AuthController@logout')->name('logout');
