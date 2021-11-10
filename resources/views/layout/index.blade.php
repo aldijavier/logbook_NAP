@@ -23,9 +23,9 @@
                         <p> Lokasi :  <select name="search" id="search" class="form-control" ></p>
                    
                         <option value="">- Pilih Lokasi -</option>
-                        <option @if(request()->get('search')=="1") selected @endif value="1" >MDC JK1 - Plaza Kuningan</option>
+                        <option @if(request()->get('search')=="1") selected @endif value="1" >MDC JK1 - Pantai Mutiara</option>
                         <option @if(request()->get('search')=="2") selected @endif value="2" >MDC JK2 - Cyber 1</option>
-                        <option @if(request()->get('search')=="3") selected @endif value="3" >MDC JK3 - Pantai Mutiara</option>
+                        <option @if(request()->get('search')=="3") selected @endif value="3" >MDC JK3 - Plaza Kuningan</option>
                         <option @if(request()->get('search')=="4") selected @endif value="4" >MDC BM1 - Nongsa</option>
                         <option @if(request()->get('search')=="5") selected @endif value="5" >MDC SG1 - North Changi</option>
               

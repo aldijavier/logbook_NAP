@@ -17,7 +17,8 @@ use App\Lantai;
 use App\Lokasi;
 use Carbon\Carbon;
 use PDF;
-
+use App\Traits\AuditLogsTrait;
+use Browser;
 
 
 //use DateTime;
@@ -30,6 +31,7 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    use AuditLogsTrait;
     public function index(Request $request)
     {   
             $search = $request->get('search');
@@ -127,7 +129,15 @@ class AdminController extends Controller
     
                
                 $guests = $guests->get();
+                //Audit Log
+                $username= auth()->user()->email; 
+                $ipAddress=$_SERVER['REMOTE_ADDR'];
+                $location='0';
+                $access_from=Browser::browserName();
+                $activity='Mencetak Guest';
 
+                //dd($location);
+                $this->auditLogs($username,$ipAddress,$location,$access_from,$activity);
                 return view('layout.cetakguest', compact('guests'));
             }
                 

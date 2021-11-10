@@ -17,10 +17,12 @@ use Carbon\Carbon;
 use PDF;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\GuestExport;
-
+use Browser;
+use App\Traits\AuditLogsTrait;
 
 class AuthController extends Controller
 {
+    use AuditLogsTrait;
     public function index(Request $request){
 
         $levelId = Auth::user()->level;
@@ -126,6 +128,15 @@ class AuthController extends Controller
                
                 $guests = $guests->get();
 
+                //Audit Log
+                $username= auth()->user()->email; 
+                $ipAddress=$_SERVER['REMOTE_ADDR'];
+                $location='0';
+                $access_from=Browser::browserName();
+                $activity='Mencetak Guest';
+
+                //dd($location);
+                $this->auditLogs($username,$ipAddress,$location,$access_from,$activity);
                 return view('layout.cetakguest', compact('guests'));
             }
                 
@@ -237,20 +248,47 @@ class AuthController extends Controller
             'password' => $password
 
         ];
+        $cekuser_status=User::where('email',$email)->first();
         // dd('email', $credentials);
 
         if(Auth::attempt($credentials)){
-            // dd('hai');
+            //update last login
+            $update_lastlogin=User:: where('email',$email)
+            ->update([
+                'last_login' => now(),
+                'login_counter' => $cekuser_status->login_counter+1,
+            ]);
+
+            if($update_lastlogin){
+            //Audit Log
+            $username= auth()->user()->email; 
+            $ipAddress=$_SERVER['REMOTE_ADDR'];
+            $location='0';
+            $access_from=Browser::browserName();
+            $activity='User Login';
+
+            //dd($access_from);
+            $this->auditLogs($username,$ipAddress,$location,$access_from,$activity);
             return redirect()->action('Auth\AuthController@index');
+            }
         }
         // return redirect()->action('Auth\AuthController@login')->with('message','email atau password salah !');
-        return redirect('http://localhost:8000/signout');
+        return redirect('https://stagingsysdev.nap.net.id/sso/signout');
     }
 
     public function logout(Request $request){
         // Auth::logout();
+        //Audit Log
+        $username= auth()->user()->email; 
+        $ipAddress=$_SERVER['REMOTE_ADDR'];
+        $location='0';
+        $access_from=Browser::browserName();
+        $activity='Logout';
+
+        //dd($access_from);
+        $this->auditLogs($username,$ipAddress,$location,$access_from,$activity);
         $email_user=auth()->user()->email;
-        return redirect('http://localhost:8000/portal/'.$email_user);
+        return redirect('https://stagingsysdev.nap.net.id/sso/portal/'.$email_user);
         // return redirect()->route('logins');
     }
 }

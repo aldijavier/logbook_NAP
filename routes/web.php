@@ -97,6 +97,7 @@ Route::get('/logout', 'Auth\AuthController@logout')->name('logout');
 
 Route::group(['middleware' => 'auth', 'ceklevel:Super Admin'], function(){
     Route::get('/admin', 'Auth\AuthController@index')->name('admin');
+    Route::get('/audit', 'AuditLogController@index')->name('audit');
     Route::get('/guests/{id}/show', 'AdminController@show');
     Route::get('/guests/{id}/edit', 'AdminController@edit');
     Route::patch('/guests/{id}', 'AdminController@update');

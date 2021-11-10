@@ -33,6 +33,11 @@
                 <li class="nav-item">
                     <a class="nav-link btn pull-right text-white" href="#">Welcome</i> </a>
                 </li>
+                @if (auth()->user()->level == 'Super Admin')
+                <li class="nav-item">
+                  <a class="nav-link pull-right text-white" href="{{ route('audit') }}">Audit Log</i> </a>
+                </li>
+                @endif
                 {{-- <li class="nav-item">
                     <a class="nav-link btn pull-right text-white" href="/guests/chooseuser">Tambah tamu <i
                             class="fa fa-group"></i> </a>
