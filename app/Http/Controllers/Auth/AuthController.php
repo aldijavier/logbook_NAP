@@ -224,6 +224,58 @@ class AuthController extends Controller
            
             $guests = $guests->withTrashed()->orderBy('id','desc')->paginate(10);
             $guests=$guests->appends($request->all());
+
+            if($request->has('guestexport')){
+
+                $name_file = 'Guest_'.date('Y-m-d H:i:s').'.xlsx';
+                 return Excel::download(new GuestExport($search1,$search2, $search, $searchAll), $name_file);
+            }
+
+            if ($request->has('guestprint')){
+                $guests = Guest::withTrashed()->leftJoin('lokasis', 'lokasis.id', 'guests.lokasi_id')->leftJoin('ruangs', 'ruangs.id_ruang', 'guests.ruangan_id')->leftJoin('lantais', 'lantais.id_lantai', 'guests.lantai_id')
+            ->select(
+                'guests.*',
+                'lokasis.lokasi as lokasi',
+                'ruangs.name_ruang as ruang',
+                'lantais.name_lantai as lantai',
+            );      
+                $search = $request->get('search');
+                $search1 = $request->get('search1');
+                $search2 = $request->get('search2');
+              
+             
+    
+                if($search1){
+                    $guests=$guests->whereDate('datein','>=',$search1);
+                }
+                
+                if($search2){
+                    $guests=$guests->whereDate('datein','<=',$search2);
+                }
+    
+                
+                if($search){
+                    $guests=$guests->where('lokasi_id','like','%'.$search.'%');
+                }
+
+                if($searchAll){
+                    $guests=$guests->where('company','like','%'.$searchAll.'%');
+                }
+    
+               
+                $guests = $guests->get();
+
+                //Audit Log
+                $username= auth()->user()->email; 
+                $ipAddress=$_SERVER['REMOTE_ADDR'];
+                $location='0';
+                $access_from=Browser::browserName();
+                $activity='Mencetak Guest';
+
+                //dd($location);
+                $this->auditLogs($username,$ipAddress,$location,$access_from,$activity);
+                return view('layout.cetakguest', compact('guests'));
+            }
             
         }
             return view('layout.index', compact('guests'));
