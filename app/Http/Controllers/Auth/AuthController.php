@@ -91,6 +91,15 @@ class AuthController extends Controller
             if($request->has('guestexport')){
 
                 $name_file = 'Guest_'.date('Y-m-d H:i:s').'.xlsx';
+                //Audit Log
+                $username= auth()->user()->email; 
+                $ipAddress=$_SERVER['REMOTE_ADDR'];
+                $location='0';
+                $access_from=Browser::browserName();
+                $activity='Print Audit Log';
+
+                //dd($location);
+                $this->auditLogs($username,$ipAddress,$location,$access_from,$activity);
                  return Excel::download(new GuestExport($search1,$search2, $search, $searchAll), $name_file);
             }
 
@@ -228,6 +237,15 @@ class AuthController extends Controller
             if($request->has('guestexport')){
 
                 $name_file = 'Guest_'.date('Y-m-d H:i:s').'.xlsx';
+                //Audit Log
+                $username= auth()->user()->email; 
+                $ipAddress=$_SERVER['REMOTE_ADDR'];
+                $location='0';
+                $access_from=Browser::browserName();
+                $activity='Print Audit Log';
+
+                //dd($location);
+                $this->auditLogs($username,$ipAddress,$location,$access_from,$activity);
                  return Excel::download(new GuestExport($search1,$search2, $search, $searchAll), $name_file);
             }
 

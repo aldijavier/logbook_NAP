@@ -45,7 +45,16 @@ Route::get('/getLantai/{id}', 'LokasiController@getLantai');
 Route::get('/json-lantai', 'GuestController@lantai')->name('jsonLantai');
 Route::get('/json-ruangan', 'GuestController@ruangan')->name('jsonRuang');
 
-
+//Export
+Route::get('/tickets/rfo/{id}', 'App\Http\Controllers\ExportController@rfo')->middleware(['checkRole:Super Admin,User,Customer Care,BOD']);
+Route::get('/tickets/rfo_maintenance/{id}', 'App\Http\Controllers\ExportController@rfoMaintenance')->middleware(['checkRole:Super Admin,User,Customer Care,BOD']);
+Route::post('/tickets/export', 'ExportController@export');
+Route::post('/tickets/exportkeluar', 'ExportController@exportkeluar');
+Route::post('/tickets/exportreturn', 'ExportController@exportreturn');
+Route::post('/tickets/exportLogAssign', 'App\Http\Controllers\ExportController@exportLogAssign')->middleware(['checkRole:Super Admin,User,Customer Care,BOD']);
+Route::post('/tickets_internal/exportLogAssign', 'App\Http\Controllers\ExportController@exportLogAssign')->middleware(['checkRole:Super Admin,User,Customer Care,BOD']);
+Route::post('/tickets/export-bulk-Assign', 'App\Http\Controllers\ExportController@exportBulkAssign')->middleware(['checkRole:Super Admin,User,Customer Care,BOD']);
+//End export
 //admin
 // Route::get('/admin', 'AdminController@index')->name('admin');
 
