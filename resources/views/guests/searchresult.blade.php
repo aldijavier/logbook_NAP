@@ -47,7 +47,7 @@
                 <div class="row justify-content-center" style="text-align: center">    
                     
                 <section>
-                <div class="col-12">
+                <div class="col-12" id="servicequalitybut">
                   <input class="star star-5" id="star-5" type="radio" name="service_quality" value="5"/>
                   <label class="star star-5" for="star-5"></label>
                   <input class="star star-4" id="star-4" type="radio" name="service_quality" value="4"/>
@@ -63,7 +63,7 @@
                 </section>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <section>
-                    <div class="col-12">
+                    <div class="col-12" id="infqualitybut">
                   <input class="star star-5" id="star-52" type="radio" name="infrastructure_quality" value="5"/>
                   <label class="star star-5" for="star-52"></label>
                   <input class="star star-4" id="star-42" type="radio" name="infrastructure_quality" value="4"/>
@@ -79,7 +79,7 @@
                 </section>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <section>
-                    <div class="row-md-6">
+                    <div class="row-md-6" id="cleanqualitybut">
                     <input class="star star-5" id="star-53" type="radio" name="clean_quality" value="5"/>
                     <label class="star star-5" for="star-53"></label>
                     <input class="star star-4" id="star-43" type="radio" name="clean_quality" value="4"/>
@@ -128,7 +128,7 @@
                         {{-- <a class="btn btn-primary" href="{{ route('guests.edit',$guest->id) }}">Edit</a> --}}
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Checkout</button>
+                        <button id="checkoutbutton" type="submit" disabled="true" class="btn btn-danger">Checkout</button>
                       </div>
                     </div>
                     {{-- </a> --}}
@@ -144,5 +144,52 @@
 @endsection
 
 @section('script')
+<script type="text/javascript">
+    $("#star-53").change(function () {
+        $("#checkoutbutton").attr("disabled", false);
+    });
+    $("#star-43").change(function () {
+        $("#checkoutbutton").attr("disabled", false);
+    });
+    $("#star-33").change(function () {
+        $("#checkoutbutton").attr("disabled", false);
+    });
+    $("#star-23").change(function () {
+        $("#checkoutbutton").attr("disabled", false);
+    });
+    $("#star-13").change(function () {
+        $("#checkoutbutton").attr("disabled", false);
+    });
+    $("#star-52").change(function () {
+        $("#checkoutbutton").attr("disabled", true);
+    });
+    $("#star-42").change(function () {
+        $("#checkoutbutton").attr("disabled", true);
+    });
+    $("#star-32").change(function () {
+        $("#checkoutbutton").attr("disabled", true);
+    });
+    $("#star-22").change(function () {
+        $("#checkoutbutton").attr("disabled", true);
+    });
+    $("#star-12").change(function () {
+        $("#checkoutbutton").attr("disabled", true);
+    });
+    $("#star-5").change(function () {
+        $("#checkoutbutton").attr("disabled", true);
+    });
+    $("#star-4").change(function () {
+        $("#checkoutbutton").attr("disabled", true);
+    });
+    $("#star-3").change(function () {
+        $("#checkoutbutton").attr("disabled", true);
+    });
+    $("#star-2").change(function () {
+        $("#checkoutbutton").attr("disabled", true);
+    });
+    $("#star-1").change(function () {
+        $("#checkoutbutton").attr("disabled", true);
+    });
+</script>
 @endsection
 
