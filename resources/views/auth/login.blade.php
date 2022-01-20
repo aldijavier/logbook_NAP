@@ -1,2 +1,2 @@
 <h1>SILAHKAN LOGIN MELALUI LINK DIBAWAH INI UNTUK AKSES ADMINISTRATOR</h1>
-<a href="http://localhost:8000/signout">Klik disini</a>
+<a href="https://intranet.nap.net.id/sso/signout">Klik disini</a>
