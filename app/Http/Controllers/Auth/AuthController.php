@@ -343,7 +343,7 @@ class AuthController extends Controller
             }
         }
         // return redirect()->action('Auth\AuthController@login')->with('message','email atau password salah !');
-        return redirect('https://stagingsysdev.nap.net.id/sso/signout');
+        return redirect('https://intranet.nap.net.id/sso/signout');
     }
 
     public function logout(Request $request){
@@ -358,7 +358,7 @@ class AuthController extends Controller
         //dd($access_from);
         $this->auditLogs($username,$ipAddress,$location,$access_from,$activity);
         $email_user=auth()->user()->email;
-        return redirect('https://stagingsysdev.nap.net.id/sso/portal/'.$email_user);
+        return redirect('https://https://intranet.nap.net.id/sso/portal/'.$email_user);
         // return redirect()->route('logins');
     }
 }
