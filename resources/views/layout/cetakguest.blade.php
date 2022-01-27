@@ -30,9 +30,10 @@
             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Lokasi </th>
             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Ruangan </th>
             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Lantai </th>
-            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Service </th>
-            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Infrastructure </th>
-            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Clean </th>
+            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Service of Maintaning Customer Data Security</th>
+            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Quality of Infrastructure </th>
+            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Service for In and Out Equipment</th>
+            <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Service for Customer Visits to Data Center</th>
             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Access </th>
             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699; border: 1px solid black;">Remarks </th>
         </tr>
@@ -68,6 +69,7 @@
         <td style="  border: 0.1px solid;">{{$guest->service_quality}}</td>
         <td style="  border: 0.1px solid;">{{$guest->infrastructure_quality}}</td>
         <td style="  border: 0.1px solid;">{{$guest->clean_quality}}</td>
+        <td style="  border: 0.1px solid;">{{$guest->visitdatacenterint}}</td>
         <td style="  border: 0.1px solid;">{{$guest->access}}</td>
         <td style="  border: 0.1px solid;">{{$guest->remarks}}</td>
       

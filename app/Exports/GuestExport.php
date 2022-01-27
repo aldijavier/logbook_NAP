@@ -90,7 +90,8 @@ class GuestExport implements WithHeadings,ShouldAutoSize, FromQuery
                 'guests.remarks',
                 'guests.service_quality',
                 'guests.infrastructure_quality',
-                'guests.clean_quality'
+                'guests.clean_quality',
+                'guests.visitdatacenterint'
             );      
         if($this->search1){
             $guests=$guests->whereDate('datein','>=',$this->search1);
@@ -147,9 +148,10 @@ class GuestExport implements WithHeadings,ShouldAutoSize, FromQuery
             'Lantai',
             'access',
             'Remarks',
-            'service_quality',
-            'infrastructure_quality',
-            'clean_quality'
+            'Service of Maintaning Customer Data Security',
+            'Quality of Infrastructure',
+            'Service for In and Out Equipment',
+            'Service for Customer Visits to Data Center'
         ];
     }
    

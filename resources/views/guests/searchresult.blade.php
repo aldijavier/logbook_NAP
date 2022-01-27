@@ -47,52 +47,53 @@
                 <div class="row justify-content-center" style="text-align: center">    
                     
                 <section>
-                <div class="col-12" id="servicequalitybut">
-                  <input class="star star-5" id="star-5" type="radio" name="service_quality" value="5"/>
-                  <label class="star star-5" for="star-5"></label>
-                  <input class="star star-4" id="star-4" type="radio" name="service_quality" value="4"/>
-                  <label class="star star-4" for="star-4"></label>
-                  <input class="star star-3" id="star-3" type="radio" name="service_quality" value="3"/>
-                  <label class="star star-3" for="star-3"></label>
-                  <input class="star star-2" id="star-2" type="radio" name="service_quality" value="2"/>
-                  <label class="star star-2" for="star-2"></label>
-                  <input class="star star-1" id="star-1" type="radio" name="service_quality" value="1"/>
-                  <label class="star star-1" for="star-1"></label><br><br><br>
-                  <p class="col-12">Service Quality</p>
-                </div>
-                </section>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <section>
-                    <div class="col-12" id="infqualitybut">
-                  <input class="star star-5" id="star-52" type="radio" name="infrastructure_quality" value="5"/>
-                  <label class="star star-5" for="star-52"></label>
-                  <input class="star star-4" id="star-42" type="radio" name="infrastructure_quality" value="4"/>
-                  <label class="star star-4" for="star-42"></label>
-                  <input class="star star-3" id="star-32" type="radio" name="infrastructure_quality" value="3"/>
-                  <label class="star star-3" for="star-32"></label>
-                  <input class="star star-2" id="star-22" type="radio" name="infrastructure_quality" value="2"/>
-                  <label class="star star-2" for="star-22"></label>
-                  <input class="star star-1" id="star-12" type="radio" name="infrastructure_quality" value="1"/>
-                  <label class="star star-1" for="star-12"></label>
-                  <p style="text-align: center">Quality of Infrastructure</p>
-                  </div>
-                </section>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <section>
-                    <div class="row-md-6" id="cleanqualitybut">
-                    <input class="star star-5" id="star-53" type="radio" name="clean_quality" value="5"/>
-                    <label class="star star-5" for="star-53"></label>
-                    <input class="star star-4" id="star-43" type="radio" name="clean_quality" value="4"/>
-                    <label class="star star-4" for="star-43"></label>
-                    <input class="star star-3" id="star-33" type="radio" name="clean_quality" value="3"/>
-                    <label class="star star-3" for="star-33"></label>
-                    <input class="star star-2" id="star-23" type="radio" name="clean_quality" value="2"/>
-                    <label class="star star-2" for="star-23"></label>
-                    <input class="star star-1" id="star-13" type="radio" name="clean_quality" value="1"/>
-                    <label class="star star-1" for="star-13"></label>
-                    <p style="text-align: center">Cleanliness</p>
-                    </div>
-                  </section>
+                <div class="row">
+                    <div class="col-3" id="servicequalitybut">
+                        <input class="star star-4" id="star-4" type="radio" name="service_quality" value="4"/>
+                        <label class="star star-4" for="star-4"></label>
+                        <input class="star star-3" id="star-3" type="radio" name="service_quality" value="3"/>
+                        <label class="star star-3" for="star-3"></label>
+                        <input class="star star-2" id="star-2" type="radio" name="service_quality" value="2"/>
+                        <label class="star star-2" for="star-2"></label>
+                        <input class="star star-1" id="star-1" type="radio" name="service_quality" value="1"/>
+                        <label class="star star-1" for="star-1"></label><br><br><br>
+                        <p class="col-12">Service of Maintaning Customer Data Security</p>
+                      </div>
+                      <div class="col-3" id="infqualitybut">
+                        <input class="star star-4" id="star-42" type="radio" name="infrastructure_quality" value="4"/>
+                        <label class="star star-4" for="star-42"></label>
+                        <input class="star star-3" id="star-32" type="radio" name="infrastructure_quality" value="3"/>
+                        <label class="star star-3" for="star-32"></label>
+                        <input class="star star-2" id="star-22" type="radio" name="infrastructure_quality" value="2"/>
+                        <label class="star star-2" for="star-22"></label>
+                        <input class="star star-1" id="star-12" type="radio" name="infrastructure_quality" value="1"/>
+                        <label class="star star-1" for="star-12"></label>
+                        <p style="text-align: center">Quality of Infrastructure</p>
+                      </div>
+                      <div class="col-3" id="cleanqualitybut">
+                        <input class="star star-4" id="star-43" type="radio" name="clean_quality" value="4"/>
+                        <label class="star star-4" for="star-43"></label>
+                        <input class="star star-3" id="star-33" type="radio" name="clean_quality" value="3"/>
+                        <label class="star star-3" for="star-33"></label>
+                        <input class="star star-2" id="star-23" type="radio" name="clean_quality" value="2"/>
+                        <label class="star star-2" for="star-23"></label>
+                        <input class="star star-1" id="star-13" type="radio" name="clean_quality" value="1"/>
+                        <label class="star star-1" for="star-13"></label>
+                        <p style="text-align: center">Service for In and Out Equipment </p>
+                        </div>
+                        <div class="col-3" id="visitdatacenter">
+                            <input class="star star-4" id="star-444" type="radio" name="visitdatacenterint" value="4"/>
+                            <label class="star star-4" for="star-444"></label>
+                            <input class="star star-3" id="star-333" type="radio" name="visitdatacenterint" value="3"/>
+                            <label class="star star-3" for="star-333"></label>
+                            <input class="star star-2" id="star-222" type="radio" name="visitdatacenterint" value="2"/>
+                            <label class="star star-2" for="star-222"></label>
+                            <input class="star star-1" id="star-111" type="radio" name="visitdatacenterint" value="1"/>
+                            <label class="star star-1" for="star-111"></label>
+                            <p style="text-align: center">Service for Customer Visits to Data Center </p>
+                            </div>
+                      </section>
+                      </div>
                 </div>
               </div>
               </div>
@@ -146,19 +147,19 @@
 @section('script')
 <script type="text/javascript">
     $("#star-53").change(function () {
-        $("#checkoutbutton").attr("disabled", false);
+        $("#checkoutbutton").attr("disabled", true);
     });
     $("#star-43").change(function () {
-        $("#checkoutbutton").attr("disabled", false);
+        $("#checkoutbutton").attr("disabled", true);
     });
     $("#star-33").change(function () {
-        $("#checkoutbutton").attr("disabled", false);
+        $("#checkoutbutton").attr("disabled", true);
     });
     $("#star-23").change(function () {
-        $("#checkoutbutton").attr("disabled", false);
+        $("#checkoutbutton").attr("disabled", true);
     });
     $("#star-13").change(function () {
-        $("#checkoutbutton").attr("disabled", false);
+        $("#checkoutbutton").attr("disabled", true);
     });
     $("#star-52").change(function () {
         $("#checkoutbutton").attr("disabled", true);
@@ -189,6 +190,18 @@
     });
     $("#star-1").change(function () {
         $("#checkoutbutton").attr("disabled", true);
+    });
+    $("#star-444").change(function () {
+        $("#checkoutbutton").attr("disabled", false);
+    });
+    $("#star-333").change(function () {
+        $("#checkoutbutton").attr("disabled", false);
+    });
+    $("#star-222").change(function () {
+        $("#checkoutbutton").attr("disabled", false);
+    });
+    $("#star-1111").change(function () {
+        $("#checkoutbutton").attr("disabled", false);
     });
 </script>
 @endsection

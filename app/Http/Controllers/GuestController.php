@@ -272,6 +272,7 @@ class GuestController extends Controller
                 'service_quality' =>$request->input('service_quality'),
                 'infrastructure_quality' =>$request->input('infrastructure_quality'),
                 'clean_quality' =>$request->input('clean_quality'),
+                'visitdatacenterint' =>$request->input('visitdatacenterint'),
             ];
            
             try {

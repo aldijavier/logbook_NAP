@@ -115,9 +115,10 @@
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Access </th>
                             <th class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699">Remarks </th>
                             
-                            <th class="text-center" scope="col" style=" width: 10px; white-space: nowrap !important;background-color:#336699">Service</th>
-                            <th class="text-center" scope="col" style=" width: 10px; white-space: nowrap !important;background-color:#336699">Infrastructure</th>
-                            <th class="text-center" scope="col" style=" width: 10px; white-space: nowrap !important;background-color:#336699">Clean</th>
+                            <th class="text-center" scope="col" style=" width: 10px; white-space: nowrap !important;background-color:#336699">Service of Maintaning Customer Data Security</th>
+                            <th class="text-center" scope="col" style=" width: 10px; white-space: nowrap !important;background-color:#336699">Quality of Infrastructure</th>
+                            <th class="text-center" scope="col" style=" width: 10px; white-space: nowrap !important;background-color:#336699">Service for In and Out Equipment</th>
+                            <th class="text-center" scope="col" style=" width: 10px; white-space: nowrap !important;background-color:#336699">Service for Customer Visits to Data Center</th>
 
                             <th width="30px" class="text-center" scope="col" style="white-space: nowrap !important;background-color:#336699" >Status </th>
                             {{-- <th  class="text-center" colspan="4" style="white-space: nowrap !important;background-color:#336699">Action</th> --}}
@@ -160,6 +161,7 @@
                         <td>{{$guest->service_quality}}</td>
                         <td>{{$guest->infrastructure_quality}}</td>
                         <td>{{$guest->clean_quality}}</td>
+                        <td>{{$guest->visitdatacenterint}}</td>
 
                         <td> 
                             @if($guest->id_status==2)
